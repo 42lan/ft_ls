@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/06/09 15:51:06 by amalsago         ###   ########.fr        #
+#    Updated: 2019/06/09 16:13:36 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ RM			= /bin/rm -rf
 LIBDIR		= ./libft
 SRCDIR		= ./sources
 OBJDIR		= ./objects
-INCDIR		= ./include
+INCDIR		= ./includes
 
 # **************************************************************************** #
 # List of source files
