@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/05/26 19:28:05 by amalsago         ###   ########.fr        #
+#    Updated: 2019/06/09 15:51:06 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@
 # General
 
 NAME		= ft_ls
+LIBFTLS		= ft_ls.a
 LIBNAME		= libft.a
 
 # **************************************************************************** #
@@ -40,12 +41,15 @@ RM			= /bin/rm -rf
 LIBDIR		= ./libft
 SRCDIR		= ./sources
 OBJDIR		= ./objects
-INCDIR		= ./includes
+INCDIR		= ./include
 
 # **************************************************************************** #
 # List of source files
 
-SRCNAME		=
+SRCNAME		= main.c					\
+			  ft_ls.c					\
+			  ft_listdir.c				\
+			  ft_qsort.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
@@ -53,7 +57,8 @@ SRCNAME		=
 SRC			= $(addprefix $(SRCDIR)/, $(SRCNAME))
 OBJ			= $(addprefix $(OBJDIR)/, $(SRCNAME:.c=.o))
 LFT			= $(addprefix $(LIBDIR)/, $(LIBNAME))
-LFTOBJ		= $(LIBDIR)/objects/*.o
+LFTLS		= $(addprefix $(PWD)/, $(LIBFTLS))
+LFTOBJ		= $(LIBDIR)/objects/*/*.o
 
 # **************************************************************************** #
 # Extra
@@ -71,8 +76,9 @@ BASENAME	= `basename $(PWD)`
 all: $(NAME) $(LFT)
 
 $(NAME): $(LFT) $(OBJ)
-	@$(AR) $(NAME) $(OBJ) $(LFTOBJ)
-	@$(RANLIB) $(NAME)
+	@$(AR) $(LIBFTLS) $(OBJ) $(LFTOBJ)
+	@$(RANLIB) $(LIBFTLS)
+	@$(GCC) $(LFTLS) $(LFT) -o $(NAME)
 	@printf $(CR)$(GREEN)"✓ $(NAME) is created\n"$(EOC)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
@@ -88,7 +94,8 @@ clean:
 	@$(MAKE) $(LIBDIR) clean
 
 fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(LIBFTLS)
+	@printf $(CR)$(RED)"✗ \"$(NAME)\" and \"$(LIBFTLS)\" are deleted\n"$(EOC)
 	@$(MAKE) $(LIBDIR) fclean
 
 re: fclean all
