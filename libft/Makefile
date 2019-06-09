@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/05/26 19:16:15 by amalsago         ###   ########.fr        #
+#    Updated: 2019/06/09 16:02:21 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,8 +76,7 @@ SRCNAME		= conversions/ft_atoi.c					\
 			  predicates/ft_isalnum.c		\
 			  predicates/ft_isalpha.c		\
 			  predicates/ft_isascii.c		\
-			  predicates/ft_isascii.c		\
-			  predicates/ft_islower.c		\
+			  predicates/ft_isdigit.c		\
 			  predicates/ft_islower.c		\
 			  predicates/ft_isprint.c		\
 			  predicates/ft_isseparator.c	\
@@ -173,15 +172,15 @@ $(NAME): $(OBJ)
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@$(MKDIR) $(dir $@)
 	@$(GCC) $(WOPT) $(OOPT) $(IOPT) -c $< -o $@
-	@printf $(CR)"[ $(BASENAME)/%s ]" $@
+	@printf $(CR)"[ $(BASENAME)/libft/%s ]" $@
 
 clean:
 	@$(RM) $(OBJDIR)
-	@printf $(CR)$(RED)"✗ Object files as we as $(OBJDIR) folder are deleted\n"$(EOC)
+#@printf $(CR)$(RED)"✗ Object files as we as $(OBJDIR) folder are deleted\n"$(EOC)
 
 fclean: clean
 	@$(RM) $(NAME)
-	@printf $(CR)$(RED)"✗ $(NAME) is deleted\n"$(EOC)
+	@printf $(CR)$(RED)"✗ \"$(NAME)\" is deleted\n"$(EOC)
 
 re: fclean all
 
