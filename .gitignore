@@ -1,0 +1,26 @@
+# Object files
+*.o
+
+# Libraries
+*.a
+
+# Executable
+*.out
+ft_ls
+
+# Debug files
+*.dSYM
+
+# Swp files
+*.swp
+*.swo
+
+# Precompiled header
+*.h.gch
+
+# Folders
+.DS_Store/
+objects/
+
+# Tag files
+tags
