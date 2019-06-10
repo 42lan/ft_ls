@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/06/09 15:50:56 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/06/09 16:19:13 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ typedef struct		s_file
 
 int					ft_ls(int ac, char **av);
 int					ft_listdir(const char *path);
-void				ft_qsort(char **array, int left, int right);
 
 #endif
