@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/06/09 16:18:45 by amalsago         ###   ########.fr        #
+#    Updated: 2019/06/19 15:17:58 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,8 +47,6 @@ INCDIR		= ./includes
 # List of source files
 
 SRCNAME		= main.c					\
-			  ft_ls.c					\
-			  ft_listdir.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
