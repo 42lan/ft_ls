@@ -1,0 +1,22 @@
+Return values of ls:
+	= 0 success
+	> 0 error
+
+
+
+unsigned	options : 39;
+
+Man Order
+-@1AaBbC cdeFfGgH hikLlmnO oPpqRrSs TtUuvWwx
+-0000000 00000000 00000000 00000000 00000000
+-xwWvuUt TsSrRqpP oOnmlLki hHgGfFed cCbBaA1@
+
+ASCII Order:
+-@1ABCFG HLOPRSTU Wabcdefg hiklmnop qrstuvwx
+-0000000 00000000 00000000 00000000 00000000
+-xwvutsr qponmlki hgfedcba WUTSRPOL HGFCBA1@
+
+
+lRart
+               t raRl
+0000 0000	0000 0000
