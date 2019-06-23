@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/06/09 15:48:50 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/06/23 13:58:20 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,9 @@ int			ft_ls(int ac, char **av)
 
 	i = -1;
 	if (ac == 0)
-		ft_listdir(".");
-	while (++i < ac)
-	{
-		ft_listdir(av[i]);
-		if (i < (ac - 1))
-			ft_printf("\n");
-	}
-	return (1);
+		ft_list_dir(".");
+	else
+		while (++i < ac)
+			ft_list_dir(av[i]);
+	return (1); // return 1 to main as success
 }
