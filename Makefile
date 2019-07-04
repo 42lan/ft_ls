@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/06/23 13:57:08 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/04 04:35:53 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,13 +46,31 @@ INCDIR		= ./includes
 # **************************************************************************** #
 # List of source files
 
-SRCNAME		= ft_get_permissions.c	\
-			  ft_inspect_entry.c	\
-			  ft_list_dir.c			\
-			  ft_ls.c				\
-			  ft_modes.c			\
-			  ft_type.c				\
-			  main.c
+SRCNAME		= main.c	\
+			  determine_max_width.c \
+			  display_mode.c\
+			  display_nlink.c\
+			  display_ownername.c\
+			  display_groupname.c\
+			  display_size.c\
+			  display_long.c\
+			  display_mtim.c\
+			  display_filename.c\
+			  get_pwstruct.c\
+			  get_grstruct.c\
+			  get_mtime.c\
+			  ft_inspect_entry.c\
+			  ft_list_dir.c\
+			  ft_ls.c\
+			  ft_pathjoin.c\
+			  ft_type.c\
+			  get_permissions.c\
+			  initialize_directory.c\
+			  main.c\
+			  modecat.c\
+			  parse_entry.c\
+			  parse_options.c\
+			  usage.c\
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
