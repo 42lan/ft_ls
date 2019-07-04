@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/04 04:35:53 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/04 04:51:05 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,6 @@ SRCNAME		= main.c	\
 			  display_filename.c\
 			  get_pwstruct.c\
 			  get_grstruct.c\
-			  get_mtime.c\
 			  ft_inspect_entry.c\
 			  ft_list_dir.c\
 			  ft_ls.c\
