@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 03:10:30 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/04 05:19:11 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/04 07:23:23 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	display_ownername(char *pw_name)
+void	display_ownername(char *pw_name, size_t width)
 {
-	ft_printf("%s  ", pw_name);
+	ft_printf("%-*s  ", width, pw_name);
 }
