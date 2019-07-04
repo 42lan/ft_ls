@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/04 01:50:55 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/04 07:25:10 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ int					ft_ls(int ac, char **av)
 	t_dir			cd;
 	t_entry			entry;
 	int				options;
+	t_list			sdl;	// sub directory list
+	struct dirent	*de;
+
 
 	i = -1;
 	dp = NULL;
@@ -27,7 +30,7 @@ int					ft_ls(int ac, char **av)
 	{
 		cd.parent_name = NULL;
 		dp = opendir(".");
-		ft_list_dir(dp, &cd, ".");
+		ft_list_dir(dp, &cd, ".", &sdl);
 		closedir(dp);
 	}
 	else
@@ -41,8 +44,19 @@ int					ft_ls(int ac, char **av)
 		{
 			if ((dp = opendir(av[i])) != NULL)
 			{
-				ft_list_dir(dp, &cd, av[i]);
+				ft_list_dir(dp, &cd, av[i], &sdl);
 				determine_max_width(&cd, &entry);
+				closedir(dp);
+				dp = opendir(av[i]);
+				while ((de = readdir(dp)) != NULL)
+				{
+					entry.name = de->d_name;
+					stat(ft_pathjoin(av[i], de->d_name), &entry.stat);
+					stat(entry.name, &entry.stat);
+					get_pwstruct(entry.stat.st_uid, &entry.passwd);
+					get_grstruct(entry.stat.st_gid, &entry.group);
+					display_long(&cd, &entry);
+				}
 				closedir(dp);
 			}
 			else
