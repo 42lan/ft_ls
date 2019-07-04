@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/04 04:32:57 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/04 04:52:30 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void				modecat(char *str, mode_t st_mode);
 
 void	get_pwstruct(uid_t st_uid, struct passwd **passwd);
 void	get_grstruct(gid_t st_gid, struct group **group);
-char	*get_mtime(time_t tv_sec);
 /*
 ** OUTPUT
 */
@@ -88,7 +87,7 @@ void	display_nlink(nlink_t st_nlink, int width);
 void	display_ownername(char *pw_name);
 void	display_groupname(char *gr_name);
 void	display_size(off_t st_size, int width);
-void	display_mtim(char *mtime_str);
+void	display_mtim(time_t tv_sec);
 void	display_filename(char *filename);
 
 #endif
