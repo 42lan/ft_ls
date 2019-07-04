@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/23 13:09:33 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/04 03:25:07 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/04 04:54:03 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void				ft_list_dir(DIR *dp, t_dir *cd, char *entryname)
 		if (ft_silen(entry.stat.st_size, 10) > cd->size_width)
 			cd->size_width = ft_silen(entry.stat.st_size, 10);
 		stat(entry.name, &entry.stat);
+		get_pwstruct(entry.stat.st_uid, &entry.passwd);
+		get_grstruct(entry.stat.st_gid, &entry.group);
 		display_long(&entry);
 		//ft_inspect_entry(&entry, subdir.name);
 	}
