@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/04 04:52:30 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/04 05:09:12 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	get_grstruct(gid_t st_gid, struct group **group);
 */
 
 void	display_default();
-void	display_long(t_entry *entry);
+void	display_long(t_dir *cd, t_entry *entry);
 
 void	display_mode(mode_t st_mode);
 void	display_nlink(nlink_t st_nlink, int width);
