@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/04 05:09:12 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/04 07:28:49 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,14 @@ typedef struct		s_dir
 	char			*parent_name;			// Parent name of current directory
 	char			*fullpath;
 	char			*ownername;
+	size_t			ownernamelen;
 	char			*groupname;
+	size_t			groupnamelen;
 	int				nb_files;		// Total number of files in current directory
 	size_t			nlink_width;
 	size_t			size_width;
+	size_t			ownername_width;
+	size_t			groupname_width;
 	struct s_dir	*next;
 }					t_dir;
 
@@ -60,7 +64,7 @@ void				parse_options(char *first_arg, int *options);
 void				usage(char c);
 
 
-void				ft_list_dir(DIR *dp, t_dir *cd, char *entryname);
+void				ft_list_dir(DIR *dp, t_dir *cd, char *entryname, t_list *sdl);
 int					ft_inspect_entry(t_entry *entry, char *path);
 char				ft_type(mode_t mode);
 void				determine_max_width(t_dir *directory, t_entry *entry);
@@ -84,9 +88,9 @@ void	display_long(t_dir *cd, t_entry *entry);
 
 void	display_mode(mode_t st_mode);
 void	display_nlink(nlink_t st_nlink, int width);
-void	display_ownername(char *pw_name);
-void	display_groupname(char *gr_name);
-void	display_size(off_t st_size, int width);
+void	display_ownername(char *pw_name, size_t width);
+void	display_groupname(char *gr_name, size_t width);
+void	display_size(off_t st_size, size_t width);
 void	display_mtim(time_t tv_sec);
 void	display_filename(char *filename);
 
