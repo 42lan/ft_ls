@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:51:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/06/23 13:57:47 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/02 02:44:25 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 int		main(int ac, char **av)
 {
 	ft_ls(ac - 1, av + 1);
-	return (0); // exits 0 on success
+	return (0);
 }
