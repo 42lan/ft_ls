@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 03:10:30 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/04 03:11:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/04 05:19:11 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	display_ownername(char *pw_name)
 {
-	ft_printf(" %s ", pw_name);
+	ft_printf("%s  ", pw_name);
 }
