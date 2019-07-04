@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 03:27:57 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/04 04:50:37 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/04 05:13:47 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void		display_mtim(time_t tv_sec)
 
 	mtime_str = ctime(&tv_sec);
 	mtime_str[16] = '\0';
-	ft_printf(" %s", mtime_str + 4);
+	ft_printf("%s ", mtime_str + 4);
 }
