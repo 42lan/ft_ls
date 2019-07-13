@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/04 07:28:49 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/13 09:36:47 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,60 +36,67 @@ typedef struct		s_dir
 	char			*parent_name;			// Parent name of current directory
 	char			*fullpath;
 	char			*ownername;
-	size_t			ownernamelen;
+	size_t			ownernamelen; // owner_namlen
 	char			*groupname;
-	size_t			groupnamelen;
-	int				nb_files;		// Total number of files in current directory
-	size_t			nlink_width;
-	size_t			size_width;
-	size_t			ownername_width;
-	size_t			groupname_width;
+	size_t			groupnamelen; // group_namlen
+	size_t			nb_files;		// Total number of files in current directory
+	size_t			total_blocks; // the total number of blocks used by the files in the directory
+
+	size_t			namlen_wmax;	// Maximum length of a filename in directory
+	size_t			nlink_wmax;
+	size_t			size_wmax;
+	size_t			ownername_wmax;
+	size_t			groupname_wmax;
 	struct s_dir	*next;
 }					t_dir;
 
-typedef struct		s_entry
+typedef struct		s_file
 {
-	char			*fullpath;
 	char			*name;
-	int				length;
-	time_t			timestamp;
+	size_t			namlen;
 	struct stat		stat;
-	struct passwd	*passwd;
-	struct group	*group;
+	char			*ownername;
+	char			*groupname;
 	struct s_file	*next;
-}					t_entry;
+}					t_file;
 
 int					ft_ls(int ac, char **av);
-void				parse_options(char *first_arg, int *options);
-void				usage(char c);
+void				browse_dir(const char *path, struct dirent *dirent, t_dir *cd);
 
+void				max_namlen_width(t_dir *directory, t_file *entry);
+void				determine_max_width(t_dir *directory, t_file *entry);
 
-void				ft_list_dir(DIR *dp, t_dir *cd, char *entryname, t_list *sdl);
-int					ft_inspect_entry(t_entry *entry, char *path);
-char				ft_type(mode_t mode);
-void				determine_max_width(t_dir *directory, t_entry *entry);
+void				list_dir(DIR *dp, t_dir *cd, char *entryname, t_list *subdir_list, int *options);
+
+int					inspect_file(t_file *entry, char *path);
 void				initialize_directory(t_dir *directory);
-void				parse_entry(char *entryname, t_dir *cd_struct);
-char				*ft_pathjoin(const char *parent, const char *child);
+char				*form_path(const char *dirname, const char *basename);
 
-char				*get_permissions(mode_t mode, int ugo);
 void				modecat(char *str, mode_t st_mode);
 
+/* PREDICATES */
+int					is_hidden(const char *name);
+int					is_directory(mode_t st_mode);
 
+/* PARSING */
+int		parse_options(int ac, char **av, int *opt_bits);
+void	parse_entry(char *entryname, t_dir *cd_struct);
 
-void	get_pwstruct(uid_t st_uid, struct passwd **passwd);
-void	get_grstruct(gid_t st_gid, struct group **group);
-/*
-** OUTPUT
-*/
+/* GETS */
+char			get_type(mode_t mode);
+struct passwd	*get_pwstruct(uid_t st_uid);
+struct group	*get_grstruct(gid_t st_gid);
+char			*get_permissions(mode_t mode, int ugo);
 
+/* OUTPUT */
+void	display_usage(char c);
 void	display_default();
-void	display_long(t_dir *cd, t_entry *entry);
-
+void	display_long(t_dir *cd, t_file *entry);
+void	display_current_dir();
 void	display_mode(mode_t st_mode);
 void	display_nlink(nlink_t st_nlink, int width);
-void	display_ownername(char *pw_name, size_t width);
-void	display_groupname(char *gr_name, size_t width);
+void	display_ownername(char *ownername, size_t width);
+void	display_groupname(char *groupname, size_t width);
 void	display_size(off_t st_size, size_t width);
 void	display_mtim(time_t tv_sec);
 void	display_filename(char *filename);
