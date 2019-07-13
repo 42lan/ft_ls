@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/04 04:51:05 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/13 09:20:39 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,28 +48,30 @@ INCDIR		= ./includes
 
 SRCNAME		= main.c	\
 			  determine_max_width.c \
-			  display_mode.c\
-			  display_nlink.c\
-			  display_ownername.c\
-			  display_groupname.c\
-			  display_size.c\
-			  display_long.c\
-			  display_mtim.c\
-			  display_filename.c\
-			  get_pwstruct.c\
-			  get_grstruct.c\
-			  ft_inspect_entry.c\
-			  ft_list_dir.c\
+			  gets/get_pwstruct.c\
+			  gets/get_permissions.c\
+			  gets/get_grstruct.c\
+			  gets/get_type.c\
+			  output/display_mode.c\
+			  output/display_nlink.c\
+			  output/display_ownername.c\
+			  output/display_groupname.c\
+			  output/display_size.c\
+			  output/display_default.c\
+			  output/display_long.c\
+			  output/display_mtim.c\
+			  output/display_filename.c\
+			  browse_dir.c\
+			  output/display_usage.c\
+			  inspect_entry.c\
 			  ft_ls.c\
-			  ft_pathjoin.c\
-			  ft_type.c\
-			  get_permissions.c\
-			  initialize_directory.c\
+			  tools/form_path.c\
 			  main.c\
-			  modecat.c\
-			  parse_entry.c\
-			  parse_options.c\
-			  usage.c\
+			  tools/modecat.c\
+			  parsing/parse_entry.c\
+			  parsing/parse_options.c\
+			  predicates/is_hidden.c\
+			  predicates/is_directory.c\
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
@@ -102,7 +104,7 @@ $(NAME): $(LFT) $(OBJ)
 	@printf $(CR)$(GREEN)"✓ $(NAME) is created\n"$(EOC)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	-@$(MKDIR) $(OBJDIR)
+	-@$(MKDIR) $(OBJDIR)/{gets,output,parsing,tools,predicates}
 	@$(GCC) $(WOPT) $(OOPT) $(IOPT) -c $< -o $@
 	@printf $(CR)"[ $(BASENAME)/%s ]"$(CLEAR) $@
 
