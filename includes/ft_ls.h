@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/14 04:04:10 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/14 07:09:13 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ char			*get_permissions(mode_t mode, int ugo);
 
 /* OUTPUT */
 void	display_usage(char c);
-void	display_default();
+void	display_default(t_dir *current_dir, t_file *list);
+void	display_long(t_dir *current_dir, t_file *list);
 void	display_long(t_dir *cd, t_file *entry);
 void	display_current_dir();
 void	display_mode(mode_t st_mode);
@@ -101,6 +102,9 @@ void	display_ownername(char *ownername, size_t width);
 void	display_groupname(char *groupname, size_t width);
 void	display_size(off_t st_size, size_t width);
 void	display_mtim(time_t tv_sec);
-void	display_filename(char *filename);
+void	display_filename(char *filename, size_t width);
+
+t_file	*new_file(void);
+t_file	*add_file(t_file *list, t_file *new_file);
 
 #endif
