@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/13 09:36:47 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/14 04:04:10 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,8 @@ typedef struct		s_dir
 	char			*parent_name;			// Parent name of current directory
 	char			*fullpath;
 	char			*ownername;
-	size_t			ownernamelen; // owner_namlen
 	char			*groupname;
-	size_t			groupnamelen; // group_namlen
+
 	size_t			nb_files;		// Total number of files in current directory
 	size_t			total_blocks; // the total number of blocks used by the files in the directory
 
@@ -64,7 +63,10 @@ int					ft_ls(int ac, char **av);
 void				browse_dir(const char *path, struct dirent *dirent, t_dir *cd);
 
 void				max_namlen_width(t_dir *directory, t_file *entry);
-void				determine_max_width(t_dir *directory, t_file *entry);
+void				determine_wmax(struct dirent *dirent, t_file *file, t_dir *current_dir);
+void				determine_namlen_wmax(struct dirent *dirent, t_dir *current_dir);
+void				determine_nlink_wmax(t_file *file, t_dir *current_dir);
+void				determine_size_wmax(t_file *file, t_dir *current_dir);
 
 void				list_dir(DIR *dp, t_dir *cd, char *entryname, t_list *subdir_list, int *options);
 
