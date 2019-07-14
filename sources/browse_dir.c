@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/13 09:42:42 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/14 04:07:41 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,30 +78,19 @@ void				browse_dir(const char *path, struct dirent *dirent, t_dir *current_dir)
 	list = new_file();
 	if ((dp = opendir(path)) != NULL)
 	{
+		initialize_directory(current_dir);
 		ft_strcpy(current_dir->name, path);
-		current_dir->nb_files = 0;
-		current_dir->namlen_wmax = 0;
 		while ((dirent = readdir(dp)) != NULL)
 		{
 			if (is_hidden(dirent->d_name))
 				continue ;
 			file = new_file();
-			if (dirent->d_namlen > current_dir->namlen_wmax)
-				current_dir->namlen_wmax = dirent->d_namlen;
-			++(current_dir->nb_files);
 
 			file->name = dirent->d_name;
 			file->namlen = dirent->d_namlen;
-			if (file->namlen > current_dir->namlen_wmax)
-				current_dir->namlen_wmax = file->namlen;
-
-			if (stat(dirent->d_name, &file->stat) != 0)
-				ft_printf("-----------------Stat error--------------: %s\n", strerror(errno));
-
-			if (ft_uilen(file->stat.st_nlink, 10) > current_dir->nlink_wmax)
-				current_dir->nlink_wmax = ft_uilen(file->stat.st_nlink, 10);
-			if (ft_uilen(file->stat.st_size, 10) > current_dir->size_wmax)
-				current_dir->size_wmax = ft_uilen(file->stat.st_size, 10);
+			++(current_dir->nb_files);
+			stat(dirent->d_name, &file->stat);
+			determine_wmax(dirent, file, current_dir);
 
 			if ((passwd = get_pwstruct(file->stat.st_uid)) == NULL)
 				return ;
