@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/14 04:04:43 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/14 06:28:54 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,26 +47,27 @@ INCDIR		= ./includes
 # List of source files
 
 SRCNAME		= main.c	\
-			  determine_wmax.c \
-			  determine_namlen_wmax.c \
-			  determine_nlink_wmax.c \
-			  determine_size_wmax.c \
+			  t_file.c\
+			  wmax/determine_wmax.c \
+			  wmax/determine_namlen_wmax.c \
+			  wmax/determine_nlink_wmax.c \
+			  wmax/determine_size_wmax.c \
 			  gets/get_pwstruct.c\
 			  gets/get_permissions.c\
 			  gets/get_grstruct.c\
 			  gets/get_type.c\
+			  output/display_default.c\
+			  output/display_long.c\
 			  output/display_mode.c\
 			  output/display_nlink.c\
 			  output/display_ownername.c\
 			  output/display_groupname.c\
 			  output/display_size.c\
-			  output/display_default.c\
 			  output/display_long.c\
 			  output/display_mtim.c\
 			  output/display_filename.c\
 			  browse_dir.c\
 			  output/display_usage.c\
-			  inspect_entry.c\
 			  ft_ls.c\
 			  tools/form_path.c\
 			  main.c\
@@ -108,7 +109,7 @@ $(NAME): $(LFT) $(OBJ)
 	@printf $(CR)$(GREEN)"✓ $(NAME) is created\n"$(EOC)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	-@$(MKDIR) $(OBJDIR)/{gets,output,parsing,tools,predicates}
+	-@$(MKDIR) $(OBJDIR)/{gets,output,parsing,tools,predicates,wmax}
 	@$(GCC) $(WOPT) $(OOPT) $(IOPT) -c $< -o $@
 	@printf $(CR)"[ $(BASENAME)/%s ]"$(CLEAR) $@
 
