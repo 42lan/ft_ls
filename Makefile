@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/13 09:20:39 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/14 04:04:43 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,10 @@ INCDIR		= ./includes
 # List of source files
 
 SRCNAME		= main.c	\
-			  determine_max_width.c \
+			  determine_wmax.c \
+			  determine_namlen_wmax.c \
+			  determine_nlink_wmax.c \
+			  determine_size_wmax.c \
 			  gets/get_pwstruct.c\
 			  gets/get_permissions.c\
 			  gets/get_grstruct.c\
@@ -72,6 +75,7 @@ SRCNAME		= main.c	\
 			  parsing/parse_options.c\
 			  predicates/is_hidden.c\
 			  predicates/is_directory.c\
+			  initialize_directory.c\
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
