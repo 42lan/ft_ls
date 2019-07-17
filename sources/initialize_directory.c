@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 15:39:53 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/14 02:20:23 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/17 14:55:32 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@
 ** This function initialize t_dir structure for each new directory.
 */
 
-void		initialize_directory(t_dir *directory)
+t_dir		*initialize_directory(void)
 {
+	t_dir	*directory;
+
+	if (!(directory = (t_dir *)malloc(sizeof(t_dir))))
+		return (NULL);
 	directory->length = 0;
 	directory->nb_files = 0;
 	directory->total_blocks = 0;
@@ -26,4 +30,7 @@ void		initialize_directory(t_dir *directory)
 	directory->size_wmax = 0;
 	directory->ownername_wmax = 0;
 	directory->groupname_wmax = 0;
+	directory->file_head = NULL;
+	directory->sdir_head = NULL;
+	return (directory);
 }
