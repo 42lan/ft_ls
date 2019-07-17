@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/17 16:59:49 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/17 17:51:51 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,8 @@ char			*get_permissions(mode_t mode, int ugo);
 
 /* OUTPUT */
 void	display_usage(char c);
-void	display_default(t_dir *current_dir, t_file *head);
+void	display_default(t_dir *current_dir);
 void	display_long(t_dir *current_dir);
-void	display_current_dir();
 void	display_mode(mode_t st_mode);
 void	display_nlink(nlink_t st_nlink, int width);
 void	display_ownername(char *ownername, size_t width);
@@ -116,5 +115,5 @@ char	*form_path(const char *dirname, const char *basename);
 
 /* LINKED LIST */
 t_file	*new_file(void);
-void	*push_end(void *head, void *file);
+t_file	*push_end(t_file *head, t_file *file);
 #endif
