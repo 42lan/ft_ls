@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 03:15:02 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/07 02:29:50 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/14 06:03:02 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	display_size(off_t st_size, size_t width)
 {
-	ft_printf("%*d ", width, st_size);
+	ft_printf("%*d", width + 2, st_size);
 }
