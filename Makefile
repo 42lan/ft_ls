@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/14 06:28:54 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/16 15:31:54 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,10 @@ INCDIR		= ./includes
 # List of source files
 
 SRCNAME		= main.c	\
-			  t_file.c\
+			  new_file.c\
+			  push_end.c\
+			  check_subdir.c\
+			  fill_file_struct.c\
 			  wmax/determine_wmax.c \
 			  wmax/determine_namlen_wmax.c \
 			  wmax/determine_nlink_wmax.c \
