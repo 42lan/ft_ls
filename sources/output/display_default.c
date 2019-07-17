@@ -6,19 +6,18 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 03:21:49 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/14 07:17:02 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/17 17:40:43 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	display_default(t_dir *current_dir, t_file *list)
+void	display_default(t_dir *current_dir)
 {
-	printf("%s %zu\n", list->name, current_dir->namlen_wmax);
-	list = list->next;
-	while (list != NULL)
+	while (current_dir->head != NULL)
 	{
-		//display_filename(list->name, -current_dir->namlen_wmax);
-		list = list->next;
+		display_filename(current_dir->head->name, 0);
+		ft_putendl("");
+		current_dir->head = current_dir->head->next;
 	}
 }
