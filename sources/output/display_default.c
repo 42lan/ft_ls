@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 03:21:49 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/17 17:40:43 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/17 17:51:20 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	display_default(t_dir *current_dir)
 {
-	while (current_dir->head != NULL)
+	while (current_dir->file_head != NULL)
 	{
-		display_filename(current_dir->head->name, 0);
+		display_filename(current_dir->file_head->name, 0);
 		ft_putendl("");
-		current_dir->head = current_dir->head->next;
+		current_dir->file_head = current_dir->file_head->next;
 	}
 }
