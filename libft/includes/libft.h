@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/04 04:39:13 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/19 15:27:45 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ size_t				ft_uilen(uintmax_t number, int base);
 ** LISTS
 */
 
-void				ft_lstadd(t_list **alst, t_list *new);
+void				ft_lstadd_top(t_list **alst, t_list *new);
+void				ft_lstadd_end(t_list **alst, t_list *new);
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));

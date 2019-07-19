@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/04 04:41:13 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/19 16:03:15 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,8 @@ SRCNAME		= conversions/ft_atoi.c					\
 			  counters/ft_cntwords.c	\
 			  counters/ft_silen.c		\
 			  counters/ft_uilen.c		\
-			  lists/ft_lstadd.c		\
+			  lists/ft_lstadd_top.c	\
+			  lists/ft_lstadd_end.c	\
 			  lists/ft_lstdel.c		\
 			  lists/ft_lstdelone.c	\
 			  lists/ft_lstiter.c	\
@@ -174,15 +175,15 @@ $(NAME): $(OBJ)
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@$(MKDIR) $(dir $@)
 	@$(GCC) $(WOPT) $(OOPT) $(IOPT) -c $< -o $@
-	@printf $(CR)"[ $(BASENAME)/libft/%s ]" $@
+	@printf $(CR)"[ $(BASENAME)/%s ]" $@
 
 clean:
 	@$(RM) $(OBJDIR)
-#@printf $(CR)$(RED)"✗ Object files as we as $(OBJDIR) folder are deleted\n"$(EOC)
+	@printf $(CR)$(RED)"✗ $(OBJDIR) folder and its content are deleted\n"$(EOC)
 
 fclean: clean
 	@$(RM) $(NAME)
-	@printf $(CR)$(RED)"✗ \"$(NAME)\" is deleted\n"$(EOC)
+	@printf $(CR)$(RED)"✗ $(NAME) is deleted\n"$(EOC)
 
 re: fclean all
 
