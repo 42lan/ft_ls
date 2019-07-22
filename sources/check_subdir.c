@@ -6,15 +6,16 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 10:37:26 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/22 12:36:15 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/22 19:01:06 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int					check_subdir(t_file *file, struct dirent *dirent, t_dir *current_dir)
+int			check_subdir(t_file *file, struct dirent *dirent, t_dir *current_dir)
 {
-	char			*path = NULL;
+	char	*path;
+	t_list	*new_sdir;
 
 	if (is_directory(file->stat.st_mode))
 	{
@@ -25,7 +26,10 @@ int					check_subdir(t_file *file, struct dirent *dirent, t_dir *current_dir)
 			current_dir->sdir_head = ft_lstnew(path, ft_strlen(path));
 		// Else, sdir_head has a node, so append linked list with new subdir
 		else
-			ft_lstadd_end(&current_dir->sdir_head, ft_lstnew(path, ft_strlen(path)));
+		{
+			new_sdir = ft_lstnew(path, ft_strlen(path));
+			ft_lstadd_end(&current_dir->sdir_head, new_sdir);
+		}
 		return (1);
 	}
 	return (0);
