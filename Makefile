@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/16 15:31:54 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/19 16:22:30 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -121,11 +121,10 @@ $(LFT):
 
 clean:
 	@$(RM) $(OBJ) $(OBJDIR)
-	@$(MAKE) $(LIBDIR) clean
 
 fclean: clean
 	@$(RM) $(NAME) $(LIBFTLS)
-	@printf $(CR)$(RED)"✗ \"$(NAME)\" and \"$(LIBFTLS)\" are deleted\n"$(EOC)
+	@printf $(CR)$(RED)"✗ $(NAME) and $(LIBFTLS) are deleted\n"$(EOC)
 	@$(MAKE) $(LIBDIR) fclean
 
 re: fclean all
