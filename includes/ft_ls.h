@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/17 17:51:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/22 11:27:28 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct		s_dir
 	char			*ownername;
 	char			*groupname;
 	struct s_file	*file_head;			// pointer to the first node in list of files
-	struct s_sdir	*sdir_head;			// pointer to the first node in list of subdirs
+	t_list			*sdir_head;			// pointer to the first node in list of subdirs
 	size_t			nb_files;			// Total number of files in current directory
 	size_t			total_blocks;		// the total number of blocks used by the files in the directory
 
@@ -60,13 +60,6 @@ typedef struct		s_file
 	struct s_file	*next;
 }					t_file;
 
-typedef struct		s_sdir				// sub directory list 
-{
-	char			*path;
-	struct s_sdir	*next;
-}					t_sdir;
-
-
 int		ft_ls(int ac, char **av);
 t_dir	*browse_dir(const char *path);
 void	max_namlen_width(t_dir *directory, t_file *entry);
@@ -81,7 +74,7 @@ int		inspect_file(t_file *entry, char *path);
 t_dir	*initialize_directory(void);
 
 void	fill_file_struct(t_file *file, struct dirent *dirent);
-int		check_subdir(t_file *file, struct dirent *dirent, t_dir *current_dir, t_sdir *sdir);
+int		check_subdir(t_file *file, struct dirent *dirent, t_dir *current_dir);
 
 /* PREDICATES */
 int		is_hidden(const char *name);
