@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 10:28:56 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/15 10:33:49 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/22 19:17:39 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@ void	fill_file_struct(t_file *file, struct dirent *dirent)
 {
 	struct passwd	*passwd;
 	struct group	*group;
+	char			*relative_name;
 
-	stat(dirent->d_name, &file->stat);
+	relative_name = form_path(file->dirname, dirent->d_name);
+	//ft_printf("<< %s\n", relative_name);
+	stat(relative_name, &file->stat);
 	if ((passwd = get_pwstruct(file->stat.st_uid)) == NULL)
 		return ;
 	if ((group = get_grstruct(file->stat.st_gid)) == NULL)
