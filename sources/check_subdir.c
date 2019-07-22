@@ -6,38 +6,26 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 10:37:26 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/17 15:09:56 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/22 12:36:15 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-t_sdir		 *push_end_sdir(t_sdir *head, t_sdir *sdir)
+int					check_subdir(t_file *file, struct dirent *dirent, t_dir *current_dir)
 {
-	t_sdir	*tmp;
+	char			*path = NULL;
 
-	tmp = head;
-	if (head == NULL)
-		head = sdir;
-	else
+	if (is_directory(file->stat.st_mode))
 	{
-		while (tmp->next != NULL)
-			tmp = tmp->next;
-		tmp->next = sdir;
-		sdir->next = NULL;
-	}
-	return (head);
-}
-
-int		check_subdir(t_file *file, struct dirent *dirent, t_dir *current_dir, t_sdir *sdir)
-{
-	if (is_directory(file->stat.st_mode)) // Checking for subdirectories
-	{
+		// Forming a relative path for a subdirectory
+		path = form_path(current_dir->name, dirent->d_name);
+		// If sdir_head is empty, so the first node of a link list is the first readed subdir
 		if (current_dir->sdir_head == NULL)
-			current_dir->sdir_head = sdir;
-		sdir->path = form_path(current_dir->name, dirent->d_name); // Forming relative path and saving it
-		sdir->next = NULL;
-		push_end_sdir(current_dir->sdir_head, sdir);
+			current_dir->sdir_head = ft_lstnew(path, ft_strlen(path));
+		// Else, sdir_head has a node, so append linked list with new subdir
+		else
+			ft_lstadd_end(&current_dir->sdir_head, ft_lstnew(path, ft_strlen(path)));
 		return (1);
 	}
 	return (0);
