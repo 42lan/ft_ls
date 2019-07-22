@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/17 15:00:30 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/22 16:32:56 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int					ft_ls(int ac, char **av)
 	if (ac == 0)
 	{
 		current_dir = browse_dir(".");
-		display_long(current_dir);
+		//display_long(current_dir);
 	}
 	// while (i < ac){if ((dp = opendir(av[i])) != NULL){browse_dir(dp, dirent);}closedir(dp);i++;}
 	return (1);
