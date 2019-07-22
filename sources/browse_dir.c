@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/22 12:52:10 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/22 19:02:53 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,27 @@ void				print_list(t_list *list)
 		if (list->next == NULL)
 			ft_printf("%s -> NULL\n", list->content);
 		else
-		{
-			//ft_printf("%s -> ", list->content);
-			write(1, list->content, list->content_size);
-			write(1, " -> ", 4);
-		}
+			ft_printf("%s -> ", list->content);
 		list = list->next;
+	}
+}
+
+void				recursive_browse(t_list *sdir_head)
+{
+	ft_printf("---------- RECURSIVE BROWSE -------------------------\n");
+	if (sdir_head != NULL)
+	{
+		while (sdir_head != NULL)
+		{
+			browse_dir(sdir_head->content);
+			sdir_head = sdir_head->next;
+		}
 	}
 }
 
 t_dir				*browse_dir(const char *path)
 {
+	ft_printf("========== BROWSING %s\n", path);
 	DIR				*dp;
 	struct dirent	*dirent;
 	t_dir			*current_dir;
@@ -37,6 +47,8 @@ t_dir				*browse_dir(const char *path)
 
 	if ((dp = opendir(path)) == NULL)					// Trying to open given path
 		return (NULL);
+	else
+		ft_printf("%s is opened\n", path);
 	current_dir = initialize_directory();
 	current_dir->name = ft_strdup(path);
 	while ((dirent = readdir(dp)) != NULL)				// Reading directory entry by entry
@@ -49,11 +61,13 @@ t_dir				*browse_dir(const char *path)
 			current_dir->file_head = file;				// If file_head pointer pointed no NULL so now it points to first file
 		fill_file_struct(file, dirent);					// Filling file structure
 		determine_wmax(dirent, file, current_dir);
-		if (check_subdir(file, dirent, current_dir))		// Checking if actual file is a directory
-			print_list(current_dir->sdir_head);
+		check_subdir(file, dirent, current_dir);		// Checking if actual file is a directory
 		push_end(current_dir->file_head, file);			// Appending new node to file list
 	}
-	closedir(dp);
 	//print_list(current_dir->sdir_head);
+	display_long(current_dir);
+	ft_printf("========== END OF %s\n", path);
+	recursive_browse(current_dir->sdir_head);
+	closedir(dp);
 	return (current_dir);
 }
