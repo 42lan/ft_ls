@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/22 20:13:31 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/22 20:34:57 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBNAME		= libft.a
 # GNU Compiler Collection
 
 GCC			= /usr/bin/clang
-WOPT		= -Weverything -Wall -Wextra -Werror
+WOPT		= -Wall -Wextra -Werror #-Weverything
 OOPT		= #-O2
 IOPT		= -I $(INCDIR)
 
