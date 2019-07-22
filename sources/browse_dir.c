@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/22 19:02:53 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/22 19:18:49 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void				print_list(t_list *list)
 
 void				recursive_browse(t_list *sdir_head)
 {
-	ft_printf("---------- RECURSIVE BROWSE -------------------------\n");
 	if (sdir_head != NULL)
 	{
 		while (sdir_head != NULL)
@@ -39,7 +38,6 @@ void				recursive_browse(t_list *sdir_head)
 
 t_dir				*browse_dir(const char *path)
 {
-	ft_printf("========== BROWSING %s\n", path);
 	DIR				*dp;
 	struct dirent	*dirent;
 	t_dir			*current_dir;
@@ -48,7 +46,7 @@ t_dir				*browse_dir(const char *path)
 	if ((dp = opendir(path)) == NULL)					// Trying to open given path
 		return (NULL);
 	else
-		ft_printf("%s is opened\n", path);
+		ft_printf("\n%s folder is opened\n", path);
 	current_dir = initialize_directory();
 	current_dir->name = ft_strdup(path);
 	while ((dirent = readdir(dp)) != NULL)				// Reading directory entry by entry
@@ -57,6 +55,7 @@ t_dir				*browse_dir(const char *path)
 		if (is_hidden(dirent->d_name))					// Checking for hidden files
 			continue ;									// Skipping hiddent files
 		file = new_file();								// !!! Need to check allocation
+		file->dirname = ft_strdup(path);
 		if (current_dir->file_head == NULL)				// Checking if file_head pointer is NULL
 			current_dir->file_head = file;				// If file_head pointer pointed no NULL so now it points to first file
 		fill_file_struct(file, dirent);					// Filling file structure
@@ -66,7 +65,6 @@ t_dir				*browse_dir(const char *path)
 	}
 	//print_list(current_dir->sdir_head);
 	display_long(current_dir);
-	ft_printf("========== END OF %s\n", path);
 	recursive_browse(current_dir->sdir_head);
 	closedir(dp);
 	return (current_dir);
