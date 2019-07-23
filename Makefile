@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/23 14:36:31 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/23 17:37:26 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBNAME		= libft.a
 # GNU Compiler Collection
 
 GCC			= /usr/bin/clang
-WOPT		= -g -Wall -Wextra -Werror #-Weverything
+WOPT		= -Wall -Wextra -Werror #-Weverything #-g -g3
 OOPT		= #-O2
 IOPT		= -I $(INCDIR)
 
@@ -68,6 +68,7 @@ SRCNAME		= main.c	\
 			  output/display_ownername.c\
 			  output/display_groupname.c\
 			  output/display_size.c\
+			  output/display_total.c\
 			  output/display_long.c\
 			  output/display_mtim.c\
 			  output/display_filename.c\
