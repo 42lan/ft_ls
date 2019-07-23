@@ -6,35 +6,11 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/22 19:18:49 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/23 17:33:16 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-void				print_list(t_list *list)
-{
-	while (list != NULL)
-	{
-		if (list->next == NULL)
-			ft_printf("%s -> NULL\n", list->content);
-		else
-			ft_printf("%s -> ", list->content);
-		list = list->next;
-	}
-}
-
-void				recursive_browse(t_list *sdir_head)
-{
-	if (sdir_head != NULL)
-	{
-		while (sdir_head != NULL)
-		{
-			browse_dir(sdir_head->content);
-			sdir_head = sdir_head->next;
-		}
-	}
-}
 
 t_dir				*browse_dir(const char *path)
 {
@@ -44,9 +20,10 @@ t_dir				*browse_dir(const char *path)
 	t_file			*file;
 
 	if ((dp = opendir(path)) == NULL)					// Trying to open given path
+	{
+		ft_printf("ft_ls: %s: %s\n", path, strerror(errno));
 		return (NULL);
-	else
-		ft_printf("\n%s folder is opened\n", path);
+	}
 	current_dir = initialize_directory();
 	current_dir->name = ft_strdup(path);
 	while ((dirent = readdir(dp)) != NULL)				// Reading directory entry by entry
@@ -62,10 +39,21 @@ t_dir				*browse_dir(const char *path)
 		determine_wmax(dirent, file, current_dir);
 		check_subdir(file, dirent, current_dir);		// Checking if actual file is a directory
 		push_end(current_dir->file_head, file);			// Appending new node to file list
+		current_dir->total_blocks++;
 	}
-	//print_list(current_dir->sdir_head);
+	//ft_lstprint(current_dir->sdir_head);
 	display_long(current_dir);
-	recursive_browse(current_dir->sdir_head);
+	if (current_dir->sdir_head != NULL)
+		recursive_browse(current_dir->sdir_head);
+
+
+
+
+	/***** FREEING ALLOCATED MEMORY *****/
+	free(current_dir->name);	current_dir->name = NULL;
+	free(current_dir);			current_dir = NULL;
+	free(file->dirname);		file->dirname = NULL;
+	free(file);					file = NULL;
 	closedir(dp);
 	return (current_dir);
 }
