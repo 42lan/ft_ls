@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/23 17:37:26 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/23 17:44:51 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -129,7 +129,8 @@ fclean: clean
 	@$(RM) $(NAME) $(LIBFTLS)
 	@printf $(CR)$(RED)"✗ $(NAME) and $(LIBFTLS) are deleted\n"$(EOC)
 	@$(MAKE) $(LIBDIR) fclean
-	@$(RM) $(SRCDIR)/tags
+	@$(RM) tags
+	@printf $(CR)$(RED)"✗ tags file was deleted\n"$(EOC)
 
 re: fclean all
 
