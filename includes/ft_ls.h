@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/22 19:13:18 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/23 17:22:24 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct		s_file
 
 int		ft_ls(int ac, char **av);
 t_dir	*browse_dir(const char *path);
+void	recursive_browse(t_list *sdir_head);
 void	max_namlen_width(t_dir *directory, t_file *entry);
 void	determine_wmax(struct dirent *dirent, t_file *file, t_dir *current_dir);
 void	determine_namlen_wmax(struct dirent *dirent, t_dir *current_dir);
@@ -95,6 +96,7 @@ char			*get_permissions(mode_t mode, int ugo);
 void	display_usage(char c);
 void	display_default(t_dir *current_dir);
 void	display_long(t_dir *current_dir);
+void	display_total(size_t total_blocks);
 void	display_mode(mode_t st_mode);
 void	display_nlink(nlink_t st_nlink, int width);
 void	display_ownername(char *ownername, size_t width);
