@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 05:19:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/17 15:01:02 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/23 17:23:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	display_long(t_dir *current_dir)
 {
+	display_total(current_dir->total_blocks);
 	while (current_dir->file_head != NULL)
 	{
 		display_mode(current_dir->file_head->stat.st_mode);
