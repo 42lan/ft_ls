@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/22 20:34:57 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/23 14:36:31 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBNAME		= libft.a
 # GNU Compiler Collection
 
 GCC			= /usr/bin/clang
-WOPT		= -Wall -Wextra -Werror #-Weverything
+WOPT		= -g -Wall -Wextra -Werror #-Weverything
 OOPT		= #-O2
 IOPT		= -I $(INCDIR)
 
@@ -30,6 +30,7 @@ IOPT		= -I $(INCDIR)
 
 AR			= /usr/bin/ar -rc
 MAKE		= /usr/bin/make -C
+CTAGS		= /usr/bin/ctags -w
 RANLIB		= /usr/bin/ranlib
 NORMINETTE	= /usr/bin/norminette
 MKDIR		= /bin/mkdir -p
@@ -47,6 +48,7 @@ INCDIR		= ./includes
 # List of source files
 
 SRCNAME		= main.c	\
+			  recursive_browse.c\
 			  new_file.c\
 			  push_end.c\
 			  check_subdir.c\
@@ -126,8 +128,13 @@ fclean: clean
 	@$(RM) $(NAME) $(LIBFTLS)
 	@printf $(CR)$(RED)"✗ $(NAME) and $(LIBFTLS) are deleted\n"$(EOC)
 	@$(MAKE) $(LIBDIR) fclean
+	@$(RM) $(SRCDIR)/tags
 
 re: fclean all
+
+ctags:
+	@$(CTAGS) $(SRCDIR)/*.c $(SRCDIR)/*/*.c $(INCDIR)/*.h \
+		$(LIBDIR)/includes/*.h $(LIBDIR)/sources/*/*.c $(LIBDIR)/sources/*/*/*.c
 
 norm:
 	$(NORMINETTE) $(SRCDIR) $(INCDIR) $(LIBDIR)/sources
