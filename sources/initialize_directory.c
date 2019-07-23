@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 15:39:53 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/17 14:55:32 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/23 17:13:11 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_dir		*initialize_directory(void)
 {
 	t_dir	*directory;
 
-	if (!(directory = (t_dir *)malloc(sizeof(t_dir))))
+	if (!(directory = (t_dir *)ft_memalloc(sizeof(t_dir))))
 		return (NULL);
 	directory->length = 0;
 	directory->nb_files = 0;
