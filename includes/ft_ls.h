@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/23 17:22:24 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/24 14:36:24 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct		s_file
 	char			*dirname;
 	char			*name;
 	size_t			namlen;
-	struct stat		stat;
+	struct stat		*stat;
 	char			*ownername;
 	char			*groupname;
 	struct s_file	*next;
@@ -87,6 +87,7 @@ int		parse_options(int ac, char **av, int *opt_bits);
 void	parse_entry(char *entryname, t_dir *current_dir);
 
 /* GETS */
+struct stat		*get_stat(const char *path);
 char			get_type(mode_t mode);
 struct passwd	*get_pwstruct(uid_t st_uid);
 struct group	*get_grstruct(gid_t st_gid);
