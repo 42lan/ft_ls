@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/24 12:26:13 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/24 19:32:57 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ SRCNAME		= main.c	\
 			  browse_dir.c\
 			  output/display_usage.c\
 			  ft_ls.c\
-			  tools/form_path.c\
+			  tools/form_relpath.c\
 			  main.c\
 			  tools/modecat.c\
 			  parsing/parse_entry.c\
