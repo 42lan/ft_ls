@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/24 10:55:58 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/24 19:40:18 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,14 @@ int					ft_ls(int ac, char **av)
 	int				i;
 	int				options;
 	int				opt_bits;
-	t_dir			*current_dir;
 
 	i = -1;
 	opt_bits = 0;
 	options = parse_options(ac, av, &opt_bits); // parse_options() retourne l'index de l'agument qui n'est pas une options
 	if (ac == 0)
-	{
-		current_dir = browse_dir(".");
-		//display_long(current_dir);
-	}
+		browse_dir(".");
 	else
-	{
 		while (++i < ac)
-			current_dir = browse_dir(av[i]);
-	}
-	// while (i < ac){if ((dp = opendir(av[i])) != NULL){browse_dir(dp, dirent);}closedir(dp);i++;}
+			browse_dir(av[i]);
 	return (1);
 }
