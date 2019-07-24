@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 10:37:26 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/22 19:01:06 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/24 14:33:10 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int			check_subdir(t_file *file, struct dirent *dirent, t_dir *current_dir)
 	char	*path;
 	t_list	*new_sdir;
 
-	if (is_directory(file->stat.st_mode))
+	if (is_directory(file->stat->st_mode))
 	{
 		// Forming a relative path for a subdirectory
 		path = form_path(current_dir->name, dirent->d_name);
