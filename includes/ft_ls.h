@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/24 19:08:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/24 19:32:45 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void	display_filename(char *filename, size_t width);
 
 /* TOOLS */
 void	modecat(char *str, mode_t st_mode);
-char	*form_path(const char *dirname, const char *basename);
+char	*form_relpath(const char *dirname, const char *basename);
 
 /* LINKED LIST */
 t_file	*new_file(void);
