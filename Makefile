@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/23 17:44:51 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/24 12:26:13 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,7 @@ SRCNAME		= main.c	\
 			  gets/get_pwstruct.c\
 			  gets/get_permissions.c\
 			  gets/get_grstruct.c\
+			  gets/get_stat.c\
 			  gets/get_type.c\
 			  output/display_default.c\
 			  output/display_long.c\
@@ -129,8 +130,6 @@ fclean: clean
 	@$(RM) $(NAME) $(LIBFTLS)
 	@printf $(CR)$(RED)"✗ $(NAME) and $(LIBFTLS) are deleted\n"$(EOC)
 	@$(MAKE) $(LIBDIR) fclean
-	@$(RM) tags
-	@printf $(CR)$(RED)"✗ tags file was deleted\n"$(EOC)
 
 re: fclean all
 
