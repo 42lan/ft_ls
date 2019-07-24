@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/23 17:33:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/24 19:11:14 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ t_dir				*browse_dir(const char *path)
 	struct dirent	*dirent;
 	t_dir			*current_dir;
 	t_file			*file;
+	char			*relative_name;
 
 	if ((dp = opendir(path)) == NULL)					// Trying to open given path
 	{
@@ -32,9 +33,10 @@ t_dir				*browse_dir(const char *path)
 		if (is_hidden(dirent->d_name))					// Checking for hidden files
 			continue ;									// Skipping hiddent files
 		file = new_file();								// !!! Need to check allocation
-		file->dirname = ft_strdup(path);
 		if (current_dir->file_head == NULL)				// Checking if file_head pointer is NULL
 			current_dir->file_head = file;				// If file_head pointer pointed no NULL so now it points to first file
+		relative_name = form_path(path, dirent->d_name);
+		file->stat = get_stat(relative_name);
 		fill_file_struct(file, dirent);					// Filling file structure
 		determine_wmax(dirent, file, current_dir);
 		check_subdir(file, dirent, current_dir);		// Checking if actual file is a directory
@@ -52,7 +54,6 @@ t_dir				*browse_dir(const char *path)
 	/***** FREEING ALLOCATED MEMORY *****/
 	free(current_dir->name);	current_dir->name = NULL;
 	free(current_dir);			current_dir = NULL;
-	free(file->dirname);		file->dirname = NULL;
 	free(file);					file = NULL;
 	closedir(dp);
 	return (current_dir);
