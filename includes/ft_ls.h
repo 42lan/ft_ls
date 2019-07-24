@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/24 14:36:24 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/24 19:08:59 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ typedef struct		s_dir
 
 typedef struct		s_file
 {
-	char			*dirname;
 	char			*name;
 	size_t			namlen;
 	struct stat		*stat;
