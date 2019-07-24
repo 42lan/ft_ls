@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/24 19:32:45 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/24 19:45:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct		s_dir
 typedef struct		s_file
 {
 	char			*name;
+	char			*relpath;
 	size_t			namlen;
 	struct stat		*stat;
 	char			*ownername;
@@ -75,7 +76,7 @@ int		inspect_file(t_file *entry, char *path);
 t_dir	*initialize_directory(void);
 
 void	fill_file_struct(t_file *file, struct dirent *dirent);
-int		check_subdir(t_file *file, struct dirent *dirent, t_dir *current_dir);
+int		check_subdir(t_file *file, t_dir *current_dir);
 
 /* PREDICATES */
 int		is_hidden(const char *name);
