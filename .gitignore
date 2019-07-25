@@ -24,3 +24,6 @@ objects/
 
 # Tag files
 tags
+
+# Silly rename files
+.nfs.*
