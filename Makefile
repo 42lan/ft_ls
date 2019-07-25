@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/24 19:32:57 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/25 11:48:05 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,6 @@ INCDIR		= ./includes
 # List of source files
 
 SRCNAME		= main.c	\
-			  recursive_browse.c\
 			  new_file.c\
 			  push_end.c\
 			  check_subdir.c\
@@ -74,6 +73,8 @@ SRCNAME		= main.c	\
 			  output/display_mtim.c\
 			  output/display_filename.c\
 			  browse_dir.c\
+			  browse_file.c\
+			  recursive_browse.c\
 			  output/display_usage.c\
 			  ft_ls.c\
 			  tools/form_relpath.c\
