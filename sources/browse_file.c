@@ -6,18 +6,14 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 11:46:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/25 13:29:28 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/25 14:47:56 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	browse_file(const char *path)
+void	browse_file(const char *path, t_file *file)
 {
-	t_file			*file;
-
-	file = new_file();
-	file->stat = get_stat(path);
 	struct passwd	*passwd;
 	struct group	*group;
 
@@ -30,4 +26,5 @@ void	browse_file(const char *path)
 	file->ownername = passwd->pw_name;
 	file->groupname = group->gr_name;
 	display_filename(file->name, 0);
+	ft_putchar('\n');
 }
