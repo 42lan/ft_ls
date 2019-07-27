@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/25 14:47:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/27 18:46:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,13 @@ typedef struct		s_file
 	struct s_file	*next;
 }					t_file;
 
+typedef struct		s_argp
+{
+	char			sign;
+	unsigned		active : 1;
+	char			*description;
+}					t_argp;
+
 int		ft_ls(int ac, char **av);
 t_dir	*browse_dir(const char *path);
 void	browse_file(const char *path, t_file *file);
@@ -84,7 +91,8 @@ int		is_hidden(const char *name);
 int		is_directory(mode_t st_mode);
 
 /* PARSING */
-int		parse_options(int ac, char **av, int *opt_bits);
+void	parse_argp(int ac, char *av[], t_argp g_argp[]);
+int		parse_options(int ac, char **av);
 void	parse_entry(char *entryname, t_dir *current_dir);
 
 /* GETS */
