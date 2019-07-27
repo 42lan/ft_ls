@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/27 12:07:42 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/27 18:36:12 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,7 @@ SRCNAME		= main.c	\
 			  tools/form_relpath.c\
 			  main.c\
 			  tools/modecat.c\
+			  parsing/parse_argp.c\
 			  parsing/parse_entry.c\
 			  parsing/parse_options.c\
 			  predicates/is_hidden.c\
