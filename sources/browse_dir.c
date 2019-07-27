@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/24 19:47:43 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/27 12:12:37 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void			loop_through_dir(DIR *dp, t_dir *current_dir, const char *path)
 		determine_wmax(dirent, file, current_dir);
 		check_subdir(file, current_dir);					// Checking if actual file is a directory
 		push_end(current_dir->file_head, file);				// Appending new node to file list
-		current_dir->total_blocks++;
+		current_dir->total_blocks += file->stat->st_blocks;
 	}
 }
 
