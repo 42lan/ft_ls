@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/23 11:58:23 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/27 12:06:24 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -176,15 +176,15 @@ $(NAME): $(OBJ)
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@$(MKDIR) $(dir $@)
 	@$(GCC) $(WOPT) $(OOPT) $(IOPT) -c $< -o $@
-	@printf $(CR)"[ $(BASENAME)/%s ]" $@
+	@printf $(CR)"[ ./libft/%s ]" $@
 
 clean:
 	@$(RM) $(OBJDIR)
-	@printf $(CR)$(RED)"✗ libft/objects and its content are deleted\n"$(EOC)
+	@printf $(CR)$(RED)"✗ ./libft/objects and its content are deleted\n"$(EOC)
 
 fclean: clean
 	@$(RM) $(NAME)
-	@printf $(CR)$(RED)"✗ $(NAME) is deleted\n"$(EOC)
+	@printf $(CR)$(RED)"✗ ./libft/$(NAME) is deleted\n"$(EOC)
 
 re: fclean all
 
