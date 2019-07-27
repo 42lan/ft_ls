@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/25 11:48:05 by amalsago         ###   ########.fr        #
+#    Updated: 2019/07/27 12:07:42 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,7 +119,7 @@ $(NAME): $(LFT) $(OBJ)
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	-@$(MKDIR) $(OBJDIR)/{gets,output,parsing,tools,predicates,wmax}
 	@$(GCC) $(WOPT) $(OOPT) $(IOPT) -c $< -o $@
-	@printf $(CR)"[ $(BASENAME)/%s ]"$(CLEAR) $@
+	@printf $(CR)"[ ./$(BASENAME)/%s ]"$(CLEAR) $@
 
 $(LFT):
 	@$(MAKE) $(LIBDIR)
@@ -129,7 +129,7 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME) $(LIBFTLS)
-	@printf $(CR)$(RED)"✗ $(NAME) and $(LIBFTLS) are deleted\n"$(EOC)
+	@printf $(CR)$(RED)"✗ ./$(NAME) and ./$(LIBFTLS) are deleted\n"$(EOC)
 	@$(MAKE) $(LIBDIR) fclean
 
 re: fclean all
