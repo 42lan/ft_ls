@@ -61,6 +61,7 @@ SRCNAME		= main.c	\
 			  gets/get_grstruct.c\
 			  gets/get_stat.c\
 			  gets/get_type.c\
+			  output/display.c\
 			  output/display_default.c\
 			  output/display_long.c\
 			  output/display_mode.c\
