@@ -91,8 +91,8 @@ int		is_hidden(const char *name);
 int		is_directory(mode_t st_mode);
 
 /* PARSING */
-void	parse_argp(int ac, char *av[], t_argp g_argp[]);
-int		parse_options(int ac, char **av);
+void	parse_argp(char *av);
+int		parse_options(int ac, char **av, int *opt_bits);
 void	parse_entry(char *entryname, t_dir *current_dir);
 
 /* GETS */
@@ -104,6 +104,7 @@ char			*get_permissions(mode_t mode, int ugo);
 
 /* OUTPUT */
 void	display_usage(char c);
+void	display(t_dir *current_dir);
 void	display_default(t_dir *current_dir);
 void	display_long(t_dir *current_dir);
 void	display_total(size_t total_blocks);
