@@ -12,6 +12,8 @@
 
 #include "ft_ls.h"
 
+extern t_argp		g_argp[];
+
 static void			loop_through_dir(DIR *dp, t_dir *current_dir, const char *path)
 {
 	t_file			*file;
@@ -20,7 +22,7 @@ static void			loop_through_dir(DIR *dp, t_dir *current_dir, const char *path)
 	while ((dirent = readdir(dp)) != NULL)					// Reading directory entry by entry
 	{
 		++(current_dir->nb_files);							// Counting number of files including hidden + . and ..
-		if (is_hidden(dirent->d_name))						// Checking for hidden files
+		if (is_hidden(dirent->d_name) && g_argp[3].active == 0)						// Checking for hidden files
 			continue ;										// Skipping hiddent files
 		file = new_file();									// !!! Need to check allocation
 		if (current_dir->file_head == NULL)					// Checking if file_head pointer is NULL
@@ -48,8 +50,8 @@ t_dir				*browse_dir(const char *path)
 	current_dir = initialize_directory();
 	current_dir->name = ft_strdup(path);
 	loop_through_dir(dp, current_dir, path);				// Callig function to llop through directory
-	display_long(current_dir);
-	if (current_dir->sdir_head != NULL)
+	display(current_dir);
+	if (g_argp[2].active == 1 && current_dir->sdir_head != NULL)
 		recursive_browse(current_dir->sdir_head);
 	closedir(dp);
 	return (current_dir);
