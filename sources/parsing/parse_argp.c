@@ -12,31 +12,17 @@
 
 #include "ft_ls.h"
 
-void		parse_argp(int ac, char *av[], t_argp g_argp[])
+extern t_argp			g_argp[];
+
+void		parse_argp(char *av)
 {
 	int		i;
-	int		j;
 	int		k;
 
-	i = 0;
-	while (i < ac)
-	{
-		if (av[i][0] == '-')
-		{
-			j = 1;
-			while (av[i][j] != '\0')
-			{
-				k = 0;
-				while (g_argp[k].sign != 0)
-				{
-					if (g_argp[k].sign == av[i][j])
-						g_argp[k].active = 1;
-					++k;
-				}
-				j++;
-			}
-		}
-		i++;
-	}
+	i = 0; // Start with second (index 1) character
+	k = -1;
+	while (av[++i] != '\0')
+		while (g_argp[++k].sign != 0)
+			if (g_argp[k].sign == av[i])
+				g_argp[k].active = 1;
 }
-
