@@ -34,14 +34,13 @@ int				ft_ls(int ac, char **av)
 		browse_dir(".");
 	else
 	{
-		parse_argp(ac, av, g_argp);
-		if (g_argp[1].active == 1)
-		{
-			ft_printf("OKOKOK\n");
-			return (1);
-		}
 		while (++i < ac)
 		{
+			if (av[i][0] == '-')
+			{
+				parse_argp(av[i]);
+				continue ;
+			}
 			file = new_file();
 			file->stat = get_stat(av[i]);
 			if (is_directory(file->stat->st_mode))
