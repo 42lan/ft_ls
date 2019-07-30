@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/27 12:12:37 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/30 08:10:36 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void			loop_through_dir(DIR *dp, t_dir *current_dir, const char *path)
 	while ((dirent = readdir(dp)) != NULL)					// Reading directory entry by entry
 	{
 		++(current_dir->nb_files);							// Counting number of files including hidden + . and ..
-		if (is_hidden(dirent->d_name) && g_argp[3].active == 0)						// Checking for hidden files
+		if (is_hidden(dirent->d_name) && g_argp[1].active == 0)						// Checking for hidden files
 			continue ;										// Skipping hiddent files
 		file = new_file();									// !!! Need to check allocation
 		if (current_dir->file_head == NULL)					// Checking if file_head pointer is NULL
