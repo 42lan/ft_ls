@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/27 18:49:19 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/07/30 08:09:19 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 t_argp			g_argp[] =
 {
-	{'1', 0, "List one file per line"},
 	{'l', 0, "List in long format"},
-	{'R', 0, "Recursively list subdirectories encountered"},
 	{'a', 0, "List files whose names begin with a dot (.)"},
+	{'R', 0, "Recursively list subdirectories encountered"},
 	{'r', 0, "Reverse the order of the sort"},
+	{'1', 0, "List one file per line"},
 	{'t', 0, "Sort by time modified (most recently modified first)"},
 	{'-', 0, "End of options"},
 	{0, 0, NULL}
