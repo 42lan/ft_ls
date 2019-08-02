@@ -19,8 +19,8 @@ ft_ls
 *.h.gch
 
 # Folders
-.DS_Store/
-objects/
+.DS_Store
+objects
 
 # Tag files
 tags
