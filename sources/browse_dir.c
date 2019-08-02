@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/30 08:10:36 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/02 21:34:47 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ static void			loop_through_dir(DIR *dp, t_dir *current_dir, const char *path)
 		file->stat = get_stat(file->relpath);				// Getting stat about file
 		fill_file_struct(file, dirent);						// Filling file structure
 		determine_wmax(dirent, file, current_dir);
-		check_subdir(file, current_dir);					// Checking if actual file is a directory
+		if (!(ft_strequ(file->name, ".") || ft_strequ(file->name, ".."))) // To avoid . and .. while recursion
+			check_subdir(file, current_dir);					// Checking if actual file is a directory
 		push_end(current_dir->file_head, file);				// Appending new node to file list
 		current_dir->total_blocks += file->stat->st_blocks;
 	}
