@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/30 08:09:19 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/02 22:12:10 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ t_argp			g_argp[] =
 	{0, 0, NULL}
 };
 
+void	print_opt(t_argp g_argp[])
+{
+	ft_putendl("EGEG");
+	int	i = -1;
+	while (g_argp[++i].sign)
+		ft_printf("%c %d\n", g_argp[i].sign, g_argp[i].active);
+}
+
 int				ft_ls(int ac, char **av)
 {
 	int			i;
@@ -39,6 +47,8 @@ int				ft_ls(int ac, char **av)
 			if (av[i][0] == '-')
 			{
 				parse_argp(av[i]);
+				if (av[i + 1] == NULL)
+					browse_dir(".");
 				continue ;
 			}
 			file = new_file();
