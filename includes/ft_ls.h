@@ -6,13 +6,14 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/30 08:14:50 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/03 15:08:03 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LS_H
 # define FT_LS_H
 
+# define place_cursor(x,y) ft_printf("\033[%d;%dH", (y), (x))
 #include <errno.h>
 # include <dirent.h>
 # include <grp.h>
