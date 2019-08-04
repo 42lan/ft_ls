@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/27 12:06:24 by amalsago         ###   ########.fr        #
+#    Updated: 2019/08/04 15:13:10 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ SRCNAME		= conversions/ft_atoi.c					\
 			  counters/ft_uilen.c		\
 			  lists/ft_lstadd_top.c	\
 			  lists/ft_lstadd_end.c	\
+			  lists/ft_lstbsort.c	\
 			  lists/ft_lstdel.c		\
 			  lists/ft_lstdelone.c	\
 			  lists/ft_lstiter.c	\
