@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/07/27 18:36:12 by amalsago         ###   ########.fr        #
+#    Updated: 2019/08/04 17:24:45 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,7 +119,7 @@ $(NAME): $(LFT) $(OBJ)
 	@printf $(CR)$(GREEN)"✓ $(NAME) is created\n"$(EOC)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	-@$(MKDIR) $(OBJDIR)/{gets,output,parsing,tools,predicates,wmax}
+	@$(MKDIR) $(dir $@)
 	@$(GCC) $(WOPT) $(OOPT) $(IOPT) -c $< -o $@
 	@printf $(CR)"[ ./$(BASENAME)/%s ]"$(CLEAR) $@
 
