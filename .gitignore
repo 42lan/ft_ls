@@ -27,3 +27,8 @@ tags
 
 # Silly rename files
 .nfs.*
+
+# Files from libft.git
+libft/.gitignore
+libft/README.md
+libft/auteur
