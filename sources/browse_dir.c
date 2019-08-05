@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/05 08:38:56 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/05 12:09:57 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,7 @@ t_dir				*browse_dir(const char *path)
 	current_dir = initialize_directory();
 	current_dir->name = ft_strdup(path);
 	loop_through_dir(dp, current_dir, path);				// Callig function to llop through directory
-	ft_lstprint(current_dir->sdir_head);
 	ft_lstbsort(current_dir->sdir_head);					// Sort subdir list in ascii order
-	ft_lstprint(current_dir->sdir_head);
 	display(current_dir);
 	if (g_argp[2].active == 1 && current_dir->sdir_head != NULL)
 		recursive_browse(current_dir->sdir_head);
