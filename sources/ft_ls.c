@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/02 22:12:10 by aslan            ###   ########.fr       */
+/*   Updated: 2019/08/03 14:54:37 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ int				ft_ls(int ac, char **av)
 			file->stat = get_stat(av[i]);
 			if (is_directory(file->stat->st_mode))
 			{
-				free(file); file = NULL;
+				free(file);
+				file = NULL;
 				browse_dir(av[i]);
 			}
 			else
