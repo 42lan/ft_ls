@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/04 15:10:57 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/04 15:11:15 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/04 15:24:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int			ft_lstbsort(t_list *head)
 {
 	t_list	*i;
 	t_list	*j;
-	void	*tmp;
+	char	*tmp;
 
 	if (head == NULL)
 		return (0);
