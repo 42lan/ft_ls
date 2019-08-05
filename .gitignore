@@ -32,3 +32,4 @@ tags
 libft/.gitignore
 libft/README.md
 libft/auteur
+libft/main.c
