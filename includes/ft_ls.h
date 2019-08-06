@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/03 15:08:03 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/06 13:28:43 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct		s_dir
 	char			*ownername;
 	char			*groupname;
 	struct s_file	*file_head;			// pointer to the first node in list of files
-	t_list			*sdir_head;			// pointer to the first node in list of subdirs
+	struct s_list	*sdir_head;			// pointer to the first node in list of subdirs
 	size_t			nb_files;			// Total number of files in current directory
 	size_t			total_blocks;		// the total number of blocks used by the files in the directory
 
@@ -124,5 +124,11 @@ char	*form_relpath(const char *dirname, const char *basename);
 
 /* LINKED LIST */
 t_file	*new_file(void);
-t_file	*push_end(t_file *head, t_file *file);
+t_file	*push_file(t_file *head, t_file *file);
+t_file	*push_front(t_file *head, t_file *file);
+t_file	*push_back(t_file *head, t_file *file);
+
+/* SORTING */
+void	sort_files(t_file *file_head);
+
 #endif
