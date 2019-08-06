@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/08/04 17:24:45 by amalsago         ###   ########.fr        #
+#    Updated: 2019/08/06 11:20:19 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,10 +48,13 @@ INCDIR		= ./includes
 # List of source files
 
 SRCNAME		= main.c	\
-			  new_file.c\
-			  push_end.c\
+			  browse_dir.c\
+			  browse_file.c\
 			  check_subdir.c\
 			  fill_file_struct.c\
+			  ft_ls.c\
+			  new_file.c\
+			  push_file.c\
 			  wmax/determine_wmax.c \
 			  wmax/determine_namlen_wmax.c \
 			  wmax/determine_nlink_wmax.c \
@@ -61,32 +64,29 @@ SRCNAME		= main.c	\
 			  gets/get_grstruct.c\
 			  gets/get_stat.c\
 			  gets/get_type.c\
+			  initialize_directory.c\
 			  output/display.c\
 			  output/display_default.c\
+			  output/display_filename.c\
+			  output/display_groupname.c\
 			  output/display_long.c\
 			  output/display_mode.c\
 			  output/display_nlink.c\
 			  output/display_ownername.c\
-			  output/display_groupname.c\
 			  output/display_size.c\
 			  output/display_total.c\
 			  output/display_long.c\
 			  output/display_mtim.c\
-			  output/display_filename.c\
-			  browse_dir.c\
-			  browse_file.c\
-			  recursive_browse.c\
 			  output/display_usage.c\
-			  ft_ls.c\
-			  tools/form_relpath.c\
-			  main.c\
-			  tools/modecat.c\
 			  parsing/parse_argp.c\
 			  parsing/parse_entry.c\
 			  parsing/parse_options.c\
 			  predicates/is_hidden.c\
 			  predicates/is_directory.c\
-			  initialize_directory.c\
+			  recursive_browse.c\
+			  sort_files.c\
+			  tools/form_relpath.c\
+			  tools/modecat.c\
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
