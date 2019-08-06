@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 18:31:16 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/05 12:14:13 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/05 12:19:24 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void			parse_argp(char *av)
 	int			i;
 	int			k;
 
-	i = 0; // Start with second (index 1) character
+	i = 0;
 	k = -1;
 	while (av[++i] != '\0')
 	{
