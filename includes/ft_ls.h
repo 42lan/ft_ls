@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/06 13:28:43 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/07 12:59:48 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ void	determine_wmax(struct dirent *dirent, t_file *file, t_dir *current_dir);
 void	determine_namlen_wmax(struct dirent *dirent, t_dir *current_dir);
 void	determine_nlink_wmax(t_file *file, t_dir *current_dir);
 void	determine_size_wmax(t_file *file, t_dir *current_dir);
+void	determine_ownername_wmax(t_file *file, t_dir *current_dir);
+void	determine_groupname_wmax(t_file *file, t_dir *current_dir);
 
 void	list_dir(DIR *dp, t_dir *current_dir, char *entryname, t_list *subdir_list, int *options);
 
