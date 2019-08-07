@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/05 12:02:11 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/07 17:38:29 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,25 @@ void	print_opt(t_argp g_argp[])
 int				ft_ls(int ac, char **av)
 {
 	int			i;
+	int			file_found;
 	t_file		*file;
 
 	i = -1;
+	file_found = 0;
 	if (ac == 0)
 		browse_dir(".");
 	else
 	{
 		while (++i < ac)
 		{
-			if (av[i][0] == '-')
+			if (file_found == 0 && av[i][0] == '-')
 			{
 				parse_argp(av[i]);
 				if (av[i + 1] == NULL)
 					browse_dir(".");
 				continue ;
 			}
+			file_found = 1;
 			file = new_file();
 			file->stat = get_stat(av[i]);
 			if (is_directory(file->stat->st_mode))
