@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/08/06 11:20:19 by amalsago         ###   ########.fr        #
+#    Updated: 2019/08/07 12:55:02 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,8 @@ SRCNAME		= main.c	\
 			  new_file.c\
 			  push_file.c\
 			  wmax/determine_wmax.c \
+			  wmax/determine_ownername_wmax.c \
+			  wmax/determine_groupname_wmax.c \
 			  wmax/determine_namlen_wmax.c \
 			  wmax/determine_nlink_wmax.c \
 			  wmax/determine_size_wmax.c \
