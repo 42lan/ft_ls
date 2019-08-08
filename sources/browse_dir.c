@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/06 13:31:46 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/08 13:21:36 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ static void			loop_through_dir(DIR *dp, t_dir *current_dir, const char *path)
 
 	while ((dirent = readdir(dp)) != NULL)					// Reading directory entry by entry
 	{
-		if (g_argp[1].active == 0 && is_hidden(dirent->d_name))						// Checking for hidden files
+		if (g_argp[SHOW_HIDDEN].active == 0 && is_hidden(dirent->d_name))						// Checking for hidden files
 			continue ;										// Skipping hiddent files
 		++(current_dir->nb_files);							// Counting number of files including hidden + . and ..
 		file = new_file();									// !!! Need to check allocation
 		file->relpath = form_relpath(path, dirent->d_name);	// Forming relative path to call get_stat()
-		file->stat = get_stat(file->relpath);				// Getting stat about file
+		get_stat(file->relpath, file);						// Getting stat about file
 		fill_file_struct(file, dirent);						// Filling file structure
 		if (current_dir->file_head == NULL)					// Checking if file_head pointer is NULL
 			current_dir->file_head = file;					// If file_head pointer pointed no NULL so now it points to first file
@@ -63,9 +63,9 @@ t_dir				*browse_dir(const char *path)
 	current_dir->name = ft_strdup(path);
 	loop_through_dir(dp, current_dir, path);				// Callig function to llop through directory
 	ft_lstbsort(current_dir->sdir_head);					// Sort subdir list in ascii order
-	sort_files(current_dir->file_head);
+//	sort_files(current_dir->file_head);
 	display(current_dir);
-	if (g_argp[2].active == 1 && current_dir->sdir_head != NULL)
+	if (g_argp[RECURSIVE].active == 1 && current_dir->sdir_head != NULL)
 		recursive_browse(current_dir->sdir_head);
 	closedir(dp);
 	return (current_dir);
