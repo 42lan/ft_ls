@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/07 12:59:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/08 13:03:07 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@
 # include <uuid/uuid.h>
 # include "../libft/includes/libft.h"
 # include "colors.h"
+
+# define OPTION_l	0
+# define OPTION_a	1
+# define OPTION_R	2
+# define OPTION_r	3
+# define OPTION_1	4
+# define OPTION_t	5
+# define OPTION_END	6
 
 typedef struct		s_dir
 {
@@ -100,7 +108,7 @@ int		parse_options(int ac, char **av, int *opt_bits);
 void	parse_entry(char *entryname, t_dir *current_dir);
 
 /* GETS */
-struct stat		*get_stat(const char *path);
+int				get_stat(const char *path, t_file *file);
 char			get_type(mode_t mode);
 struct passwd	*get_pwstruct(uid_t st_uid);
 struct group	*get_grstruct(gid_t st_gid);
