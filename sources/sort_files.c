@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:12:50 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/06 11:26:09 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/08 13:23:38 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int		alpha_sort(t_file *head)
 
 void			sort_files(t_file *file_head)
 {
-	if (g_argp[5].sign == 1)
+	if (g_argp[MTIME_SORT].sign == 1)
 		mtime_sort(file_head);
 	else
 		alpha_sort(file_head);
