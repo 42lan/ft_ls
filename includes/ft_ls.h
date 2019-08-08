@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/08 13:03:07 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/08 13:23:52 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@
 # include "../libft/includes/libft.h"
 # include "colors.h"
 
-# define OPTION_l	0
-# define OPTION_a	1
-# define OPTION_R	2
-# define OPTION_r	3
-# define OPTION_1	4
-# define OPTION_t	5
-# define OPTION_END	6
+# define LONG_FORMAT	0
+# define SHOW_HIDDEN	1
+# define RECURSIVE		2
+# define REVERSE_ORDER	3
+# define ONE_ENTRY		4
+# define MTIME_SORT		5
+# define END_OPTION		6
 
 typedef struct		s_dir
 {
