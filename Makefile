@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/08/07 12:55:02 by amalsago         ###   ########.fr        #
+#    Updated: 2019/08/07 14:44:19 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ IOPT		= -I $(INCDIR)
 
 AR			= /usr/bin/ar -rc
 MAKE		= /usr/bin/make -C
-CTAGS		= /usr/bin/ctags -w
+CTAGS		= ~/.brew/bin/ctags -R
 RANLIB		= /usr/bin/ranlib
 NORMINETTE	= /usr/bin/norminette
 MKDIR		= /bin/mkdir -p
@@ -139,8 +139,7 @@ fclean: clean
 re: fclean all
 
 ctags:
-	@$(CTAGS) $(SRCDIR)/*.c $(SRCDIR)/*/*.c $(INCDIR)/*.h \
-		$(LIBDIR)/includes/*.h $(LIBDIR)/sources/*/*.c $(LIBDIR)/sources/*/*/*.c
+	@$(CTAGS)
 
 norm:
 	$(NORMINETTE) $(SRCDIR) $(INCDIR) $(LIBDIR)/sources
