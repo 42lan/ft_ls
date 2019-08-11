@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/08/08 16:28:09 by amalsago         ###   ########.fr        #
+#    Updated: 2019/08/11 14:59:28 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ SRCNAME		= main.c	\
 			  wmax/determine_namlen_wmax.c \
 			  wmax/determine_nlink_wmax.c \
 			  wmax/determine_size_wmax.c \
+			  gets/get_options.c\
 			  gets/get_pwstruct.c\
 			  gets/get_permissions.c\
 			  gets/get_grstruct.c\
