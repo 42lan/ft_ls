@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/07 17:38:29 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/11 14:58:14 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,42 +20,45 @@ t_argp			g_argp[] =
 	{'r', 0, "Reverse the order of the sort"},
 	{'1', 0, "List one file per line"},
 	{'t', 0, "Sort by time modified (most recently modified first)"},
-	{'-', 0, "End of options"},
 	{0, 0, NULL}
 };
 
 void	print_opt(t_argp g_argp[])
 {
-	ft_putendl("SETTED OPTION ARE:\n");
-	int	i = -1;
+	int	i;
+
+	i = -1;
 	while (g_argp[++i].sign)
-		ft_printf("%c %d\n", g_argp[i].sign, g_argp[i].active);
+		ft_printf("%c ", g_argp[i].sign);
+	ft_putchar('\n');
+	i = -1;
+	while (g_argp[++i].sign)
+		ft_printf("%d ", g_argp[i].active);
+	ft_putchar('\n');
 }
+
 
 int				ft_ls(int ac, char **av)
 {
 	int			i;
-	int			file_found;
 	t_file		*file;
 
 	i = -1;
-	file_found = 0;
 	if (ac == 0)
 		browse_dir(".");
 	else
 	{
+		get_options(&av);
+		if (*av == NULL)
+			browse_dir(".");
 		while (++i < ac)
 		{
-			if (file_found == 0 && av[i][0] == '-')
-			{
-				parse_argp(av[i]);
-				if (av[i + 1] == NULL)
-					browse_dir(".");
-				continue ;
-			}
-			file_found = 1;
 			file = new_file();
-			file->stat = get_stat(av[i]);
+			if (get_stat(av[i], file) == 0)
+			{
+				ft_printf("Error get_stat()\n");
+				exit(0);
+			}
 			if (is_directory(file->stat->st_mode))
 			{
 				free(file);
