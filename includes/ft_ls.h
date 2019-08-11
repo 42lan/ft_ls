@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/08 13:23:52 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/11 14:59:12 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,15 +99,17 @@ void	fill_file_struct(t_file *file, struct dirent *dirent);
 int		check_subdir(t_file *file, t_dir *current_dir);
 
 /* PREDICATES */
+int		is_option(const char *av);
 int		is_hidden(const char *name);
 int		is_directory(mode_t st_mode);
 
 /* PARSING */
-void	parse_argp(char *av);
+void	parse_argp(const char *av);
 int		parse_options(int ac, char **av, int *opt_bits);
 void	parse_entry(char *entryname, t_dir *current_dir);
 
 /* GETS */
+void			get_options(char ***av)
 int				get_stat(const char *path, t_file *file);
 char			get_type(mode_t mode);
 struct passwd	*get_pwstruct(uid_t st_uid);
