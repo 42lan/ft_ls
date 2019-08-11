@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 18:31:16 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/05 12:19:24 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/08 16:30:33 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 extern t_argp	g_argp[];
 
-void			parse_argp(char *av)
+void			parse_argp(const char *av)
 {
 	int			i;
 	int			k;
