@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/08/07 14:44:19 by amalsago         ###   ########.fr        #
+#    Updated: 2019/08/08 16:28:09 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,7 @@ SRCNAME		= main.c	\
 			  parsing/parse_entry.c\
 			  parsing/parse_options.c\
 			  predicates/is_hidden.c\
+			  predicates/is_option.c\
 			  predicates/is_directory.c\
 			  recursive_browse.c\
 			  sort_files.c\
