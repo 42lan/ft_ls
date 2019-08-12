@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/08/11 14:59:28 by amalsago         ###   ########.fr        #
+#    Updated: 2019/08/12 13:24:51 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SRCNAME		= main.c	\
 			  check_subdir.c\
 			  fill_file_struct.c\
 			  ft_ls.c\
+			  new_directory.c\
 			  new_file.c\
 			  push_file.c\
 			  wmax/determine_wmax.c \
@@ -67,7 +68,6 @@ SRCNAME		= main.c	\
 			  gets/get_grstruct.c\
 			  gets/get_stat.c\
 			  gets/get_type.c\
-			  initialize_directory.c\
 			  output/display.c\
 			  output/display_default.c\
 			  output/display_filename.c\
