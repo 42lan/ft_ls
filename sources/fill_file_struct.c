@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 10:28:56 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/24 19:05:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/12 13:41:26 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,22 @@ void	fill_file_struct(t_file *file, struct dirent *dirent)
 	struct passwd	*passwd;
 	struct group	*group;
 
-	if ((passwd = get_pwstruct(file->stat->st_uid)) == NULL) //// Need to quit properly
-		return ; //////////////////////////////////////////////// Need to quit properly
-	if ((group = get_grstruct(file->stat->st_gid)) == NULL) ///// Need to quit properly
-		return ; //////////////////////////////////////////////// Need to quit properly
+	if ((passwd = get_pwstruct(file->stat->st_uid)) == NULL)
+	{
+		/////////////////////////////////////////////////////
+		///// Need to quit properly /////////////////////////
+		printf("Error while get_pwstruct() is called\n"); ///
+		exit(0); ////////////////////////////////////////////
+		/////////////////////////////////////////////////////
+	}
+	if ((group = get_grstruct(file->stat->st_gid)) == NULL)
+	{
+		/////////////////////////////////////////////////////
+		///// Need to quit properly /////////////////////////
+		printf("Error while get_grstruct() is called\n"); ///
+		exit(0); ////////////////////////////////////////////
+		/////////////////////////////////////////////////////
+	}
 	file->name = dirent->d_name;
 	file->namlen = dirent->d_namlen;
 	file->ownername = passwd->pw_name;
