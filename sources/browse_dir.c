@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/08 13:21:36 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/12 13:24:11 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_dir				*browse_dir(const char *path)
 		ft_printf("ft_ls: %s: %s\n", path, strerror(errno));
 		return (NULL);
 	}
-	current_dir = initialize_directory();
+	current_dir = new_directory();
 	current_dir->name = ft_strdup(path);
 	loop_through_dir(dp, current_dir, path);				// Callig function to llop through directory
 	ft_lstbsort(current_dir->sdir_head);					// Sort subdir list in ascii order
