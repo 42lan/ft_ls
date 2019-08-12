@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 11:46:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/25 14:47:56 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/12 15:48:27 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	browse_file(const char *path, t_file *file)
 	file->namlen = ft_strlen(path);
 	file->ownername = passwd->pw_name;
 	file->groupname = group->gr_name;
-	display_filename(file->name, 0);
+	display_filename(file->name, file->namlen, 0);
 	ft_putchar('\n');
 }
