@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/11 14:58:14 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/19 18:25:22 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,38 @@ void	print_opt(t_argp g_argp[])
 	ft_putchar('\n');
 }
 
+void        print_av(char **av)
+{
+	while (*av)
+	{
+		printf("%s, ", *av);
+		av++;
+	}
+	printf("%s\n", *av);
+}
+
+void			sort_arguments(char **av)
+{
+	t_list		*head;
+	t_list		*node;
+
+	head = NULL;
+	node = NULL;
+	while (*av)
+	{
+		if (head == NULL)
+			head = ft_lstnew(*av, ft_strlen(*av) + 1);
+		else
+		{
+			node = ft_lstnew(*av, ft_strlen(*av) + 1);
+			ft_lstadd_end(&head, node);
+		}
+		av++;
+	}
+	ft_lstprint(head);
+	ft_lstreverse(head);
+	ft_lstprint(head);
+}
 
 int				ft_ls(int ac, char **av)
 {
@@ -49,24 +81,28 @@ int				ft_ls(int ac, char **av)
 	else
 	{
 		get_options(&av);
+		//		sort_arguments(av);
 		if (*av == NULL)
 			browse_dir(".");
-		while (++i < ac)
+		else
 		{
-			file = new_file();
-			if (get_stat(av[i], file) == 0)
+			while (++i < ac - 1)
 			{
-				ft_printf("Error get_stat()\n");
-				exit(0);
+				file = new_file();
+				if (get_stat(av[i], file) == 0)
+				{
+					ft_printf("Error get_stat(%s)\n", av[i]);
+					exit(0);
+				}
+				if (is_directory(file->stat->st_mode))
+				{
+					free(file);
+					file = NULL;
+					browse_dir(av[i]);
+				}
+				else
+					browse_file(av[i], file);
 			}
-			if (is_directory(file->stat->st_mode))
-			{
-				free(file);
-				file = NULL;
-				browse_dir(av[i]);
-			}
-			else
-				browse_file(av[i], file);
 		}
 	}
 	return (1);
