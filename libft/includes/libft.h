@@ -6,14 +6,16 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/04 15:26:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/19 18:45:22 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define ABS(N) (N < 0 ? (-N) : N)
+# define ABS(N) ((N) < (0) ? (-N) : (N))
+# define MIN(A,B) ((A) < (B) ? (A) : (B))
+# define MAX(A,B) ((A) > (B) ? (A) : (B))
 # define BASE_LOWER "0123456789abcdefghijklmnopqrstuvwxyz"
 # define BASE_UPPER "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
