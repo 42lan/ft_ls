@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/08/12 13:24:51 by amalsago         ###   ########.fr        #
+#    Updated: 2019/08/22 12:11:26 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ SRCNAME		= main.c	\
 			  output/display_long.c\
 			  output/display_mtim.c\
 			  output/display_usage.c\
+			  output/print_options.c\
 			  parsing/parse_argp.c\
 			  parsing/parse_entry.c\
 			  parsing/parse_options.c\
