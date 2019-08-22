@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/19 17:09:32 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/08/22 11:50:17 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ void	display_groupname(char *groupname, size_t width);
 void	display_size(off_t st_size, size_t width);
 void	display_mtim(time_t tv_sec);
 void	display_filename(t_file *file, int width);
+void	print_options(t_argp g_argp[]);
 
 /* TOOLS */
 void	modecat(char *str, mode_t st_mode);
