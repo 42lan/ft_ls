@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 10:37:26 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/05 11:33:18 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/01 14:29:01 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int			check_subdir(t_file *file, t_dir *current_dir)
 {
 	t_list	*new_sdir;
 
-	if (is_directory(file->stat->st_mode))
+	if (S_ISDIR(file->stat->st_mode))
 	{
 		// If sdir_head is empty, so the first node of a link list is the first readed subdir
 		if (current_dir->sdir_head == NULL)
