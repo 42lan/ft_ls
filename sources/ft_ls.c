@@ -6,87 +6,39 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/19 18:25:22 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/01 19:46:27 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-t_argp			g_argp[] =
+int			ft_ls(t_file *head)
 {
-	{'l', 0, "List in long format"},
-	{'a', 0, "List files whose names begin with a dot (.)"},
-	{'R', 0, "Recursively list subdirectories encountered"},
-	{'r', 0, "Reverse the order of the sort"},
-	{'1', 0, "List one file per line"},
-	{'t', 0, "Sort by time modified (most recently modified first)"},
-	{0, 0, NULL}
-};
+	t_file	*file_arg;
 
-void	print_opt(t_argp g_argp[])
-{
-	int	i;
-
-	i = -1;
-	while (g_argp[++i].sign)
-		ft_printf("%c ", g_argp[i].sign);
-	ft_putchar('\n');
-	i = -1;
-	while (g_argp[++i].sign)
-		ft_printf("%d ", g_argp[i].active);
-	ft_putchar('\n');
-}
-
-void        print_av(char **av)
-{
-	while (*av)
+	file_arg = head;
+	while (file_arg)
 	{
-		printf("%s, ", *av);
-		av++;
-	}
-	printf("%s\n", *av);
-}
-
-void			sort_arguments(char **av)
-{
-	t_list		*head;
-	t_list		*node;
-
-	head = NULL;
-	node = NULL;
-	while (*av)
-	{
-		if (head == NULL)
-			head = ft_lstnew(*av, ft_strlen(*av) + 1);
+		if (S_ISDIR(file_arg->stat->st_mode))
+			browse_dir(head->name);
 		else
-		{
-			node = ft_lstnew(*av, ft_strlen(*av) + 1);
-			ft_lstadd_end(&head, node);
-		}
-		av++;
+			browse_file(file_arg->name, file_arg);
+		file_arg = file_arg->next;
 	}
-	ft_lstprint(head);
-	ft_lstreverse(head);
-	ft_lstprint(head);
-}
-
-int				ft_ls(int ac, char **av)
-{
-	int			i;
-	t_file		*file;
-
-	i = -1;
+	/*
 	if (ac == 0)
 		browse_dir(".");
 	else
 	{
 		get_options(&av);
-		//		sort_arguments(av);
 		if (*av == NULL)
 			browse_dir(".");
 		else
 		{
-			while (++i < ac - 1)
+			arg_files = get_files_from_arguments(av);
+			print_arg_files(arg_files);
+			sort_arg_files(arg_files);
+			while (++i < ac)
 			{
 				file = new_file();
 				if (get_stat(av[i], file) == 0)
@@ -94,7 +46,7 @@ int				ft_ls(int ac, char **av)
 					ft_printf("Error get_stat(%s)\n", av[i]);
 					exit(0);
 				}
-				if (is_directory(file->stat->st_mode))
+				if (S_ISDIR(file->stat->st_mode))
 				{
 					free(file);
 					file = NULL;
@@ -105,5 +57,6 @@ int				ft_ls(int ac, char **av)
 			}
 		}
 	}
+	*/
 	return (1);
 }
