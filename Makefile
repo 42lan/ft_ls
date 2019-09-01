@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/08/22 12:11:26 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/01 18:06:11 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ INCDIR		= ./includes
 # List of source files
 
 SRCNAME		= main.c	\
+			  check_accessibility.c\
 			  browse_dir.c\
 			  browse_file.c\
 			  check_subdir.c\
@@ -62,12 +63,14 @@ SRCNAME		= main.c	\
 			  wmax/determine_namlen_wmax.c \
 			  wmax/determine_nlink_wmax.c \
 			  wmax/determine_size_wmax.c \
+			  gets/get_argument_files.c\
 			  gets/get_options.c\
 			  gets/get_pwstruct.c\
 			  gets/get_permissions.c\
 			  gets/get_grstruct.c\
 			  gets/get_stat.c\
 			  gets/get_type.c\
+			  ft_mergesort.c\
 			  output/display.c\
 			  output/display_default.c\
 			  output/display_filename.c\
@@ -82,16 +85,13 @@ SRCNAME		= main.c	\
 			  output/display_mtim.c\
 			  output/display_usage.c\
 			  output/print_options.c\
-			  parsing/parse_argp.c\
-			  parsing/parse_entry.c\
-			  parsing/parse_options.c\
+			  parse_argp.c\
 			  predicates/is_hidden.c\
 			  predicates/is_option.c\
-			  predicates/is_directory.c\
-			  recursive_browse.c\
-			  sort_files.c\
+			  tools/cmp.c\
 			  tools/form_relpath.c\
 			  tools/modecat.c\
+			  tools/remove_file.c\
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
