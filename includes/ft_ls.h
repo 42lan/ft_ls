@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/22 11:50:17 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/01 19:30:52 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ typedef struct		s_dir
 {
 	char			*name;				// Current directory name
 	size_t			length;				// Length of current directory
-	char			*parent_name;		// Parent name of current directory
-	char			*fullpath;
 	char			*ownername;
 	char			*groupname;
 	struct s_file	*file_head;			// pointer to the first node in list of files
@@ -63,8 +61,8 @@ typedef struct		s_dir
 typedef struct		s_file
 {
 	char			*name;
-	char			*relpath;
 	size_t			namlen;
+	char			*relpath;
 	struct stat		*stat;
 	char			*ownername;
 	char			*groupname;
@@ -78,10 +76,11 @@ typedef struct		s_argp
 	char			*description;
 }					t_argp;
 
-int		ft_ls(int ac, char **av);
+void	print_argument_files(t_file *head);
+void	check_accessibility(t_file **head);
+int		ft_ls(t_file *head);
 t_dir	*browse_dir(const char *path);
 void	browse_file(const char *path, t_file *file);
-void	recursive_browse(t_list *sdir_head);
 void	max_namlen_width(t_dir *directory, t_file *entry);
 void	determine_wmax(struct dirent *dirent, t_file *file, t_dir *current_dir);
 void	determine_namlen_wmax(struct dirent *dirent, t_dir *current_dir);
@@ -109,7 +108,8 @@ int		parse_options(int ac, char **av, int *opt_bits);
 void	parse_entry(char *entryname, t_dir *current_dir);
 
 /* GETS */
-void			get_options(char ***av);
+t_file			*get_argument_files(int ac, char **av);
+void			get_options(int ac, char **av);
 int				get_stat(const char *path, t_file *file);
 char			get_type(mode_t mode);
 struct passwd	*get_pwstruct(uid_t st_uid);
@@ -134,14 +134,17 @@ void	print_options(t_argp g_argp[]);
 /* TOOLS */
 void	modecat(char *str, mode_t st_mode);
 char	*form_relpath(const char *dirname, const char *basename);
+int		mtime_cmp(t_file *file_a, t_file *file_b);
+int		name_cmp(t_file *file_a, t_file *file_b);
+void	remove_file(t_file *file);
 
 /* LINKED LIST */
-t_file	*new_file(void);
+t_file	*new_file(const char *name, const char *path);
 t_file	*push_file(t_file *head, t_file *file);
 t_file	*push_front(t_file *head, t_file *file);
 t_file	*push_back(t_file *head, t_file *file);
 
 /* SORTING */
-void	sort_files(t_file *file_head);
+void	ft_mergesort(t_file **headref, int (*cmp)(t_file *, t_file *));
 
 #endif
