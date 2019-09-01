@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/19 11:23:46 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/01 19:47:24 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void			loop_through_dir(DIR *dp, t_dir *current_dir, const char *path)
 		if (g_argp[SHOW_HIDDEN].active == 0 && is_hidden(dirent->d_name))						// Checking for hidden files
 			continue ;										// Skipping hiddent files
 		++(current_dir->nb_files);							// Counting number of files including hidden + . and ..
-		file = new_file();									// !!! Need to check allocation
+		file = new_file(dirent->d_name, path);									// !!! Need to check allocation
 		file->relpath = form_relpath(path, dirent->d_name);	// Forming relative path to call get_stat()
 		get_stat(file->relpath, file);						// Getting stat about file
 		fill_file_struct(file, dirent);						// Filling file structure
@@ -46,6 +46,17 @@ static void			loop_through_dir(DIR *dp, t_dir *current_dir, const char *path)
 			check_subdir(file, current_dir);					// Checking if actual file is a directory
 		push_back(current_dir->file_head, file);				// Appending new node to file list
 		current_dir->total_blocks += file->stat->st_blocks;
+	}
+}
+
+static void			recursive_browse(t_list *sdir_head)
+{
+	while (sdir_head != NULL)
+	{
+		write(1, "\n", 1);
+		ft_printf("%s :\n", sdir_head->content);
+		browse_dir(sdir_head->content);
+		sdir_head = sdir_head->next;
 	}
 }
 
@@ -62,11 +73,13 @@ t_dir				*browse_dir(const char *path)
 	current_dir = new_directory();
 	current_dir->name = ft_strdup(path);
 	loop_through_dir(dp, current_dir, path);				// Callig function to llop through directory
-	//ft_lstbsort(current_dir->sdir_head);					// Sort subdir list in ascii order
-	//sort_files(current_dir->file_head);
+	ft_mergesort(&current_dir->file_head, &name_cmp);
 	display(current_dir);
 	if (g_argp[RECURSIVE].active == 1 && current_dir->sdir_head != NULL)
+	{
+		//ft_mergesort(current_dir->sdir_head, &name_cmp);
 		recursive_browse(current_dir->sdir_head);
+	}
 	closedir(dp);
 	return (current_dir);
 }
