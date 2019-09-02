@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 10:37:26 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/01 14:29:01 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/02 16:50:05 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,15 @@
 
 int			check_subdir(t_file *file, t_dir *current_dir)
 {
-	t_list	*new_sdir;
-
 	if (S_ISDIR(file->stat->st_mode))
 	{
-		// If sdir_head is empty, so the first node of a link list is the first readed subdir
+		//file = new_file(file->relpath, NULL);
 		if (current_dir->sdir_head == NULL)
-			current_dir->sdir_head = ft_lstnew(file->relpath, ft_strlen(file->relpath) + 1); // abaisago: +1 pour '\0'
-		// Else, sdir_head has a node, so append linked list with new subdir
+			current_dir->sdir_head = file;
 		else
 		{
-			new_sdir = ft_lstnew(file->relpath, ft_strlen(file->relpath) + 1); // abaisago: +1 pour '\0'
-			ft_lstadd_end(&current_dir->sdir_head, new_sdir);
+			file->next = current_dir->sdir_head;
+			current_dir->sdir_head = file;
 		}
 		return (1);
 	}
