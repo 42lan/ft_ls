@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/02 15:20:32 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/02 18:16:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,11 @@
 # include "colors.h"
 
 # define LONG_FORMAT	0
-# define SHOW_HIDDEN	1
-# define RECURSIVE		2
+# define RECURSIVE		1
+# define SHOW_HIDDEN	2
 # define REVERSE_ORDER	3
-# define ONE_ENTRY		4
-# define MTIME_SORT		5
-# define END_OPTION		6
+# define MTIME_SORT		4
+# define ONE_PER_LINE	5
 
 typedef struct		s_dir
 {
@@ -46,7 +45,7 @@ typedef struct		s_dir
 	char			*ownername;
 	char			*groupname;
 	struct s_file	*file_head;			// pointer to the first node in list of files
-	struct s_list	*sdir_head;			// pointer to the first node in list of subdirs
+	struct s_file	*sdir_head;			// pointer to the first node in list of subdirs
 	size_t			nb_files;			// Total number of files in current directory
 	size_t			total_blocks;		// the total number of blocks used by the files in the directory
 
@@ -89,10 +88,10 @@ void	determine_size_wmax(t_file *file, t_dir *current_dir);
 void	determine_ownername_wmax(t_file *file, t_dir *current_dir);
 void	determine_groupname_wmax(t_file *file, t_dir *current_dir);
 
-void	list_dir(DIR *dp, t_dir *current_dir, char *entryname, t_list *subdir_list, int *options);
+void	list_dir(DIR *dp, t_dir *current_dir, const char *entryname, t_list *subdir_list, int *options);
 
-int		inspect_file(t_file *entry, char *path);
-t_dir	*new_directory(void);
+int		inspect_file(t_file *entry, const char *path);
+t_dir	*new_directory(const char *path);
 
 void	fill_file_struct(t_file *file, struct dirent *dirent);
 int		check_subdir(t_file *file, t_dir *current_dir);
@@ -105,13 +104,14 @@ int		is_directory(mode_t st_mode);
 /* PARSING */
 void	parse_argp(const char *av);
 int		parse_options(int ac, char **av, int *opt_bits);
-void	parse_entry(char *entryname, t_dir *current_dir);
+void	parse_entry(const char *entryname, t_dir *current_dir);
 
 /* GETS */
 t_file			*get_argument_files(int ac, char **av);
 void			get_options(int ac, char **av);
-int				get_stat(const char *path, t_file *file);
 char			get_type(mode_t mode);
+char			*get_mode(mode_t st_mode);
+int				get_stat(const char *path, t_file *file);
 struct passwd	*get_pwstruct(uid_t st_uid);
 struct group	*get_grstruct(gid_t st_gid);
 char			*get_permissions(mode_t mode, int ugo);
@@ -124,15 +124,14 @@ void	display_long(t_dir *current_dir);
 void	display_total(size_t total_blocks);
 void	display_mode(mode_t st_mode);
 void	display_nlink(nlink_t st_nlink, int width);
-void	display_ownername(char *ownername, size_t width);
-void	display_groupname(char *groupname, size_t width);
+void	display_ownername(const char *ownername, size_t width);
+void	display_groupname(const char *groupname, size_t width);
 void	display_size(off_t st_size, size_t width);
 void	display_mtim(time_t tv_sec);
 void	display_filename(t_file *file, int width);
 void	print_options(t_argp g_argp[]);
 
 /* TOOLS */
-void	modecat(char *str, mode_t st_mode);
 char	*form_relpath(const char *dirname, const char *basename);
 int		mtime_cmp(t_file *file_a, t_file *file_b);
 int		name_cmp(t_file *file_a, t_file *file_b);
