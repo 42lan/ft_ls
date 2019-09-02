@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 14:27:39 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/01 19:45:43 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/02 15:21:36 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,11 @@ t_file			*get_argument_files(int ac, char **av)
 			file = new_file(av[i], NULL);
 			if (head == NULL)
 				head = file;
-			push_front(head, file);
+			else
+			{
+				file->next = head;
+				head = file;
+			}
 			i++;
 		}
 	return (head);
