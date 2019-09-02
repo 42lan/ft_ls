@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 14:27:39 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/02 15:21:36 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/02 16:40:26 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 t_file			*get_argument_files(int ac, char **av)
 {
 	int			i;
-	t_file		*file;
 	t_file		*head;
+	t_file		*file;
 
 	i = 1;
 	head = NULL;
