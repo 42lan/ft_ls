@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/01 19:30:52 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/02 15:20:32 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,9 +140,6 @@ void	remove_file(t_file *file);
 
 /* LINKED LIST */
 t_file	*new_file(const char *name, const char *path);
-t_file	*push_file(t_file *head, t_file *file);
-t_file	*push_front(t_file *head, t_file *file);
-t_file	*push_back(t_file *head, t_file *file);
 
 /* SORTING */
 void	ft_mergesort(t_file **headref, int (*cmp)(t_file *, t_file *));
