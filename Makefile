@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/02 15:20:12 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/02 18:24:23 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,10 +63,11 @@ SRCNAME		= main.c	\
 			  wmax/determine_nlink_wmax.c \
 			  wmax/determine_size_wmax.c \
 			  gets/get_argument_files.c\
+			  gets/get_grstruct.c\
+			  gets/get_mode.c\
 			  gets/get_options.c\
 			  gets/get_pwstruct.c\
 			  gets/get_permissions.c\
-			  gets/get_grstruct.c\
 			  gets/get_stat.c\
 			  gets/get_type.c\
 			  ft_mergesort.c\
@@ -89,7 +90,6 @@ SRCNAME		= main.c	\
 			  predicates/is_option.c\
 			  tools/cmp.c\
 			  tools/form_relpath.c\
-			  tools/modecat.c\
 			  tools/remove_file.c\
 
 # **************************************************************************** #
