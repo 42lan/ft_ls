@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 02:26:00 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/14 05:59:43 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/02 18:18:10 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 void		display_mode(mode_t st_mode)
 {
-	char	str[11];
-
-	modecat(str, st_mode);
-	ft_printf("%s", str);
+	ft_printf("%s", get_mode(st_mode));
 }
