@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/01 19:47:24 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/02 15:04:29 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,17 @@ extern t_argp		g_argp[];
 	{'-', 0, "End of options"},
 	{0, 0, NULL}
 */
+
+static void			recursive_browse(t_list *sdir_head)
+{
+	while (sdir_head != NULL)
+	{
+		write(1, "\n", 1);
+		ft_printf("%s :\n", sdir_head->content);
+		browse_dir(sdir_head->content);
+		sdir_head = sdir_head->next;
+	}
+}
 
 static void			loop_through_dir(DIR *dp, t_dir *current_dir, const char *path)
 {
@@ -46,17 +57,6 @@ static void			loop_through_dir(DIR *dp, t_dir *current_dir, const char *path)
 			check_subdir(file, current_dir);					// Checking if actual file is a directory
 		push_back(current_dir->file_head, file);				// Appending new node to file list
 		current_dir->total_blocks += file->stat->st_blocks;
-	}
-}
-
-static void			recursive_browse(t_list *sdir_head)
-{
-	while (sdir_head != NULL)
-	{
-		write(1, "\n", 1);
-		ft_printf("%s :\n", sdir_head->content);
-		browse_dir(sdir_head->content);
-		sdir_head = sdir_head->next;
 	}
 }
 
