@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/01 19:46:27 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/02 15:28:41 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 
 int			ft_ls(t_file *head)
 {
-	t_file	*file_arg;
+	t_file	*file;
 
-	file_arg = head;
-	while (file_arg)
+	file = head;
+	while (file)
 	{
-		if (S_ISDIR(file_arg->stat->st_mode))
-			browse_dir(head->name);
+		if (S_ISDIR(file->stat->st_mode))
+		{
+			ft_printf("%s:\n", file->name);
+			browse_dir(file->name);
+			if (file->next != NULL)
+				ft_putchar('\n');
+		}
 		else
-			browse_file(file_arg->name, file_arg);
-		file_arg = file_arg->next;
+			browse_file(file->name, file);
+		file = file->next;
 	}
 	/*
 	if (ac == 0)
