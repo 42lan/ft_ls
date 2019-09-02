@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 18:31:16 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/22 13:32:37 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/02 16:38:24 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void			parse_argp(const char *av)
 	while (av[++i] != '\0')
 	{
 		k = -1;
-		if (ft_strchr("Ralrt1", av[i]) == NULL)
+		if (ft_strchr("lRart1", av[i]) == NULL)
 			display_usage(av[i]);
 		while (g_argp[++k].sign != 0)
 			if (g_argp[k].sign == av[i])
