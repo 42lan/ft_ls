@@ -6,24 +6,24 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:51:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/01 19:46:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/02 15:22:48 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-t_argp			g_argp[] =
+t_argp		g_argp[] =
 {
 	{'l', 0, "List in long format"},
-	{'a', 0, "List files whose names begin with a dot (.)"},
 	{'R', 0, "Recursively list subdirectories encountered"},
+	{'a', 0, "List files whose names begin with a dot (.)"},
 	{'r', 0, "Reverse the order of the sort"},
-	{'1', 0, "List one file per line"},
 	{'t', 0, "Sort by time modified (most recently modified first)"},
+	{'1', 0, "List one file per line"},
 	{0, 0, NULL}
 };
 
-void			print_argument_files(t_file *head)
+void		print_argument_files(t_file *head)
 {
 	while (head)
 	{
@@ -35,9 +35,9 @@ void			print_argument_files(t_file *head)
 	}
 }
 
-int				main(int ac, char **av)
+int			main(int ac, char **av)
 {
-	t_file		*file_list;
+	t_file	*file_list;
 
 	get_options(ac, av);
 	file_list = get_argument_files(ac, av);
