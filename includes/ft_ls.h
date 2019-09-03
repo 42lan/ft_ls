@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/02 18:16:55 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/02 19:31:11 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct		s_dir
 	char			*ownername;
 	char			*groupname;
 	struct s_file	*file_head;			// pointer to the first node in list of files
-	struct s_file	*sdir_head;			// pointer to the first node in list of subdirs
+	struct s_file	*subdir_head;			// pointer to the first node in list of subdirs
 	size_t			nb_files;			// Total number of files in current directory
 	size_t			total_blocks;		// the total number of blocks used by the files in the directory
 
