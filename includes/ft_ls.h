@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/02 19:31:11 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/03 16:23:23 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct		s_argp
 	char			*description;
 }					t_argp;
 
+void	lineup_files(t_file **head);
 void	print_argument_files(t_file *head);
 void	check_accessibility(t_file **head);
 int		ft_ls(t_file *head);
