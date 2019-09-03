@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/02 18:24:23 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/03 09:54:47 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBNAME		= libft.a
 # GNU Compiler Collection
 
 GCC			= /usr/bin/clang
-WOPT		= -Wall -Wextra -Werror #-Weverything #-g -g3
+WOPT		= -Wall -Wextra -Werror -g -g3 #-Weverythin
 OOPT		= #-O2
 IOPT		= -I $(INCDIR)
 
@@ -51,7 +51,6 @@ SRCNAME		= main.c	\
 			  check_accessibility.c\
 			  browse_dir.c\
 			  browse_file.c\
-			  check_subdir.c\
 			  fill_file_struct.c\
 			  ft_ls.c\
 			  new_directory.c\
