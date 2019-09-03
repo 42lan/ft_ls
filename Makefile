@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/03 09:54:47 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/03 16:04:21 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SRCNAME		= main.c	\
 			  browse_file.c\
 			  fill_file_struct.c\
 			  ft_ls.c\
+			  lineup_files.c\
 			  new_directory.c\
 			  new_file.c\
 			  wmax/determine_wmax.c \
