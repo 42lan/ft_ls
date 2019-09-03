@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/02 18:30:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/03 10:18:50 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,21 @@ extern t_argp		g_argp[];
 	{0, 0, NULL}
 */
 
-static void			recursive_browse(t_file *sdir_head)
+static void			recursive_browse(t_file *subdir_head)
 {
-	while (sdir_head != NULL)
+	while (subdir_head != NULL)
 	{
 		ft_putchar('\n');;
-		ft_printf("%s :\n", sdir_head->relpath);
-		browse_dir(sdir_head->relpath);
-		sdir_head = sdir_head->next;
+		ft_printf("%s :\n", subdir_head->relpath);
+		browse_dir(subdir_head->relpath);
+		subdir_head = subdir_head->next;
 	}
 }
 
 static void			loop_through_dir(DIR *dp, t_dir *current_dir, const char *path)
 {
 	t_file			*file;
+	t_file			*subdir;
 	struct dirent	*dirent;
 
 	while ((dirent = readdir(dp)) != NULL)					// Reading directory entry by entry
@@ -59,7 +60,19 @@ static void			loop_through_dir(DIR *dp, t_dir *current_dir, const char *path)
 		}
 		determine_wmax(dirent, file, current_dir);
 		if (!(ft_strequ(file->name, ".") || ft_strequ(file->name, ".."))) // To avoid . and .. while recursion
-			check_subdir(file, current_dir);					// Checking if actual file is a directory
+		{
+			if (S_ISDIR(file->stat->st_mode))
+			{
+				subdir = new_file(file->name, path);
+				if (current_dir->subdir_head == NULL)
+					current_dir->subdir_head = subdir;
+				else
+				{
+					subdir->next = current_dir->subdir_head;
+					current_dir->subdir_head = subdir;
+				}
+			}
+		}
 		current_dir->total_blocks += file->stat->st_blocks;
 	}
 }
@@ -69,20 +82,21 @@ t_dir				*browse_dir(const char *path)
 	DIR				*dp;
 	t_dir			*current_dir;
 
-	if ((dp = opendir(path)) == NULL)						// Trying to open given path
+	dp = NULL;
+	current_dir = NULL;
+	if ((dp = opendir(path)) == NULL)
 	{
 		ft_printf("ft_ls: %s: %s\n", path, strerror(errno));
 		return (NULL);
 	}
 	current_dir = new_directory(path);
-	//current_dir->name = ft_strdup(path);
-	loop_through_dir(dp, current_dir, path);				// Callig function to llop through directory
+	loop_through_dir(dp, current_dir, path);
 	ft_mergesort(&current_dir->file_head, &name_cmp);
 	display(current_dir);
-	if (g_argp[RECURSIVE].active == 1 && current_dir->sdir_head != NULL)
+	if (g_argp[RECURSIVE].active == 1 && current_dir->subdir_head != NULL)
 	{
-		//ft_mergesort(current_dir->sdir_head, &name_cmp);
-		recursive_browse(current_dir->sdir_head);
+		ft_mergesort(&current_dir->subdir_head, &name_cmp);
+		recursive_browse(current_dir->subdir_head);
 	}
 	closedir(dp);
 	return (current_dir);
