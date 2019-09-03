@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:51:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/02 15:22:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/03 16:25:44 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-t_argp		g_argp[] =
+t_argp			g_argp[] =
 {
 	{'l', 0, "List in long format"},
 	{'R', 0, "Recursively list subdirectories encountered"},
@@ -23,7 +23,7 @@ t_argp		g_argp[] =
 	{0, 0, NULL}
 };
 
-void		print_argument_files(t_file *head)
+void			print_argument_files(t_file *head)
 {
 	while (head)
 	{
@@ -43,6 +43,7 @@ int			main(int ac, char **av)
 	file_list = get_argument_files(ac, av);
 	ft_mergesort(&file_list, &name_cmp);
 	check_accessibility(&file_list);
+	lineup_files(&file_list);
 	ft_ls(file_list);
 	return (0);
 }
