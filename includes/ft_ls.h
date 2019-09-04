@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/04 11:24:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/04 16:09:06 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,73 +75,61 @@ typedef struct		s_argp
 	char			*description;
 }					t_argp;
 
-void	lineup_files(t_file **head);
-void	print_argument_files(t_file *head);
-void	check_accessibility(t_file **head);
-int		ft_ls(t_file *head);
-t_dir	*browse_dir(const char *path);
-void	browse_file(const char *path, t_file *file);
-void	max_namlen_width(t_dir *directory, t_file *entry);
-void	determine_wmax(struct dirent *dirent, t_file *file, t_dir *current_dir);
-void	determine_namlen_wmax(struct dirent *dirent, t_dir *current_dir);
-void	determine_nlink_wmax(t_file *file, t_dir *current_dir);
-void	determine_size_wmax(t_file *file, t_dir *current_dir);
-void	determine_ownername_wmax(t_file *file, t_dir *current_dir);
-void	determine_groupname_wmax(t_file *file, t_dir *current_dir);
+t_dir				*browse_dir(const char *path);
+void				browse_file(const char *path, t_file *file);
+int					ft_ls(t_file *head);
 
-void	list_dir(DIR *dp, t_dir *current_dir, const char *entryname, t_list *subdir_list, int *options);
-
-int		inspect_file(t_file *entry, const char *path);
-t_dir	*new_directory(const char *path);
-
-void	fill_file_struct(t_file *file, struct dirent *dirent);
-int		check_subdir(t_file *file, t_dir *current_dir);
+void				fill_file_struct(t_file *file, struct dirent *dirent);
+t_file				*new_file(const char *name, const char *path);
+t_dir				*new_directory(const char *path);
 
 /* PREDICATES */
-int		is_option(const char *av);
-int		is_hidden(const char *name);
-int		is_directory(mode_t st_mode);
-
-/* PARSING */
-void	parse_argp(const char *av);
-int		parse_options(int ac, char **av, int *opt_bits);
-void	parse_entry(const char *entryname, t_dir *current_dir);
-
-/* GETS */
-t_file			*get_argument_files(int ac, char **av);
-void			get_options(int ac, char **av);
-char			get_type(mode_t mode);
-char			*get_mode(mode_t st_mode);
-int				get_stat(const char *path, t_file *file);
-struct passwd	*get_pwstruct(uid_t st_uid);
-struct group	*get_grstruct(gid_t st_gid);
-char			*get_permissions(mode_t mode, int ugo);
+int					is_hidden(const char *name);
+int					is_option(const char *av);
 
 /* OUTPUT */
-void	display_usage(char c);
-void	display(t_dir *current_dir);
-void	display_default(t_dir *current_dir);
-void	display_long(t_dir *current_dir);
-void	display_total(size_t total_blocks);
-void	display_mode(mode_t st_mode);
-void	display_nlink(nlink_t st_nlink, int width);
-void	display_ownername(const char *ownername, size_t width);
-void	display_groupname(const char *groupname, size_t width);
-void	display_size(off_t st_size, size_t width);
-void	display_mtim(time_t tv_sec);
-void	display_filename(t_file *file);
-void	print_options(t_argp g_argp[]);
+void				display(t_dir *current_dir);
+void				display_default(t_dir *current_dir);
+void				display_filename(t_file *file);
+void				display_groupname(const char *groupname, size_t width);
+void				display_long(t_dir *current_dir);
+void				display_mode(mode_t st_mode);
+void				display_mtim(time_t tv_sec);
+void				display_nlink(nlink_t st_nlink, int width);
+void				display_options(t_argp g_argp[]);
+void				display_ownername(const char *ownername, size_t width);
+void				display_size(off_t st_size, size_t width);
+void				display_total(size_t total_blocks);
+void				display_usage(char c);
 
 /* TOOLS */
-char	*form_relpath(const char *dirname, const char *basename);
-int		mtime_cmp(t_file *file_a, t_file *file_b);
-int		name_cmp(t_file *file_a, t_file *file_b);
-void	remove_file(t_file *file);
+void				check_accessibility(t_file **head);
+char				*form_relpath(const char *dirname, const char *basename);
+void				ft_mergesort(t_file **headref, int (*cmp)(t_file *, t_file *));
+void				lineup_files(t_file **head);
+int					mtime_cmp(t_file *file_a, t_file *file_b);
+int					name_cmp(t_file *file_a, t_file *file_b);
+void				parse_argp(const char *av);
+void				remove_file(t_file *file);
+void				reverse_files(t_file **head);
 
-/* LINKED LIST */
-t_file	*new_file(const char *name, const char *path);
 
-/* SORTING */
-void	ft_mergesort(t_file **headref, int (*cmp)(t_file *, t_file *));
+/* WMAX */
+void				determine_groupname_wmax(t_file *file, t_dir *current_dir);
+void				determine_namlen_wmax(struct dirent *dirent, t_dir *current_dir);
+void				determine_nlink_wmax(t_file *file, t_dir *current_dir);
+void				determine_ownername_wmax(t_file *file, t_dir *current_dir);
+void				determine_size_wmax(t_file *file, t_dir *current_dir);
+void				determine_wmax(struct dirent *dirent, t_file *file, t_dir *current_dir);
+
+/* GETS */
+t_file				*get_argument_files(int ac, char **av);
+void				get_options(int ac, char **av);
+char				get_type(mode_t mode);
+char				*get_mode(mode_t st_mode);
+int					get_stat(const char *path, t_file *file);
+struct passwd		*get_pwstruct(uid_t st_uid);
+struct group		*get_grstruct(gid_t st_gid);
+char				*get_permissions(mode_t mode, int ugo);
 
 #endif
