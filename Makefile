@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/03 16:04:21 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/04 16:59:52 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,49 +48,50 @@ INCDIR		= ./includes
 # List of source files
 
 SRCNAME		= main.c	\
-			  check_accessibility.c\
 			  browse_dir.c\
 			  browse_file.c\
-			  fill_file_struct.c\
 			  ft_ls.c\
-			  lineup_files.c\
-			  new_directory.c\
-			  new_file.c\
-			  wmax/determine_wmax.c \
-			  wmax/determine_ownername_wmax.c \
-			  wmax/determine_groupname_wmax.c \
-			  wmax/determine_namlen_wmax.c \
-			  wmax/determine_nlink_wmax.c \
-			  wmax/determine_size_wmax.c \
 			  gets/get_argument_files.c\
 			  gets/get_grstruct.c\
 			  gets/get_mode.c\
 			  gets/get_options.c\
-			  gets/get_pwstruct.c\
 			  gets/get_permissions.c\
+			  gets/get_pwstruct.c\
 			  gets/get_stat.c\
 			  gets/get_type.c\
-			  ft_mergesort.c\
 			  output/display.c\
 			  output/display_default.c\
 			  output/display_filename.c\
 			  output/display_groupname.c\
 			  output/display_long.c\
 			  output/display_mode.c\
+			  output/display_mtim.c\
 			  output/display_nlink.c\
+			  output/display_options.c\
 			  output/display_ownername.c\
 			  output/display_size.c\
 			  output/display_total.c\
-			  output/display_long.c\
-			  output/display_mtim.c\
 			  output/display_usage.c\
-			  output/print_options.c\
-			  parse_argp.c\
 			  predicates/is_hidden.c\
 			  predicates/is_option.c\
+			  tools/check_accessibility.c\
 			  tools/cmp.c\
+			  tools/fill_file_struct.c\
 			  tools/form_relpath.c\
+			  tools/ft_mergesort.c\
+			  tools/lineup_files.c\
+			  tools/new_directory.c\
+			  tools/new_file.c\
+			  tools/parse_argp.c\
 			  tools/remove_file.c\
+			  tools/reverse_files.c\
+			  wmax/determine_groupname_wmax.c\
+			  wmax/determine_namlen_wmax.c\
+			  wmax/determine_nlink_wmax.c\
+			  wmax/determine_ownername_wmax.c\
+			  wmax/determine_size_wmax.c\
+			  wmax/determine_wmax.c
+
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
@@ -115,6 +116,8 @@ BASENAME	= `basename $(PWD)`
 # Rules
 
 all: $(NAME) $(LFT)
+	@$(CTAGS)
+	@printf $(CR)$(GREEN)"✓ tags is created\n"$(EOC)
 
 $(NAME): $(LFT) $(OBJ)
 	@$(AR) $(LIBFTLS) $(OBJ) $(LFTOBJ)
@@ -134,14 +137,12 @@ clean:
 	@$(RM) $(OBJ) $(OBJDIR)
 
 fclean: clean
+	@$(RM) ./tags
 	@$(RM) $(NAME) $(LIBFTLS)
-	@printf $(CR)$(RED)"✗ ./$(NAME) and ./$(LIBFTLS) are deleted\n"$(EOC)
+	@printf $(CR)$(RED)"✗ ./tags, ./$(NAME) and ./$(LIBFTLS) are deleted\n"$(EOC)
 	@$(MAKE) $(LIBDIR) fclean
 
 re: fclean all
-
-ctags:
-	@$(CTAGS)
 
 norm:
 	$(NORMINETTE) $(SRCDIR) $(INCDIR) $(LIBDIR)/sources
