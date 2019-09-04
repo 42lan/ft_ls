@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 05:19:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/19 17:28:05 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/04 11:25:16 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	display_long(t_dir *dir)
 		display_groupname(dir->file_head->groupname, dir->groupname_wmax);
 		display_size(dir->file_head->stat->st_size, dir->size_wmax);
 		display_mtim(dir->file_head->stat->st_mtimespec.tv_sec);
-		display_filename(dir->file_head, 1);
+		display_filename(dir->file_head);
 		dir->file_head = dir->file_head->next;
 	}
 }
