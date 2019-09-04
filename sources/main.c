@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:51:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/03 18:27:41 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/04 13:36:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,6 @@ t_argp			g_argp[] =
 	{'1', 0, "List one file per line"},
 	{0, 0, NULL}
 };
-
-void			print_argument_files(t_file *head)
-{
-	while (head)
-	{
-		if (head->next != NULL)
-			ft_printf("%s --> ", head->name, head->next->name);
-		else
-			ft_printf("%s --> NULL\n", head->name);
-		head = head->next;
-	}
-}
 
 int			main(int ac, char **av)
 {
