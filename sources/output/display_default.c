@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 03:21:49 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/19 17:22:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/04 12:03:48 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ void					display_default(t_dir *dir)
 	while (dir->file_head != NULL)
 	{
 		//place_cursor(x, y);
-		if (dir->file_head->next == NULL)
-			display_filename(dir->file_head, 0);
-		else
-			display_filename(dir->file_head, 0);
+		display_filename(dir->file_head);
 		dir->file_head = dir->file_head->next;
 	}
 }
