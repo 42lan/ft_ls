@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/03 10:18:50 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/04 18:10:52 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ static void			loop_through_dir(DIR *dp, t_dir *current_dir, const char *path)
 			continue ;										// Skipping hiddent files
 		++(current_dir->nb_files);							// Counting number of files including hidden + . and ..
 		file = new_file(dirent->d_name, path);									// !!! Need to check allocation
-		file->relpath = form_relpath(path, dirent->d_name);	// Forming relative path to call get_stat()
 		get_stat(file->relpath, file);						// Getting stat about file
 		fill_file_struct(file, dirent);						// Filling file structure
 		if (current_dir->file_head == NULL)					// Checking if file_head pointer is NULL
@@ -92,6 +91,13 @@ t_dir				*browse_dir(const char *path)
 	current_dir = new_directory(path);
 	loop_through_dir(dp, current_dir, path);
 	ft_mergesort(&current_dir->file_head, &name_cmp);
+	if (g_argp[REVERSE_ORDER].active == 1)
+		reverse_files(&current_dir->file_head);
+	if (g_argp[MTIME_SORT].active == 1)
+	{
+		ft_mergesort(&current_dir->file_head, &mtime_cmp);
+		reverse_files(&current_dir->file_head);
+	}
 	display(current_dir);
 	if (g_argp[RECURSIVE].active == 1 && current_dir->subdir_head != NULL)
 	{
