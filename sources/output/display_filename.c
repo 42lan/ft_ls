@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 03:18:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/19 18:18:46 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/04 10:20:31 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void			display_filename(t_file *file, int width)
 		ft_printf("%*s -> %s\n", file->namlen + width, file->name, target);
 	}
 	else
-		ft_printf("%*s\n", file->namlen + width, file->name);
+		ft_printf("%*s\n", width, file->name);
 }
