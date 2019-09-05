@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/04 16:09:06 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/05 16:38:45 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ typedef struct		s_dir
 	struct s_file	*subdir_head;			// pointer to the first node in list of subdirs
 	size_t			nb_files;			// Total number of files in current directory
 	size_t			total_blocks;		// the total number of blocks used by the files in the directory
-
 	size_t			namlen_wmax;		// Maximum length of a filename in directory
 	size_t			nlink_wmax;
 	size_t			size_wmax;
