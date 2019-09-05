@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/05 16:38:45 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/05 18:42:29 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ int					name_cmp(t_file *file_a, t_file *file_b);
 void				parse_argp(const char *av);
 void				remove_file(t_file *file);
 void				reverse_files(t_file **head);
+void				set_special_permissions(mode_t st_mode, char **str);
 
 
 /* WMAX */
