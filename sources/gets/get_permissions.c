@@ -6,27 +6,34 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/23 13:46:39 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/04 02:34:54 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/05 12:22:04 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	*get_permissions(mode_t mode, int ugo)
+char		*get_permissions(mode_t mode, int ugo)
 {
-	if (mode & S_IRUSR >> ugo && mode & S_IWUSR >> ugo && mode & S_IXUSR >> ugo)
+	int		r_mask;
+	int		w_mask;
+	int		x_mask;
+
+	r_mask = S_IRUSR >> ugo;
+	w_mask = S_IWUSR >> ugo;
+	x_mask = S_IXUSR >> ugo;
+	if ((mode & r_mask) && (mode & w_mask) && (mode & x_mask))
 		return ("rwx");
-	else if ((mode & S_IRUSR >> ugo) && (mode & S_IWUSR >> ugo))
+	else if ((mode & r_mask) && (mode & w_mask))
 		return ("rw-");
-	else if ((mode & S_IRUSR >> ugo) && (mode & S_IXUSR >> ugo))
+	else if ((mode & r_mask) && (mode & x_mask))
 		return ("r-x");
-	else if (mode & S_IRUSR >> ugo)
+	else if (mode & r_mask)
 		return ("r--");
-	else if ((mode & S_IWUSR >> ugo) && (mode & S_IXUSR >> ugo))
+	else if ((mode & w_mask) && (mode & x_mask))
 		return ("-wx");
-	else if (mode & S_IWUSR >> ugo)
+	else if (mode & w_mask)
 		return ("-w-");
-	else if (mode & S_IXUSR >> ugo)
+	else if (mode & x_mask)
 		return ("--x");
 	else
 		return ("---");
