@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/04 16:59:52 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/05 18:43:00 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,6 +85,7 @@ SRCNAME		= main.c	\
 			  tools/parse_argp.c\
 			  tools/remove_file.c\
 			  tools/reverse_files.c\
+			  tools/set_special_permissions.c\
 			  wmax/determine_groupname_wmax.c\
 			  wmax/determine_namlen_wmax.c\
 			  wmax/determine_nlink_wmax.c\
