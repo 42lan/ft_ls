@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/05 18:42:29 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/06 13:09:35 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ typedef struct		s_file
 	char			*name;
 	size_t			namlen;
 	char			*relpath;
+	char			target[PATH_MAX];
+	size_t			targetlen;
 	struct stat		*stat;
 	char			*ownername;
 	char			*groupname;
