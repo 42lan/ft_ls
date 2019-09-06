@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 10:28:56 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/01 19:53:10 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/06 16:21:03 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 void	fill_file_struct(t_file *file, struct dirent *dirent)
 {
-	struct passwd	*passwd;
-	struct group	*group;
+	struct passwd	*pwstruct;
+	struct group	*grstruct;
 
-	if ((passwd = get_pwstruct(file->stat->st_uid)) == NULL)
-		ft_error_exit("Error while get_pwstruct() is called\n");
-	if ((group = get_grstruct(file->stat->st_gid)) == NULL)
-		ft_error_exit("Error while get_grstruct() is called\n");
 	file->name = dirent->d_name;
 	file->namlen = dirent->d_namlen;
-	file->ownername = passwd->pw_name;
-	file->groupname = group->gr_name;
+	if ((pwstruct = get_pwstruct(file->stat->st_uid)) != NULL)
+		file->ownername = pwstruct->pw_name;
+	else
+		file->ownername = ft_itoa(file->stat->st_uid);
+	if ((grstruct = get_grstruct(file->stat->st_gid)) != NULL)
+		file->groupname = grstruct->gr_name;
+	else
+		file->groupname = ft_itoa(file->stat->st_uid);
 }
