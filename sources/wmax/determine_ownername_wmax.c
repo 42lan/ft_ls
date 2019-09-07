@@ -6,17 +6,17 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/07 12:45:31 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/07 12:56:58 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/07 20:00:18 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void		determine_ownername_wmax(t_file *file, t_dir *current_dir)
+void		determine_ownername_wmax(t_file *file, t_dir *directory)
 {
 	size_t	ownername_w;
 
 	ownername_w = ft_strlen(file->ownername);
-	if (ownername_w > current_dir->ownername_wmax)
-		current_dir->ownername_wmax = ownername_w;
+	if (ownername_w > directory->ownername_wmax)
+		directory->ownername_wmax = ownername_w;
 }
