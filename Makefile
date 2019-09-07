@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/07 15:55:28 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/07 19:09:33 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ SRCNAME		= main.c	\
 			  predicates/is_option.c\
 			  tools/check_accessibility.c\
 			  tools/cmp.c\
-			  tools/fill_file_struct.c\
+			  tools/fill_struct.c\
 			  tools/form_relpath.c\
 			  tools/ft_mergesort.c\
 			  tools/lineup_files.c\
