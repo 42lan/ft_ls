@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/07 15:56:10 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/07 19:53:21 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,11 @@ typedef struct		s_argp
 	char			*description;
 }					t_argp;
 
-t_dir				*browse_dir(const char *path);
+void				browse_dir(const char *path);
 void				browse_file(const char *path, t_file *file);
 int					ft_ls(t_file *head);
 
-void				fill_file_struct(t_file *file, struct dirent *dirent);
+void				fill_struct(t_file *file, struct dirent *dirent);
 t_file				*new_file(const char *name, const char *path);
 t_dir				*new_directory(const char *path);
 
