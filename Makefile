@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/05 18:43:00 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/07 15:55:28 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,18 +60,18 @@ SRCNAME		= main.c	\
 			  gets/get_stat.c\
 			  gets/get_type.c\
 			  output/display.c\
-			  output/display_default.c\
-			  output/display_filename.c\
-			  output/display_groupname.c\
-			  output/display_long.c\
-			  output/display_mode.c\
-			  output/display_mtim.c\
-			  output/display_nlink.c\
-			  output/display_options.c\
-			  output/display_ownername.c\
-			  output/display_size.c\
-			  output/display_total.c\
-			  output/display_usage.c\
+			  output/print_default.c\
+			  output/print_filename.c\
+			  output/print_groupname.c\
+			  output/print_long.c\
+			  output/print_mode.c\
+			  output/print_mtime.c\
+			  output/print_nlink.c\
+			  output/print_options.c\
+			  output/print_ownername.c\
+			  output/print_size.c\
+			  output/print_totalblocks.c\
+			  output/print_usage.c\
 			  predicates/is_hidden.c\
 			  predicates/is_option.c\
 			  tools/check_accessibility.c\
