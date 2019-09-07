@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 16:03:40 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/06 16:57:58 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/07 19:57:47 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,66 +23,6 @@ static void		update_head(t_file **head, t_file *dirlst, t_file *reglst,
 		*head = reglst;
 	}
 }
-
-/*
-void			lineup_files(t_file **head)
-{
-	t_file		*curr;
-	t_file		*next;
-	t_file		*reglst;
-	t_file		*dirlst;
-	t_file		*lastdir;
-	t_file		*lastreg;
-
-	curr = *head;
-	reglst = NULL;
-	dirlst = NULL;
-	lastdir = NULL;
-	lastreg = NULL;
-	if (curr->next != NULL)
-	{
-		while (curr)
-		{
-			next = curr->next;
-			if (S_ISDIR(curr->stat->st_mode))
-			{
-				if (dirlst == NULL)
-				{
-					dirlst = curr;
-					curr = next;
-					lastdir = dirlst;
-					lastdir->next = NULL;
-				}
-				else
-				{
-					lastdir->next = curr;
-					lastdir = curr;
-					lastdir->next = NULL;
-					curr = next;
-				}
-			}
-			else if (S_ISREG(curr->stat->st_mode))
-			{
-				if (reglst == NULL)
-				{
-					reglst = curr;
-					curr = next;
-					lastreg = reglst;
-					lastreg->next = NULL;
-				}
-				else
-				{
-					lastreg->next = curr;
-					lastreg = curr;
-					lastreg->next = NULL;
-					curr = next;
-				}
-			}
-		}
-		update_head(head, dirlst, reglst, lastreg);
-	}
-}
-*/
 
 static void		dir_handler(t_file **dirlst, t_file **curr, t_file **lastdir,
 				t_file *next)
