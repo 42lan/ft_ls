@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 11:46:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/04 10:46:40 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/07 19:58:48 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ extern t_argp		g_argp[];
 */
 void				browse_file(const char *path, t_file *file)
 {
-	t_dir			*current_dir;
+	t_dir			*directory;
 	struct passwd	*passwd;
 	struct group	*group;
 
-	current_dir = new_directory(path);
+	directory = new_directory(path);
 	if ((passwd = get_pwstruct(file->stat->st_uid)) == NULL)
 		file->ownername = ft_itoa(file->stat->st_uid);
 	else
@@ -39,10 +39,10 @@ void				browse_file(const char *path, t_file *file)
 		file->groupname = ft_itoa(file->stat->st_gid);
 	else
 		file->groupname = group->gr_name;
-	current_dir->file_head = file;
-	determine_ownername_wmax(file, current_dir);
-	determine_groupname_wmax(file, current_dir);
-	determine_nlink_wmax(file, current_dir);
-	determine_size_wmax(file, current_dir);
-	display(current_dir);
+	directory->file_head = file;
+	determine_ownername_wmax(file, directory);
+	determine_groupname_wmax(file, directory);
+	determine_nlink_wmax(file, directory);
+	determine_size_wmax(file, directory);
+	display(directory);
 }
