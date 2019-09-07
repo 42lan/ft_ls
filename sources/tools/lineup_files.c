@@ -6,13 +6,14 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 16:03:40 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/04 17:26:43 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/06 16:57:58 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static void		update_head(t_file **head, t_file *dirlst, t_file *reglst, t_file *lastreg)
+static void		update_head(t_file **head, t_file *dirlst, t_file *reglst,
+				t_file *lastreg)
 {
 	if (lastreg == NULL)
 		*head = dirlst;
@@ -23,6 +24,7 @@ static void		update_head(t_file **head, t_file *dirlst, t_file *reglst, t_file *
 	}
 }
 
+/*
 void			lineup_files(t_file **head)
 {
 	t_file		*curr;
@@ -80,19 +82,10 @@ void			lineup_files(t_file **head)
 		update_head(head, dirlst, reglst, lastreg);
 	}
 }
-/*
-static void		update_head(t_file **head, t_file *dirlst, t_file *reglst, t_file *lastreg)
-{
-	if (lastreg == NULL)
-		*head = dirlst;
-	else
-	{
-		lastreg->next = dirlst;
-		*head = reglst;
-	}
-}
+*/
 
-static void		dir_handler(t_file **dirlst, t_file **curr, t_file **lastdir, t_file *next)
+static void		dir_handler(t_file **dirlst, t_file **curr, t_file **lastdir,
+				t_file *next)
 {
 	if ((*dirlst) == NULL)
 	{
@@ -110,7 +103,8 @@ static void		dir_handler(t_file **dirlst, t_file **curr, t_file **lastdir, t_fil
 	}
 }
 
-static void		reg_handler(t_file **reglst, t_file **curr, t_file **lastreg, t_file *next)
+static void		reg_handler(t_file **reglst, t_file **curr, t_file **lastreg,
+				t_file *next)
 {
 	if ((*reglst) == NULL)
 	{
@@ -155,4 +149,3 @@ void			lineup_files(t_file **head)
 		update_head(head, dirlst, reglst, lastreg);
 	}
 }
-*/
