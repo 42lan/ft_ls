@@ -6,13 +6,14 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 12:20:32 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/31 12:39:06 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/06 16:53:44 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static void		frontbacksplit(t_file *source, t_file **frontref, t_file **backref)
+static void		frontbacksplit(t_file *source, t_file **frontref,
+				t_file **backref)
 {
 	t_file		*fast;
 	t_file		*slow;
@@ -33,7 +34,8 @@ static void		frontbacksplit(t_file *source, t_file **frontref, t_file **backref)
 	slow->next = NULL;
 }
 
-static t_file	*sortedmerge(t_file *a, t_file *b, int (*cmp)(t_file *, t_file *))
+static t_file	*sortedmerge(t_file *a, t_file *b,
+				int (*cmp)(t_file *, t_file *))
 {
 	t_file		*result;
 
