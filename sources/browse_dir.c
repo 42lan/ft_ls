@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/07 19:56:53 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/08 15:48:17 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,12 @@ static void			loop_through_dir(DIR *dp, t_dir *directory, const char *path)
 
 	while ((dirent = readdir(dp)) != NULL)
 	{
-		if (g_argp[SHOW_HIDDEN].active == 0 && is_hidden(dirent->d_name))
+		if (!(g_argp[SHOW_HIDDEN].active) && is_hidden(dirent->d_name))
 			continue ;
-		++(directory->nb_files);
 		file = new_file(dirent->d_name, path);
 		get_stat(file->relpath, file);		
-		fill_struct(file, dirent);
-		determine_wmax(dirent, file, directory);
+		fill_struct(file);
+		determine_wmax(directory, file);
 		if (!(ft_strequ(file->name, ".") || ft_strequ(file->name, "..")))
 			if (S_ISDIR(file->stat->st_mode))
 				append_subdir(&directory, file, path);
@@ -82,15 +81,15 @@ void				browse_dir(const char *path)
 	directory = new_directory(path);
 	loop_through_dir(dp, directory, path);
 	ft_mergesort(&directory->file_head, &name_cmp);
-	if (g_argp[REVERSE_ORDER].active == 1)
+	if (g_argp[REVERSE_ORDER].active)
 		reverse_files(&directory->file_head);
-	if (g_argp[MTIME_SORT].active == 1)
+	if (g_argp[MTIME_SORT].active)
 	{
 		ft_mergesort(&directory->file_head, &mtime_cmp);
 		reverse_files(&directory->file_head);
 	}
 	display(directory);
-	if (g_argp[RECURSIVE].active == 1 && directory->subdir_head != NULL)
+	if (g_argp[RECURSIVE].active && directory->subdir_head != NULL)
 	{
 		ft_mergesort(&directory->subdir_head, &name_cmp);
 		recursive_browse(directory->subdir_head);
