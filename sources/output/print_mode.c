@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 02:26:00 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/07 13:31:26 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/08 13:40:36 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void		print_mode(mode_t st_mode)
+void		print_mode(const char *mode)
 {
-	ft_printf("%s", get_mode(st_mode));
+	ft_printf("%s", mode);
 }
