@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 15:39:53 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/04 13:23:31 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/08 10:31:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_dir		*new_directory(const char *name)
 		return (NULL);
 	directory->name = ft_strdup(name);
 	directory->length = ft_strlen(name);
-	directory->nb_files = 0;
 	directory->total_blocks = 0;
 	directory->namlen_wmax = 0;
 	directory->nlink_wmax = 0;
