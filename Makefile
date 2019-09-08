@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/07 19:09:33 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/08 15:48:48 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,6 @@ IOPT		= -I $(INCDIR)
 
 AR			= /usr/bin/ar -rc
 MAKE		= /usr/bin/make -C
-CTAGS		= ~/.brew/bin/ctags -R
 RANLIB		= /usr/bin/ranlib
 NORMINETTE	= /usr/bin/norminette
 MKDIR		= /bin/mkdir -p
@@ -53,6 +52,7 @@ SRCNAME		= main.c	\
 			  ft_ls.c\
 			  gets/get_argument_files.c\
 			  gets/get_grstruct.c\
+			  gets/get_link.c\
 			  gets/get_mode.c\
 			  gets/get_options.c\
 			  gets/get_permissions.c\
@@ -117,8 +117,6 @@ BASENAME	= `basename $(PWD)`
 # Rules
 
 all: $(NAME) $(LFT)
-	@$(CTAGS)
-	@printf $(CR)$(GREEN)"✓ tags is created\n"$(EOC)
 
 $(NAME): $(LFT) $(OBJ)
 	@$(AR) $(LIBFTLS) $(OBJ) $(LFTOBJ)
