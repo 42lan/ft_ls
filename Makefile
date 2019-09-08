@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/08 15:48:48 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/08 15:59:38 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -136,7 +136,7 @@ clean:
 	@$(RM) $(OBJ) $(OBJDIR)
 
 fclean: clean
-	@$(RM) ./tags
+	@$(RM)
 	@$(RM) $(NAME) $(LIBFTLS)
 	@printf $(CR)$(RED)"✗ ./tags, ./$(NAME) and ./$(LIBFTLS) are deleted\n"$(EOC)
 	@$(MAKE) $(LIBDIR) fclean
