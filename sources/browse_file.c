@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 11:46:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/07 19:58:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/08 09:53:33 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void				browse_file(const char *path, t_file *file)
 	else
 		file->groupname = group->gr_name;
 	directory->file_head = file;
-	determine_ownername_wmax(file, directory);
-	determine_groupname_wmax(file, directory);
-	determine_nlink_wmax(file, directory);
-	determine_size_wmax(file, directory);
+	determine_ownername_wmax(directory, file);
+	determine_groupname_wmax(directory, file);
+	determine_nlink_wmax(directory, file);
+	determine_size_wmax(directory, file);
 	display(directory);
 }
