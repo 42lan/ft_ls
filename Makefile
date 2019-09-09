@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/09 12:55:36 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/09 13:20:35 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SRCNAME		= main.c	\
 			  gets/get_argument_files.c\
 			  gets/get_grstruct.c\
 			  gets/get_link.c\
+			  gets/get_major_minor.c\
 			  gets/get_mode.c\
 			  gets/get_options.c\
 			  gets/get_permissions.c\
