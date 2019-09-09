@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 12:51:49 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/01 12:53:09 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/09 16:08:41 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,3 @@ void	remove_file(t_file *file)
 	ft_memdel((void **)&file);
 	file = NULL;
 }
-
