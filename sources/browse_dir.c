@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/08 15:48:17 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/09 12:35:03 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,11 @@
 
 extern t_argp		g_argp[];
 
-static void			recursive_browse(t_file *subdir_head)
-{
-	while (subdir_head != NULL)
-	{
-		ft_putchar('\n');;
-		ft_printf("%s :\n", subdir_head->relpath);
-		browse_dir(subdir_head->relpath);
-		subdir_head = subdir_head->next;
-	}
-}
-
-void				append_subdir(t_dir **dir, t_file *file, const char *path)
+static void			append_subdir(t_dir **dir, t_file *file, const char *path)
 {
 	t_file			*subdir;
 
-	subdir = new_file(file->name, path);
+	subdir = new_file(path, file->name);
 	if ((*dir)->subdir_head == NULL)
 		(*dir)->subdir_head = subdir;
 	else
@@ -39,7 +28,7 @@ void				append_subdir(t_dir **dir, t_file *file, const char *path)
 	}
 }
 
-void				append_file(t_dir **dir, t_file *file)
+static void			append_file(t_dir **dir, t_file *file)
 {
 	if ((*dir)->file_head == NULL)
 		(*dir)->file_head = file;
@@ -47,6 +36,16 @@ void				append_file(t_dir **dir, t_file *file)
 	{
 		file->next = (*dir)->file_head;
 		(*dir)->file_head = file;
+	}
+}
+static void			recursive_browse(t_file *subdir_head)
+{
+	while (subdir_head != NULL)
+	{
+		ft_putchar('\n');;
+		ft_printf("%s :\n", subdir_head->relpath);
+		browse_dir(subdir_head->relpath);
+		subdir_head = subdir_head->next;
 	}
 }
 
@@ -59,7 +58,7 @@ static void			loop_through_dir(DIR *dp, t_dir *directory, const char *path)
 	{
 		if (!(g_argp[SHOW_HIDDEN].active) && is_hidden(dirent->d_name))
 			continue ;
-		file = new_file(dirent->d_name, path);
+		file = new_file(path, dirent->d_name);
 		get_stat(file->relpath, file);		
 		fill_struct(file);
 		determine_wmax(directory, file);
