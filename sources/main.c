@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:51:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/04 13:36:55 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/09 13:38:38 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-t_argp			g_argp[] =
+t_argp		g_argp[] =
 {
 	{'l', 0, "List in long format"},
 	{'R', 0, "Recursively list subdirectories encountered"},
