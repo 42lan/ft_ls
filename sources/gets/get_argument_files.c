@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 14:27:39 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/02 16:40:26 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/09 10:57:24 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ t_file			*get_argument_files(int ac, char **av)
 	while (is_option(av[i]))
 		i++;
 	if (av[i] == NULL)
-		head = new_file(".", NULL);
+		head = new_file(NULL, ".");
 	else
 		while (i < ac)
 		{
-			file = new_file(av[i], NULL);
+			file = new_file(NULL, av[i]);
 			if (head == NULL)
 				head = file;
 			else
