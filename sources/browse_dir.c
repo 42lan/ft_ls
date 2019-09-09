@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/09 12:35:03 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/09 16:05:23 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,19 @@ static void			append_file(t_dir **dir, t_file *file)
 		(*dir)->file_head = file;
 	}
 }
+
 static void			recursive_browse(t_file *subdir_head)
 {
 	while (subdir_head != NULL)
 	{
-		ft_putchar('\n');;
-		ft_printf("%s :\n", subdir_head->relpath);
+		ft_putchar('\n');
+		ft_printf("%s:\n", subdir_head->relpath);
 		browse_dir(subdir_head->relpath);
 		subdir_head = subdir_head->next;
 	}
 }
 
-static void			loop_through_dir(DIR *dp, t_dir *directory, const char *path)
+static void			loop_through(DIR *dp, t_dir *directory, const char *path)
 {
 	t_file			*file;
 	struct dirent	*dirent;
@@ -59,7 +60,7 @@ static void			loop_through_dir(DIR *dp, t_dir *directory, const char *path)
 		if (!(g_argp[SHOW_HIDDEN].active) && is_hidden(dirent->d_name))
 			continue ;
 		file = new_file(path, dirent->d_name);
-		get_stat(file->relpath, file);		
+		get_stat(file->relpath, file);
 		fill_struct(file);
 		determine_wmax(directory, file);
 		if (!(ft_strequ(file->name, ".") || ft_strequ(file->name, "..")))
@@ -78,7 +79,7 @@ void				browse_dir(const char *path)
 	if ((dp = opendir(path)) == NULL)
 		ft_printf("ft_ls: %s: %s\n", path, strerror(errno));
 	directory = new_directory(path);
-	loop_through_dir(dp, directory, path);
+	loop_through(dp, directory, path);
 	ft_mergesort(&directory->file_head, &name_cmp);
 	if (g_argp[REVERSE_ORDER].active)
 		reverse_files(&directory->file_head);
