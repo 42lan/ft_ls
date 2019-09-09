@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/08 13:44:18 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/09 12:55:22 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ typedef struct		s_dir
 	size_t			size_wmax;
 	size_t			ownername_wmax;
 	size_t			groupname_wmax;
+	ssize_t			major_wmax;
+	ssize_t			minor_wmax;
 	struct s_dir	*next;
 }					t_dir;
 
@@ -66,8 +68,8 @@ typedef struct		s_file
 	struct stat		*stat;
 	char			*ownername;
 	char			*groupname;
-	size_t			major;
-	size_t			minor;
+	ssize_t			major;
+	ssize_t			minor;
 	struct s_file	*next;
 }					t_file;
 
@@ -83,7 +85,7 @@ void				browse_file(const char *path, t_file *file);
 int					ft_ls(t_file *head);
 
 void				fill_struct(t_file *file);
-t_file				*new_file(const char *name, const char *path);
+t_file				*new_file(const char *path, const char *name);
 t_dir				*new_directory(const char *path);
 
 void				display(t_dir *current_dir);
@@ -91,6 +93,7 @@ void				print_default(t_dir *current_dir);
 void				print_long(t_dir *current_dir);
 void				print_filename(t_file *file);
 void				print_groupname(const char *groupname, size_t width);
+void				print_major_minor(t_dir *dir, size_t major, ssize_t minor);
 void				print_mode(const char *mode);
 void				print_mtime(time_t tv_sec);
 void				print_nlink(nlink_t st_nlink, int width);
@@ -113,11 +116,13 @@ int					name_cmp(t_file *file_a, t_file *file_b);
 void				parse_argp(const char *av);
 void				remove_file(t_file *file);
 void				reverse_files(t_file **head);
+void				set_extended_attribute(t_file *file);
 void				set_special_permissions(mode_t st_mode, char **str);
 
 void				determine_groupname_wmax(t_dir *directory, t_file *file);
 void				determine_namlen_wmax(t_dir *directory, t_file *file);
 void				determine_nlink_wmax(t_dir *directory, t_file *file);
+void				determine_major_minor_wmax(t_dir *directory, t_file *file);
 void				determine_ownername_wmax(t_dir *directory, t_file *file);
 void				determine_size_wmax(t_dir *directory, t_file *file);
 void				determine_wmax(t_dir *directory, t_file *file);
