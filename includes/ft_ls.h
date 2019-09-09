@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/09 13:19:54 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/09 16:27:08 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@
 typedef struct		s_dir
 {
 	char			*name;
-	size_t			length;
 	char			*ownername;
 	char			*groupname;
 	struct s_file	*file_head;
@@ -52,8 +51,8 @@ typedef struct		s_dir
 	size_t			size_wmax;
 	size_t			ownername_wmax;
 	size_t			groupname_wmax;
-	ssize_t			major_wmax;
-	ssize_t			minor_wmax;
+	size_t			major_wmax;
+	size_t			minor_wmax;
 	struct s_dir	*next;
 }					t_dir;
 
@@ -68,8 +67,8 @@ typedef struct		s_file
 	struct stat		*stat;
 	char			*ownername;
 	char			*groupname;
-	ssize_t			major;
-	ssize_t			minor;
+	size_t			major;
+	size_t			minor;
 	struct s_file	*next;
 }					t_file;
 
@@ -93,7 +92,7 @@ void				print_default(t_dir *current_dir);
 void				print_long(t_dir *current_dir);
 void				print_filename(t_file *file);
 void				print_groupname(const char *groupname, size_t width);
-void				print_major_minor(t_dir *dir, size_t major, ssize_t minor);
+void				print_major_minor(t_dir *dir, size_t major, size_t minor);
 void				print_mode(const char *mode);
 void				print_mtime(time_t tv_sec);
 void				print_nlink(nlink_t st_nlink, int width);
