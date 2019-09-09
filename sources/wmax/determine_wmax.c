@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 15:05:30 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/09 12:54:41 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/09 16:08:57 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 ** ft_list_dir() to determine the max value of width for size and nlink fields
 ** from stat struct.
 */
-
 
 void	determine_wmax(t_dir *directory, t_file *file)
 {
