@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 15:29:55 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/08 10:42:19 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/09 10:54:13 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-t_file		*new_file(const char *name, const char *path)
+t_file		*new_file(const char *path, const char *name)
 {
 	t_file	*new_file;
 
