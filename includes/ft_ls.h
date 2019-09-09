@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/09 12:55:22 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/09 13:19:54 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ t_file				*get_argument_files(int ac, char **av);
 void				get_options(int ac, char **av);
 char				get_type(mode_t mode);
 void				get_link(t_file *file);
+void				get_major_minor(t_file *file);
 void				get_mode(t_file *file);
 int					get_stat(const char *path, t_file *file);
 struct passwd		*get_pwstruct(uid_t st_uid);
