@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 10:28:56 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/08 13:41:15 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/09 13:19:08 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ void				fill_struct(t_file *file)
 	if (S_ISLNK(file->stat->st_mode))
 		get_link(file);
 	get_mode(file);
+	get_major_minor(file);
 }
