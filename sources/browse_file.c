@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 11:46:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/08 09:53:33 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/09 16:03:25 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,6 @@
 
 extern t_argp		g_argp[];
 
-/*
-	{'l', 0, "List in long format"},
-	{'a', 0, "List files whose names begin with a dot (.)"},
-	{'R', 0, "Recursively list subdirectories encountered"},
-	{'r', 0, "Reverse the order of the sort"},
-	{'1', 0, "List one file per line"},
-	{'t', 0, "Sort by time modified (most recently modified first)"},
-	{'-', 0, "End of options"},
-	{0, 0, NULL}
-*/
 void				browse_file(const char *path, t_file *file)
 {
 	t_dir			*directory;
