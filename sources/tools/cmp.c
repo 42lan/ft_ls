@@ -6,21 +6,21 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 11:38:16 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/15 12:07:31 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/15 13:11:13 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int		mtime_cmp(t_file *file_a, t_file *file_b)
+int		mtime_cmp(t_file *a, t_file *b)
 {
-	if (file_a->stat->st_mtime == file_b->stat->st_mtime)
-		return (file_a->stat->st_mtimespec.tv_nsec > file_b->stat->st_mtimespec.tv_nsec);
+	if (a->stat->st_mtime == b->stat->st_mtime)
+		return (a->stat->st_mtimespec.tv_nsec > b->stat->st_mtimespec.tv_nsec);
 	else
-		return (file_a->stat->st_mtime - file_b->stat->st_mtime);
+		return (a->stat->st_mtime - b->stat->st_mtime);
 }
 
-int		name_cmp(t_file *file_a, t_file *file_b)
+int		name_cmp(t_file *a, t_file *b)
 {
-	return (ft_strcmp(file_a->name, file_b->name));
+	return (ft_strcmp(a->name, b->name));
 }
