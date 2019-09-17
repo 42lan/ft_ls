@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/09 16:05:23 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/17 13:16:29 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,13 @@ void				browse_dir(const char *path)
 	directory = new_directory(path);
 	loop_through(dp, directory, path);
 	ft_mergesort(&directory->file_head, &name_cmp);
-	if (g_argp[REVERSE_ORDER].active)
-		reverse_files(&directory->file_head);
 	if (g_argp[MTIME_SORT].active)
 	{
 		ft_mergesort(&directory->file_head, &mtime_cmp);
 		reverse_files(&directory->file_head);
 	}
+	if (g_argp[REVERSE_ORDER].active)
+		reverse_files(&directory->file_head);
 	display(directory);
 	if (g_argp[RECURSIVE].active && directory->subdir_head != NULL)
 	{
