@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/09 16:27:08 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/17 11:15:28 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ void				remove_file(t_file *file);
 void				reverse_files(t_file **head);
 void				set_extended_attribute(t_file *file);
 void				set_special_permissions(mode_t st_mode, char **str);
+void				append_indicator(t_file *file);
 
 void				determine_groupname_wmax(t_dir *directory, t_file *file);
 void				determine_namlen_wmax(t_dir *directory, t_file *file);
