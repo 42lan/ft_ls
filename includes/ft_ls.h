@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/17 11:15:28 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/17 13:02:11 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 # define REVERSE_ORDER	3
 # define MTIME_SORT		4
 # define ONE_PER_LINE	5
+# define INDICATOR		6
 
 typedef struct		s_dir
 {
