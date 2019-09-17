@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 11:46:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/09 16:03:25 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/17 18:53:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void				browse_file(const char *path, t_file *file)
 	struct group	*group;
 
 	directory = new_directory(path);
+	get_mode(file);
 	if ((passwd = get_pwstruct(file->stat->st_uid)) == NULL)
 		file->ownername = ft_itoa(file->stat->st_uid);
 	else
