@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 15:29:55 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/09 10:54:13 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/17 18:55:09 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_file		*new_file(const char *path, const char *name)
 	new_file->stat = NULL;
 	new_file->ownername = NULL;
 	new_file->groupname = NULL;
+	new_file->mode = NULL;
 	new_file->next = NULL;
 	return (new_file);
 }
