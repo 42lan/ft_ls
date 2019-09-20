@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:51:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/17 13:03:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/20 10:37:30 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ t_argp		g_argp[] =
 	{'t', 0, "Sort by time modified (most recently modified first)"},
 	{'1', 0, "List one file per line"},
 	{'F', 0, "Append indicator (one of */=@|)"},
+	{'n', 0, "List numeric user and group IDs"},
+	{'A', 0, "List all entries except for . and .."},
 	{0, 0, NULL}
 };
 
