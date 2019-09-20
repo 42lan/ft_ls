@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 10:28:56 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/09 16:08:09 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/20 10:31:57 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void				fill_struct(t_file *file)
 
 	pwstruct = get_pwstruct(file->stat->st_uid);
 	grstruct = get_grstruct(file->stat->st_gid);
-	if (pwstruct != NULL)
+	if (pwstruct != NULL && !(g_argp[NUMERIC_ID].active))
 		file->ownername = pwstruct->pw_name;
 	else
 		file->ownername = ft_itoa(file->stat->st_uid);
-	if (grstruct != NULL)
+	if (grstruct != NULL && !(g_argp[NUMERIC_ID].active))
 		file->groupname = grstruct->gr_name;
 	else
-		file->groupname = ft_itoa(file->stat->st_uid);
+		file->groupname = ft_itoa(file->stat->st_gid);
 	if (S_ISLNK(file->stat->st_mode))
 		get_link(file);
 	get_mode(file);
