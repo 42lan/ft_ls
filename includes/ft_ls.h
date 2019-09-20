@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/17 13:02:11 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/20 11:21:51 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # include "../libft/includes/libft.h"
 # include "colors.h"
 
+// UTILISER enum()
 # define LONG_FORMAT	0
 # define RECURSIVE		1
 # define SHOW_HIDDEN	2
@@ -38,6 +39,8 @@
 # define MTIME_SORT		4
 # define ONE_PER_LINE	5
 # define INDICATOR		6
+# define NUMERIC_ID 	7
+# define ALMOST_ALL 	8
 
 typedef struct		s_dir
 {
