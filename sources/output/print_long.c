@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 05:19:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/21 17:59:38 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/21 18:22:34 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,13 @@ void	print_long(t_dir *directory)
 			print_nlink(directory->file_head->stat->st_nlink, directory->nlink_wmax);
 			print_ownername(directory->file_head->ownername, directory->ownername_wmax);
 			print_groupname(directory->file_head->groupname, directory->groupname_wmax);
-			if (ft_strstr(directory->name, "/dev") && !(S_ISDIR(directory->file_head->stat->st_mode)))
+			if (ft_strequ(directory->name, "/dev") && !(S_ISDIR(directory->file_head->stat->st_mode)))
 				print_major_minor(directory, directory->file_head->major, directory->file_head->minor);
 			else
-				print_size(directory->file_head->stat->st_size, directory->size_wmax);
+				print_size(directory->file_head->stat->st_size,
+						((S_ISDIR(directory->file_head->stat->st_mode))
+						|| (S_ISLNK(directory->file_head->stat->st_mode)))
+						 ? directory->size_wmax + 7 : directory->size_wmax);
 			print_mtime(directory->file_head->stat->st_mtimespec.tv_sec);
 			print_filename(directory->file_head, 0);
 			directory->file_head = directory->file_head->next;
