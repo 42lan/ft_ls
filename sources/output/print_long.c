@@ -6,13 +6,11 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 05:19:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/21 17:50:33 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/21 17:59:38 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-extern t_argp	g_argp[];
 
 void	print_long(t_dir *directory)
 {
