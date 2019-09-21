@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 03:18:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/17 13:42:39 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/21 15:36:22 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 extern t_argp	g_argp[];
 
-void			print_filename(t_file *file)
+void			print_filename(t_file *file, int width)
 {
 	if (g_argp[LONG_FORMAT].active)
 	{
@@ -24,8 +24,5 @@ void			print_filename(t_file *file)
 			ft_printf(" %s", file->name);
 	}
 	else
-		ft_printf("%s", file->name);
-	//if (g_argp[INDICATOR].active)
-	//	append_indicator(file);
-	ft_putchar('\n');
+		ft_printf("%-*s", width, file->name);
 }
