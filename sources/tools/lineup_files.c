@@ -6,13 +6,14 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 16:03:40 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/21 09:32:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/21 09:45:50 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static void		update_head(t_file **head, t_file *dir_list, t_file *file_list, t_file *lastreg)
+static void		update_head(t_file **head, t_file *dir_list, t_file *file_list,
+				t_file *lastreg)
 {
 	if (lastreg == NULL)
 		*head = dir_list;
@@ -23,7 +24,8 @@ static void		update_head(t_file **head, t_file *dir_list, t_file *file_list, t_f
 	}
 }
 
-static void		lineup_handler(t_file **list, t_file **curr, t_file **last, t_file *next)
+static void		lineup_handler(t_file **list, t_file **curr, t_file **last,
+				t_file *next)
 {
 	if ((*list) == NULL)
 	{
