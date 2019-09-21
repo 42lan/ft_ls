@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/21 11:16:47 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/21 17:50:53 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ SRCNAME		= main.c	\
 			  output/print_mode.c\
 			  output/print_mtime.c\
 			  output/print_nlink.c\
+			  output/print_one_per_line.c\
 			  output/print_options.c\
 			  output/print_ownername.c\
 			  output/print_size.c\
