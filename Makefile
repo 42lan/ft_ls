@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/17 11:15:45 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/21 11:16:47 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ INCDIR		= ./includes
 # List of source files
 
 SRCNAME		= main.c	\
-			  browse_dir.c\
+			  browse_directory.c\
 			  browse_file.c\
 			  ft_ls.c\
 			  gets/get_argument_files.c\
@@ -90,9 +90,9 @@ SRCNAME		= main.c	\
 			  tools/reverse_files.c\
 			  tools/set_extended_attribute.c\
 			  tools/set_special_permissions.c\
+			  wmax/determine_filename_wmax.c\
 			  wmax/determine_groupname_wmax.c\
 			  wmax/determine_major_minor.c\
-			  wmax/determine_namlen_wmax.c\
 			  wmax/determine_nlink_wmax.c\
 			  wmax/determine_ownername_wmax.c\
 			  wmax/determine_size_wmax.c\
