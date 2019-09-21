@@ -6,20 +6,44 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 03:21:49 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/07 14:17:38 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/21 15:50:27 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void					print_default(t_dir *dir)
+void					print_default(t_dir *directory)
 {
-	struct winsize		w;
+	size_t				i;
+	size_t				per_row;
+	size_t				per_col;
+	struct winsize		terminal;
+	int					width;
 
-	ioctl(STDIN_FILENO, TIOCGWINSZ, &w);
-	while (dir->file_head != NULL)
+	i = 0;
+	ioctl(STDIN_FILENO, TIOCGWINSZ, &terminal);
+	per_row = (terminal.ws_col / directory->filename_wmax) - 1;
+	per_col = (directory->nb_files / per_row) + 1;
+	while (directory->file_head != NULL)
 	{
-		print_filename(dir->file_head);
-		dir->file_head = dir->file_head->next;
+		width = (directory->file_head->next) ? directory->filename_wmax + 1 : 0;
+		print_filename(directory->file_head, width);
+		directory->file_head = directory->file_head->next;
+		i++;
+		if (i == per_row)
+		{
+			i = 0;
+			ft_putchar('\n');
+		}
+		/*
+		if (i == per_col)
+		{
+			i = 0;
+			ft_putendl("\n-----");
+		}
+		else
+			ft_putchar('\n');
+		*/
 	}
+	ft_putchar('\n');
 }
