@@ -20,3 +20,11 @@ ASCII Order:
 lRart
                t raRl
 0000 0000	0000 0000
+
+
+type of files: BLK CHR DIR FIFO REG LNK SOCK
+
+FAUX!!!!
+Order of printing:
+if ls -l:	CHR BLK LNK SOCK FIFO REG DIR
+if ls -ld:	CHR BLK DIR LNK	 FIFO REG DIR
