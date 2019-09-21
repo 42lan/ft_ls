@@ -6,58 +6,37 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 16:03:40 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/07 19:57:47 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/21 09:32:35 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static void		update_head(t_file **head, t_file *dirlst, t_file *reglst,
-				t_file *lastreg)
+static void		update_head(t_file **head, t_file *dir_list, t_file *file_list, t_file *lastreg)
 {
 	if (lastreg == NULL)
-		*head = dirlst;
+		*head = dir_list;
 	else
 	{
-		lastreg->next = dirlst;
-		*head = reglst;
+		lastreg->next = dir_list;
+		*head = file_list;
 	}
 }
 
-static void		dir_handler(t_file **dirlst, t_file **curr, t_file **lastdir,
-				t_file *next)
+static void		lineup_handler(t_file **list, t_file **curr, t_file **last, t_file *next)
 {
-	if ((*dirlst) == NULL)
+	if ((*list) == NULL)
 	{
-		(*dirlst) = (*curr);
+		(*list) = (*curr);
 		(*curr) = next;
-		(*lastdir) = (*dirlst);
-		(*lastdir)->next = NULL;
+		(*last) = (*list);
+		(*last)->next = NULL;
 	}
 	else
 	{
-		(*lastdir)->next = (*curr);
-		(*lastdir) = (*curr);
-		(*lastdir)->next = NULL;
-		(*curr) = next;
-	}
-}
-
-static void		reg_handler(t_file **reglst, t_file **curr, t_file **lastreg,
-				t_file *next)
-{
-	if ((*reglst) == NULL)
-	{
-		(*reglst) = (*curr);
-		(*curr) = next;
-		(*lastreg) = (*reglst);
-		(*lastreg)->next = NULL;
-	}
-	else
-	{
-		(*lastreg)->next = (*curr);
-		(*lastreg) = (*curr);
-		(*lastreg)->next = NULL;
+		(*last)->next = (*curr);
+		(*last) = (*curr);
+		(*last)->next = NULL;
 		(*curr) = next;
 	}
 }
@@ -66,26 +45,26 @@ void			lineup_files(t_file **head)
 {
 	t_file		*curr;
 	t_file		*next;
-	t_file		*reglst;
-	t_file		*dirlst;
-	t_file		*lastdir;
-	t_file		*lastreg;
+	t_file		*file_list;
+	t_file		*dir_list;
+	t_file		*last_dir;
+	t_file		*last_file;
 
 	curr = *head;
-	reglst = NULL;
-	dirlst = NULL;
-	lastdir = NULL;
-	lastreg = NULL;
+	file_list = NULL;
+	dir_list = NULL;
+	last_dir = NULL;
+	last_file = NULL;
 	if (curr->next != NULL)
 	{
 		while (curr)
 		{
 			next = curr->next;
 			if (S_ISDIR(curr->stat->st_mode))
-				dir_handler(&dirlst, &curr, &lastdir, next);
-			else if (S_ISREG(curr->stat->st_mode))
-				reg_handler(&reglst, &curr, &lastreg, next);
+				lineup_handler(&dir_list, &curr, &last_dir, next);
+			else
+				lineup_handler(&file_list, &curr, &last_file, next);
 		}
-		update_head(head, dirlst, reglst, lastreg);
+		update_head(head, dir_list, file_list, last_file);
 	}
 }
