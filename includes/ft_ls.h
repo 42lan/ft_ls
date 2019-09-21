@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/21 16:23:25 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/21 17:57:22 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,13 @@ void				fill_struct(t_file *file);
 t_file				*new_file(const char *path, const char *name);
 t_dir				*new_directory(const char *path);
 
-void				display(t_dir *current_dir);
-void				print_default(t_dir *current_dir);
-void				print_long(t_dir *current_dir);
+void				display(t_dir *directory);
+void				print_default(t_dir *directory);
+void				print_long(t_dir *directory);
+void				print_one_per_line(t_dir *directory);
 void				print_filename(t_file *file, int width);
 void				print_groupname(const char *groupname, size_t width);
-void				print_major_minor(t_dir *dir, size_t major, size_t minor);
+void				print_major_minor(t_dir *directory, size_t major, size_t minor);
 void				print_mode(const char *mode);
 void				print_mtime(time_t tv_sec);
 void				print_nlink(nlink_t st_nlink, int width);
