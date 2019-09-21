@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 11:46:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/17 18:53:55 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/21 15:47:08 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,8 @@ void				browse_file(const char *path, t_file *file)
 		file->groupname = ft_itoa(file->stat->st_gid);
 	else
 		file->groupname = group->gr_name;
+	directory->nb_files = 1;
 	directory->file_head = file;
-	determine_ownername_wmax(directory, file);
-	determine_groupname_wmax(directory, file);
-	determine_nlink_wmax(directory, file);
-	determine_size_wmax(directory, file);
+	determine_wmax(directory, file);
 	display(directory);
 }
