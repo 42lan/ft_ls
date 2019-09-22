@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/21 17:50:53 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/22 15:54:34 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,9 @@ SRCNAME		= main.c	\
 			  output/print_size.c\
 			  output/print_totalblocks.c\
 			  output/print_usage.c\
+			  predicates/is_dotdot.c\
 			  predicates/is_hidden.c\
+			  predicates/need_to_skip.c\
 			  predicates/is_option.c\
 			  tools/append_indicator.c\
 			  tools/check_accessibility.c\
