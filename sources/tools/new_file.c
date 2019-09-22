@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 15:29:55 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/17 18:55:09 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/22 11:10:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 t_file		*new_file(const char *path, const char *name)
 {
-	t_file	*new_file;
+	t_file	*file;
 
-	if (!(new_file = (t_file *)ft_memalloc(sizeof(t_file))))
+	if (!(file = (t_file *)ft_memalloc(sizeof(t_file))))
 		return (NULL);
-	new_file->name = ft_strdup(name);
-	new_file->relpath = (path == NULL) ? NULL : form_relpath(path, name);
-	new_file->namlen = ft_strlen(name);
-	new_file->targetlen = 0;
-	new_file->stat = NULL;
-	new_file->ownername = NULL;
-	new_file->groupname = NULL;
-	new_file->mode = NULL;
-	new_file->next = NULL;
-	return (new_file);
+	file->name = ft_strdup(name);
+	file->relpath = (path == NULL) ? NULL : form_relpath(path, name);
+	file->namlen = ft_strlen(name);
+	file->targetlen = 0;
+	file->stat = NULL;
+	file->ownername = NULL;
+	file->groupname = NULL;
+	file->mode = NULL;
+	file->next = NULL;
+	return (file);
 }
