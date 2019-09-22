@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/22 11:22:39 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/22 15:54:22 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,9 @@ void				print_size(off_t st_size, size_t width);
 void				print_totalblocks(size_t total_blocks);
 void				print_usage(char c);
 
+int					is_dotdot(const char *name);
 int					is_hidden(const char *name);
+int					need_to_skip(const char *name);
 int					is_option(const char *av);
 
 void				check_accessibility(t_file **head);
