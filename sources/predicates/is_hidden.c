@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 08:29:14 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/13 08:40:23 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/22 15:25:45 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int		is_hidden(const char *name)
 {
-	return (name[0] == '.' || ft_strequ(name, ".") || ft_strequ(name, ".."));
+	return (name[0] == '.' || is_dotdot(name));
 }
