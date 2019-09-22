@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/22 10:26:19 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/22 10:59:03 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int					ft_ls(t_file *head)
 		{
 			if (S_ISLNK(file->stat->st_mode))
 				get_link(file);
-			browse_file(file);
+			browse_file(file->name);
 		}
 		file = file->next;
 		if (file)
