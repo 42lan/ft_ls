@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 10:28:56 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/20 10:31:57 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/22 13:40:33 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ void				fill_struct(t_file *file)
 	struct passwd	*pwstruct;
 	struct group	*grstruct;
 
+	if (get_stat(file) == -1)
+	{
+		ft_strerror(strerror(errno));
+		exit(errno);
+	}
 	pwstruct = get_pwstruct(file->stat->st_uid);
 	grstruct = get_grstruct(file->stat->st_gid);
 	if (pwstruct != NULL && !(g_argp[NUMERIC_ID].active))
