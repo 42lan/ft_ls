@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/22 11:13:04 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/22 15:53:52 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void			loop_through(DIR *dp, t_dir *directory, const char *path)
 
 	while ((dirent = readdir(dp)) != NULL)
 	{
-		if (!(g_argp[SHOW_HIDDEN].active) && is_hidden(dirent->d_name))
+		if (need_to_skip(dirent->d_name))
 			continue ;
 		directory->nb_files++;
 		file = new_file(path, dirent->d_name);
