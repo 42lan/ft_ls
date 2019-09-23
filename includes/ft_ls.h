@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/22 15:54:22 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/23 13:30:25 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,18 +87,17 @@ typedef struct		s_argp
 void				browse_directory(const char *path);
 void				browse_file(const char *filename);
 int					ft_ls(t_file *head);
-
 void				fill_struct(t_file *file);
 t_file				*new_file(const char *path, const char *name);
 t_dir				*new_directory(const char *path);
-
 void				display(t_dir *directory);
 void				print_default(t_dir *directory);
 void				print_long(t_dir *directory);
 void				print_one_per_line(t_dir *directory);
 void				print_filename(t_file *file, int width);
 void				print_groupname(const char *groupname, size_t width);
-void				print_major_minor(t_dir *directory, size_t major, size_t minor);
+void				print_major_minor(t_dir *directory, size_t major,
+					size_t minor);
 void				print_mode(const char *mode);
 void				print_mtime(time_t tv_sec);
 void				print_nlink(nlink_t st_nlink, int width);
@@ -107,12 +106,10 @@ void				print_ownername(const char *ownername, size_t width);
 void				print_size(off_t st_size, size_t width);
 void				print_totalblocks(size_t total_blocks);
 void				print_usage(char c);
-
 int					is_dotdot(const char *name);
 int					is_hidden(const char *name);
 int					need_to_skip(const char *name);
 int					is_option(const char *av);
-
 void				check_accessibility(t_file **head);
 char				*form_relpath(const char *dirname, const char *basename);
 void				ft_mergesort(t_file **headref,
@@ -126,7 +123,6 @@ void				reverse_files(t_file **head);
 void				set_extended_attribute(t_file *file);
 void				set_special_permissions(mode_t st_mode, char **str);
 void				append_indicator(t_file *file);
-
 void				determine_groupname_wmax(t_dir *directory, t_file *file);
 void				determine_filename_wmax(t_dir *directory, t_file *file);
 void				determine_nlink_wmax(t_dir *directory, t_file *file);
@@ -134,7 +130,6 @@ void				determine_major_minor_wmax(t_dir *directory, t_file *file);
 void				determine_ownername_wmax(t_dir *directory, t_file *file);
 void				determine_size_wmax(t_dir *directory, t_file *file);
 void				determine_wmax(t_dir *directory, t_file *file);
-
 t_file				*get_argument_files(int ac, char **av);
 void				get_options(int ac, char **av);
 char				get_type(mode_t mode);
