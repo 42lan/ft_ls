@@ -6,13 +6,11 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 03:21:49 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/23 13:37:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/23 14:45:11 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-extern t_argp			g_argp[];
 
 void					print_default(t_dir *directory)
 {
@@ -30,8 +28,6 @@ void					print_default(t_dir *directory)
 	{
 		width = (directory->file_head->next) ? directory->filename_wmax + 1 : 0;
 		print_filename(directory->file_head, width);
-		if (g_argp[INDICATOR].active)
-			append_indicator(directory->file_head);
 		directory->file_head = directory->file_head->next;
 		i++;
 		if (i == per_row)
