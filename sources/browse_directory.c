@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/22 15:53:52 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/23 13:18:59 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ static void			loop_through(DIR *dp, t_dir *directory, const char *path)
 		if (!(ft_strequ(file->name, ".") || ft_strequ(file->name, "..")))
 			if (S_ISDIR(file->stat->st_mode))
 				append_subdir(&directory, file, path);
-		if (g_argp[INDICATOR].active)
-			append_indicator(file);
 		append_file(&directory, file);
 		directory->total_blocks += file->stat->st_blocks;
 	}
