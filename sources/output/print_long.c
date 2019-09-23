@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 05:19:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/23 13:35:32 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/23 13:39:16 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void			print_long(t_dir *directory)
 			else
 				print_size(file->stat->st_size,
 						(ft_strequ(directory->name, "/dev"))
-						 && (S_ISDIR(file->stat->st_mode)
-						|| S_ISLNK(file->stat->st_mode))
-						 ? directory->size_wmax + 7 : directory->size_wmax);
+						&& ((S_ISDIR(file->stat->st_mode)
+							|| S_ISLNK(file->stat->st_mode)))
+						? directory->size_wmax + 7 : directory->size_wmax);
 			print_mtime(file->stat->st_mtimespec.tv_sec);
 			print_filename(file, 0);
 			if (g_argp[INDICATOR].active)
