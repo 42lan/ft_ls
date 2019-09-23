@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/23 10:17:42 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/23 11:12:16 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@
 # General
 
 NAME		= ft_ls
-LIBFTLS		= ft_ls.a
 LIBNAME		= libft.a
 
 # **************************************************************************** #
@@ -108,7 +107,6 @@ SRCNAME		= main.c	\
 SRC			= $(addprefix $(SRCDIR)/, $(SRCNAME))
 OBJ			= $(addprefix $(OBJDIR)/, $(SRCNAME:.c=.o))
 LFT			= $(addprefix $(LIBDIR)/, $(LIBNAME))
-LFTLS		= $(addprefix $(PWD)/, $(LIBFTLS))
 LFTOBJ		= $(LIBDIR)/objects/*/*.o
 
 # **************************************************************************** #
@@ -143,8 +141,8 @@ clean:
 
 fclean: clean
 	@$(RM)
-	@$(RM) $(NAME) $(LIBFTLS)
-	@printf $(CR)$(RED)"✗ ./tags, ./$(NAME) and ./$(LIBFTLS) are deleted\n"$(EOC)
+	@$(RM) $(NAME)
+	@printf $(CR)$(RED)"✗ ./tags and ./$(NAME) are deleted\n"$(EOC)
 	@$(MAKE) $(LIBDIR) fclean
 
 re: fclean all
