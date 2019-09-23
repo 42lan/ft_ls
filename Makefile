@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/23 11:12:16 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/23 12:31:31 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -137,13 +137,18 @@ $(LFT):
 	@$(MAKE) $(LIBDIR)
 
 clean:
-	@$(RM) $(OBJ) $(OBJDIR)
+	@if [ -d $(OBJDIR) ]; then \
+		$(RM) $(OBJ) $(OBJDIR) \
+		&& printf $(CR)$(RED)"✗ The objects files of ft_ls are cleaned\n"$(EOC) \
+		&& $(MAKE) $(LIBDIR) clean; \
+	fi
 
 fclean: clean
-	@$(RM)
-	@$(RM) $(NAME)
-	@printf $(CR)$(RED)"✗ ./tags and ./$(NAME) are deleted\n"$(EOC)
-	@$(MAKE) $(LIBDIR) fclean
+	@if [ -e $(NAME) ]; then \
+		$(RM) $(NAME) \
+		&& printf $(CR)$(RED)"✗ $(NAME) is cleaned\n"$(EOC) \
+		&& $(MAKE) $(LIBDIR) fclean; \
+	fi
 
 re: fclean all
 
