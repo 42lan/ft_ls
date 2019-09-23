@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/02 13:00:49 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/23 12:31:48 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -184,12 +184,16 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@printf $(CR)"[ ./libft/%s ]" $@
 
 clean:
-	@$(RM) $(OBJDIR)
-	@printf $(CR)$(RED)"✗ ./libft/objects and its content are deleted\n"$(EOC)
+	@if [ -d $(OBJDIR) ]; then \
+		$(RM) $(OBJDIR) \
+		&& printf $(CR)$(RED)"✗ The objects files of libft are cleaned\n"$(EOC); \
+	fi
 
 fclean: clean
-	@$(RM) $(NAME)
-	@printf $(CR)$(RED)"✗ ./libft/$(NAME) is deleted\n"$(EOC)
+	@if [ -f $(NAME) ]; then \
+		$(RM) $(NAME) \
+		&& printf $(CR)$(RED)"✗ $(NAME) is cleaned\n"$(EOC); \
+	fi
 
 re: fclean all
 
