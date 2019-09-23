@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 11:38:16 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/23 13:12:02 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/23 13:37:43 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			mtime_cmp(t_file *a, t_file *b)
 	return (diff);
 }
 
-int		name_cmp(t_file *a, t_file *b)
+int			name_cmp(t_file *a, t_file *b)
 {
 	return (ft_strcmp(a->name, b->name));
 }
