@@ -6,13 +6,11 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 05:19:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/23 13:39:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/23 14:36:39 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-extern t_argp	g_argp[];
 
 void			print_long(t_dir *directory)
 {
@@ -39,8 +37,6 @@ void			print_long(t_dir *directory)
 						? directory->size_wmax + 7 : directory->size_wmax);
 			print_mtime(file->stat->st_mtimespec.tv_sec);
 			print_filename(file, 0);
-			if (g_argp[INDICATOR].active)
-				append_indicator(file);
 			file = file->next;
 			ft_printf("\n");
 		}
