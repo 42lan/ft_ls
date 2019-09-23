@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/22 15:54:34 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/23 10:17:42 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -127,9 +127,7 @@ BASENAME	= `basename $(PWD)`
 all: $(NAME) $(LFT)
 
 $(NAME): $(LFT) $(OBJ)
-	@$(AR) $(LIBFTLS) $(OBJ) $(LFTOBJ)
-	@$(RANLIB) $(LIBFTLS)
-	@$(GCC) $(LFTLS) $(LFT) -o $(NAME)
+	@$(GCC) $(OBJ) $(LFT) -o $(NAME)
 	@printf $(CR)$(GREEN)"✓ $(NAME) is created\n"$(EOC)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
