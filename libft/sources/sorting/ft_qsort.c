@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 17:46:40 by amalsago          #+#    #+#             */
-/*   Updated: 2019/06/09 16:25:34 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/23 13:28:44 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int		ft_partition(char **array, int left, int right)
 	end = right;
 	while (start < end)
 	{
-		while (ft_strcmp(array[start], pivot) <= 0  && start < end)
+		while (ft_strcmp(array[start], pivot) <= 0 && start < end)
 			start++;
 		while (ft_strcmp(array[end], pivot) > 0)
 			end--;
