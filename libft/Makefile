@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/23 12:31:48 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/23 12:46:23 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -198,6 +198,6 @@ fclean: clean
 re: fclean all
 
 norm:
-	$(NORMINETTE) $(INCDIR) $(SRC)
+	@$(NORMINETTE) $(INCDIR) $(SRC) | grep "^Error"
 
 .PHONY: all clean fclean re norm
