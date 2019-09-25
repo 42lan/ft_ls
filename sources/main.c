@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:51:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/21 16:22:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/25 11:46:51 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_argp		g_argp[] =
 	{'a', 0, "List files whose names begin with a dot (.)"},
 	{'l', 0, "List in long format"},
 	{'n', 0, "List numeric user and group IDs"},
+	{'p', 0, "Append / indicator to directories"},
 	{'r', 0, "Reverse the order of the sort"},
 	{'t', 0, "Sort by time modified (most recently modified first)"},
 	{'1', 0, "List one file per line"},
