@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 11:46:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/23 15:10:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/25 11:14:04 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void				browse_file(const char *filename)
 	directory->nb_files = 1;
 	directory->file_head = file;
 	determine_wmax(directory, file);
-	if (g_argp[INDICATOR].active)
-		append_indicator(file);
+	append_indicator(file);
 	display(directory);
 }
