@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/25 09:57:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/25 11:13:16 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,16 @@
 # include "colors.h"
 
 // UTILISER enum()
-# define ALMOST_ALL 	0
-# define INDICATOR		1
-# define RECURSIVE		2
-# define SHOW_HIDDEN	3
-# define LONG_FORMAT	4
-# define NUMERIC_ID 	5
-# define REVERSE_ORDER	6
-# define MTIME_SORT		7
-# define ONE_PER_LINE	8
+# define ALMOST_ALL			0
+# define INDICATORS			1
+# define RECURSIVE			2
+# define SHOW_HIDDEN		3
+# define LONG_FORMAT		4
+# define NUMERIC_ID 		5
+# define INDICATOR_SLASH	6
+# define REVERSE_ORDER		7
+# define MTIME_SORT			8
+# define ONE_PER_LINE		9
 
 typedef struct		s_dir
 {
