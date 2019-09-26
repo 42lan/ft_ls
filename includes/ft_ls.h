@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/26 13:33:01 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/26 15:56:28 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,14 @@
 # define INDICATORS			1
 # define RECURSIVE			2
 # define SHOW_HIDDEN		3
-# define LONG_FORMAT		4
-# define NUMERIC_ID 		5
-# define INDICATOR_SLASH	6
-# define REVERSE_ORDER		7
-# define MTIME_SORT			8
-# define ONE_PER_LINE		9
+# define LONG_WITHOUT_OWNER	4
+# define LONG_FORMAT		5
+# define LONG_NUMERIC_ID	6
+# define LONG_WITHOUT_GROUP	7
+# define INDICATOR_SLASH	8
+# define REVERSE_ORDER		9
+# define MTIME_SORT			10
+# define ONE_PER_LINE		11
 
 # define FT_RPERM(m, i)		(m & (S_IRUSR >> i))
 # define FT_WPERM(m, i)		(m & (S_IWUSR >> i))
