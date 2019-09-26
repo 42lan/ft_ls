@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:51:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/25 11:46:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/26 15:57:51 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ t_argp		g_argp[] =
 	{'F', 0, "Append indicator (one of */=@|)"},
 	{'R', 0, "Recursively list subdirectories encountered"},
 	{'a', 0, "List files whose names begin with a dot (.)"},
+	{'g', 0, "List in long format without owner information"},
 	{'l', 0, "List in long format"},
-	{'n', 0, "List numeric user and group IDs"},
+	{'n', 0, "List in long format numeric user and group IDs"},
+	{'o', 0, "List in long format without group information"},
 	{'p', 0, "Append / indicator to directories"},
 	{'r', 0, "Reverse the order of the sort"},
 	{'t', 0, "Sort by time modified (most recently modified first)"},
