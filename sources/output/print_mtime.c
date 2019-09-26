@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 03:27:57 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/07 14:22:29 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/26 09:45:15 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,26 @@
 
 void		print_mtime(time_t tv_sec)
 {
+	char	year[6];
 	char	*mtime_str;
-	char	year[5];
 	time_t	current_time;
 	time_t	time_diff;
 
+	ft_bzero(year, 6);
 	time(&current_time);
-	time_diff = current_time - SIX_MONTH;
 	mtime_str = ctime(&tv_sec);
+	time_diff = current_time - SIX_MONTH;
 	if (tv_sec < time_diff || tv_sec > current_time)
 	{
-		ft_memcpy(year, mtime_str + 20, 4);
+		if (tv_sec > current_time)
+			ft_memcpy(year, mtime_str + 24, ft_strlen(mtime_str + 24) - 1);
+		else
+			ft_memcpy(year, mtime_str + 20, ft_strlen(mtime_str + 20) - 1);
 		mtime_str[10] = '\0';
-		ft_printf(" %s  %s", mtime_str + 4, year);
 	}
 	else
-	{
 		mtime_str[16] = '\0';
-		ft_printf(" %s", mtime_str + 4);
-	}
+	ft_printf(" %s", mtime_str + 4);
+	if (year[0] != '\0')
+		ft_printf("%2s", year);
 }
