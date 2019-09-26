@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 03:21:49 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/25 12:38:11 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/26 12:01:28 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,20 @@ void					print_default(t_dir *directory)
 	int					i;
 	int					per_row;
 	int					per_col;
+	t_file				*file;
 	struct winsize		terminal;
 
 	i = 0;
+	file = directory->file_head;
 	ioctl(STDIN_FILENO, TIOCGWINSZ, &terminal);
 	per_row = (terminal.ws_col / directory->filename_wmax) - 1;
 	if (per_row < 1)
 		per_row = 1;
 	per_col = (directory->nb_files / per_row) + 1;
-	while (directory->file_head != NULL)
+	while (file != NULL)
 	{
-		print_filename(directory->file_head, (directory->file_head->next
-					&& (i != per_row - 1)) ? directory->filename_wmax + 5 : 0);
-		directory->file_head = directory->file_head->next;
+		print_filename(file, (i == per_row - 1) ? file->namlen : directory->filename_wmax + 5);
+		file = file->next;
 		i++;
 		if (i == per_row)
 		{
