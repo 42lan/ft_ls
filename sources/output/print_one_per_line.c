@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/21 17:46:56 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/23 14:38:00 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/26 11:18:50 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 void			print_one_per_line(t_dir *directory)
 {
-	if (directory->file_head)
-		while (directory->file_head != NULL)
+	t_file		*file;
+
+	file = directory->file_head;
+	if (file)
+		while (file != NULL)
 		{
-			print_filename(directory->file_head, 0);
+			print_filename(file, file->namlen);
+			file = file->next;
 			ft_putchar('\n');
-			directory->file_head = directory->file_head->next;
 		}
 }
