@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/23 13:46:39 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/05 12:22:04 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/26 13:13:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char		*get_permissions(mode_t mode, int ugo)
 	int		w_mask;
 	int		x_mask;
 
-	r_mask = S_IRUSR >> ugo;
-	w_mask = S_IWUSR >> ugo;
-	x_mask = S_IXUSR >> ugo;
+	r_mask = FT_RPERM(mode, ugo);
+	w_mask = FT_WPERM(mode, ugo);
+	x_mask = FT_XPERM(mode, ugo);
 	if ((mode & r_mask) && (mode & w_mask) && (mode & x_mask))
 		return ("rwx");
 	else if ((mode & r_mask) && (mode & w_mask))
