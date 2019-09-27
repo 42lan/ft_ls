@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/27 13:54:25 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/27 18:19:07 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ enum				e_options
 	INDICATORS,
 	RECURSIVE,
 	SHOW_HIDDEN,
+	UNSORTED,
 	LONG_WITHOUT_OWNER,
 	LONG_FORMAT,
 	LONG_NUMERIC_ID,
@@ -156,5 +157,7 @@ int					get_stat(t_file *file);
 struct passwd		*get_pwstruct(uid_t st_uid);
 struct group		*get_grstruct(gid_t st_gid);
 char				*get_permissions(mode_t mode, int ugo);
+void				apply_options(t_dir *directory);
+void				append_file(t_dir **directory, t_file *file);
 
 #endif
