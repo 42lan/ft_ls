@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/25 11:20:47 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/27 12:32:32 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void			loop_through(DIR *dp, t_dir *directory, const char *path)
 		directory->nb_files++;
 		file = new_file(path, dirent->d_name);
 		fill_struct(file);
-		determine_wmax(directory, file);
+		determine_wmax(directory->wmax, file);
 		if (!(ft_strequ(file->name, ".") || ft_strequ(file->name, "..")))
 			if (S_ISDIR(file->stat->st_mode))
 				append_subdir(&directory, file, path);
@@ -83,19 +83,17 @@ void				browse_directory(const char *path)
 	}
 	directory = new_directory(path);
 	loop_through(dp, directory, path);
+	ft_mergesort(&directory->subdir_head, &name_cmp);
 	ft_mergesort(&directory->file_head, &name_cmp);
 	if (g_argp[MTIME_SORT].active)
-	{
 		ft_mergesort(&directory->file_head, &mtime_cmp);
-//		reverse_files(&directory->file_head);
-	}
 	if (g_argp[REVERSE_ORDER].active)
+	{
+		reverse_files(&directory->subdir_head);
 		reverse_files(&directory->file_head);
+	}
 	display(directory);
 	if (g_argp[RECURSIVE].active && directory->subdir_head != NULL)
-	{
-		ft_mergesort(&directory->subdir_head, &name_cmp);
 		recursive_browse(directory->subdir_head);
-	}
 	closedir(dp);
 }
