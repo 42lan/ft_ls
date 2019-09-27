@@ -6,18 +6,18 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/27 18:53:31 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/27 20:26:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-extern t_argp		g_argp[];
+extern t_argp	g_argp[];
 
-static int			check_for_one_dir(t_file *head)
+static int		check_for_one_dir(t_file *head)
 {
-	t_file			*tmp;
-	int				one_dir;
+	t_file		*tmp;
+	int			one_dir;
 
 	tmp = head;
 	one_dir = 1;
@@ -31,10 +31,10 @@ static int			check_for_one_dir(t_file *head)
 	return (one_dir);
 }
 
-void				nodir_handler(t_file *head)
+static void		nondirtypes_handler(t_file *head)
 {
-	t_file			*file;
-	t_dir			*directory;
+	t_file		*file;
+	t_dir		*directory;
 
 	directory = new_directory(NULL);
 	while (head && !S_ISDIR(head->stat->st_mode))
@@ -52,26 +52,29 @@ void				nodir_handler(t_file *head)
 	display(directory);
 }
 
-int					ft_ls(t_file *head)
+static void		directories_handler(t_file *head)
 {
-	t_file			*file;
-	int				one_dir;
+	int			one_dir;
 
-	file = head;
-	one_dir = check_for_one_dir(file);
-	nodir_handler(head);
-	while (file)
+	one_dir = check_for_one_dir(head);
+	while (head)
 	{
-		if (g_argp[LONG_FORMAT].active && file->name[file->namlen - 1] == '/')
-			stat(file->name, file->stat);
-		if (S_ISDIR(file->stat->st_mode))
+		if (g_argp[LONG_FORMAT].active && head->name[head->namlen - 1] == '/')
+			stat(head->name, head->stat);
+		if (S_ISDIR(head->stat->st_mode))
 		{
-			(one_dir != 1) ? ft_printf("%s:\n", file->name) : 0;
-			browse_directory(file->name);
+			(one_dir != 1) ? ft_printf("%s:\n", head->name) : 0;
+			browse_directory(head->name);
 		}
-		file = file->next;
-		if (file && S_ISDIR(file->stat->st_mode))
+		head = head->next;
+		if (head && S_ISDIR(head->stat->st_mode))
 			ft_putchar('\n');
 	}
+}
+
+int				ft_ls(t_file *head)
+{
+	nondirtypes_handler(head);
+	directories_handler(head);
 	return (1);
 }
