@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 15:39:53 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/27 12:10:02 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/27 13:51:48 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@ static t_wmax	*new_wmax(void)
 
 	if (!(wmax = (t_wmax *)ft_memalloc(sizeof(t_wmax))))
 		return (NULL);
+
+	wmax->filename = 1;
+	wmax->ownername = 0;
+	wmax->groupname = 0;
+	wmax->size = 0;
+	wmax->major = 0;
+	wmax->minor = 0;
+	wmax->nlink = 0;
 	return (wmax);
 }
 
