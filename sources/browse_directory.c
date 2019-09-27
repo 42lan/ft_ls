@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/27 12:32:32 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/27 18:53:35 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,6 @@ static void			append_subdir(t_dir **dir, t_file *file, const char *path)
 	{
 		subdir->next = (*dir)->subdir_head;
 		(*dir)->subdir_head = subdir;
-	}
-}
-
-static void			append_file(t_dir **dir, t_file *file)
-{
-	if ((*dir)->file_head == NULL)
-		(*dir)->file_head = file;
-	else
-	{
-		file->next = (*dir)->file_head;
-		(*dir)->file_head = file;
 	}
 }
 
@@ -59,7 +48,6 @@ static void			loop_through(DIR *dp, t_dir *directory, const char *path)
 	{
 		if (need_to_skip(dirent->d_name))
 			continue ;
-		directory->nb_files++;
 		file = new_file(path, dirent->d_name);
 		fill_struct(file);
 		determine_wmax(directory->wmax, file);
@@ -67,6 +55,7 @@ static void			loop_through(DIR *dp, t_dir *directory, const char *path)
 			if (S_ISDIR(file->stat->st_mode))
 				append_subdir(&directory, file, path);
 		append_file(&directory, file);
+		directory->nb_files++;
 		directory->total_blocks += file->stat->st_blocks;
 	}
 }
@@ -83,15 +72,7 @@ void				browse_directory(const char *path)
 	}
 	directory = new_directory(path);
 	loop_through(dp, directory, path);
-	ft_mergesort(&directory->subdir_head, &name_cmp);
-	ft_mergesort(&directory->file_head, &name_cmp);
-	if (g_argp[MTIME_SORT].active)
-		ft_mergesort(&directory->file_head, &mtime_cmp);
-	if (g_argp[REVERSE_ORDER].active)
-	{
-		reverse_files(&directory->subdir_head);
-		reverse_files(&directory->file_head);
-	}
+	apply_options(directory);
 	display(directory);
 	if (g_argp[RECURSIVE].active && directory->subdir_head != NULL)
 		recursive_browse(directory->subdir_head);
