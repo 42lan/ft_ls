@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/27 13:29:18 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/27 18:18:53 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,9 @@ SRCNAME		= main.c	\
 			  predicates/is_hidden.c\
 			  predicates/need_to_skip.c\
 			  predicates/is_option.c\
+			  tools/append_file.c\
 			  tools/append_indicator.c\
+			  tools/apply_options.c\
 			  tools/check_accessibility.c\
 			  tools/cmp.c\
 			  tools/fill_struct.c\
