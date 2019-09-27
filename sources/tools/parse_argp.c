@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 18:31:16 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/26 16:42:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/27 12:39:58 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@ extern t_argp	g_argp[];
 
 static void		override(const char option)
 {
-	if (option == 'F')
+	if (option == g_argp[INDICATORS].sign)
 		g_argp[INDICATOR_SLASH].active = 0;
-	else if (option == 'g')
+	else if (option == g_argp[LONG_WITHOUT_OWNER].sign)
 	{
 		g_argp[LONG_FORMAT].active = 1;
 		g_argp[ONE_PER_LINE].active = 0;
 	}
-	else if (option == 'l')
+	else if (option == g_argp[LONG_FORMAT].sign)
 		g_argp[ONE_PER_LINE].active = 0;
-	else if (option == 'n')
+	else if (option == g_argp[LONG_NUMERIC_ID].sign)
 		g_argp[LONG_FORMAT].active = 1;
-	else if (option == 'o')
+	else if (option == g_argp[LONG_WITHOUT_GROUP].sign)
 		g_argp[LONG_FORMAT].active = 1;
-	else if (option == 'p')
+	else if (option == g_argp[INDICATOR_SLASH].sign)
 		g_argp[INDICATORS].active = 0;
-	else if (option == '1')//g_argp[ONE_PER_LINE].sign)
+	else if (option == g_argp[ONE_PER_LINE].sign)
 	{
 		g_argp[LONG_FORMAT].active = 0;
 		g_argp[LONG_NUMERIC_ID].active = 0;
