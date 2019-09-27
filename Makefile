@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/25 09:55:30 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/27 13:29:18 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ SRCNAME		= main.c	\
 			  gets/get_type.c\
 			  output/display.c\
 			  output/print_default.c\
+			  output/print_help.c\
 			  output/print_error.c\
 			  output/print_filename.c\
 			  output/print_groupname.c\
