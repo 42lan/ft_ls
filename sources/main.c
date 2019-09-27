@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:51:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/26 15:57:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/27 12:43:27 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ t_argp		g_argp[] =
 	{0, 0, NULL}
 };
 
-int			main(int ac, char **av)
+int			main(int argc, char **argv)
 {
 	t_file	*file_list;
 
-	get_options(ac, av);
-	file_list = get_argument_files(ac, av);
+	get_options(argc, argv);
+	file_list = get_argument_files(argc, argv);
 	ft_mergesort(&file_list, &name_cmp);
 	check_accessibility(&file_list);
 	if (file_list != NULL)

@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/08 16:25:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/08/24 13:30:07 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/27 12:44:50 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int		is_option(const char *av)
+int		is_option(const char *argv)
 {
-	return (av && av[0] == '-' && av[1] != '\0');
+	return (argv && argv[0] == '-' && argv[1] != '\0');
 }

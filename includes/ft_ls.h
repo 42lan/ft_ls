@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/27 12:15:15 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/27 12:47:03 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ void				print_usage(char c);
 int					is_dotdot(const char *name);
 int					is_hidden(const char *name);
 int					need_to_skip(const char *name);
-int					is_option(const char *av);
+int					is_option(const char *argv);
 void				check_accessibility(t_file **head);
 char				*form_relpath(const char *dirname, const char *basename);
 void				ft_mergesort(t_file **headref,
@@ -132,7 +132,7 @@ void				ft_mergesort(t_file **headref,
 void				lineup_files(t_file **head);
 int					mtime_cmp(t_file *file_a, t_file *file_b);
 int					name_cmp(t_file *file_a, t_file *file_b);
-void				parse_argp(const char *av);
+void				parse_argp(const char *argv);
 void				remove_file(t_file *file);
 void				reverse_files(t_file **head);
 void				set_extended_attribute(t_file *file);
@@ -145,8 +145,8 @@ void				determine_major_minor_wmax(t_wmax *wmax, t_file *file);
 void				determine_ownername_wmax(t_wmax *wmax, t_file *file);
 void				determine_size_wmax(t_wmax *wmax, t_file *file);
 void				determine_wmax(t_wmax *wmax, t_file *file);
-t_file				*get_argument_files(int ac, char **av);
-void				get_options(int ac, char **av);
+t_file				*get_argument_files(int argc, char **argv);
+void				get_options(int argc, char **argv);
 char				get_type(mode_t mode);
 void				get_link(t_file *file);
 void				get_major_minor(t_file *file);

@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 18:31:16 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/27 12:39:58 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/27 12:45:16 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,25 @@ static void		override(const char option)
 	}
 }
 
-void			parse_argp(const char *av)
+void			parse_argp(const char *argv)
 {
 	int			i;
 	int			k;
 	int			found;
 
 	i = 0;
-	while (av[++i] != '\0')
+	while (argv[++i] != '\0')
 	{
 		k = -1;
 		found = 0;
 		while (g_argp[++k].sign != 0)
-			if (g_argp[k].sign == av[i])
+			if (g_argp[k].sign == argv[i])
 			{
-				override(av[i]);
+				override(argv[i]);
 				g_argp[k].active = 1;
 				found = 1;
 			}
 		if (found == 0)
-			print_usage(av[i]);
+			print_usage(argv[i]);
 	}
 }
