@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/26 15:56:28 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/27 11:28:45 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,41 +31,48 @@
 # include "../libft/includes/libft.h"
 # include "colors.h"
 
-// UTILISER enum()
-# define ALMOST_ALL			0
-# define INDICATORS			1
-# define RECURSIVE			2
-# define SHOW_HIDDEN		3
-# define LONG_WITHOUT_OWNER	4
-# define LONG_FORMAT		5
-# define LONG_NUMERIC_ID	6
-# define LONG_WITHOUT_GROUP	7
-# define INDICATOR_SLASH	8
-# define REVERSE_ORDER		9
-# define MTIME_SORT			10
-# define ONE_PER_LINE		11
-
 # define FT_RPERM(m, i)		(m & (S_IRUSR >> i))
 # define FT_WPERM(m, i)		(m & (S_IWUSR >> i))
 # define FT_XPERM(m, i)		(m & (S_IXUSR >> i))
 # define FT_XUGO(m)			(FT_XPERM(m, 0) || FT_XPERM(m, 3) || FT_XPERM(m, 6))
+
+typedef enum	e_option
+{
+	ALMOST_ALL,
+	INDICATORS,
+	RECURSIVE,
+	SHOW_HIDDEN,
+	LONG_WITHOUT_OWNER,
+	LONG_FORMAT,
+	LONG_NUMERIC_ID,
+	LONG_WITHOUT_GROUP,
+	INDICATOR_SLASH,
+	REVERSE_ORDER,
+	MTIME_SORT,
+	ONE_PER_LINE
+}				t_options;
+
+typedef struct		s_wmax
+{
+	size_t			filename;
+	size_t			ownername;
+	size_t			groupname;
+	size_t			size;
+	size_t			major;
+	size_t			minor;
+	size_t			nlink;
+}					t_wmax;
 
 typedef struct		s_dir
 {
 	char			*name;
 	char			*ownername;
 	char			*groupname;
-	struct s_file	*file_head;
-	struct s_file	*subdir_head;
 	size_t			total_blocks;
-	size_t			filename_wmax;
-	size_t			nlink_wmax;
-	size_t			size_wmax;
-	size_t			ownername_wmax;
-	size_t			groupname_wmax;
-	size_t			major_wmax;
-	size_t			minor_wmax;
 	size_t			nb_files;
+	struct s_wmax	*wmax;
+	struct s_file	*subdir_head;
+	struct s_file	*file_head;
 	struct s_dir	*next;
 }					t_dir;
 
@@ -105,8 +112,7 @@ void				print_long(t_dir *directory);
 void				print_one_per_line(t_dir *directory);
 void				print_filename(t_file *file, int width);
 void				print_groupname(const char *groupname, size_t width);
-void				print_major_minor(t_dir *directory, size_t major,
-					size_t minor);
+void				print_major_minor(t_wmax *wmax, size_t major, size_t minor);
 void				print_mode(const char *mode);
 void				print_mtime(time_t tv_sec);
 void				print_nlink(nlink_t st_nlink, int width);
@@ -132,13 +138,13 @@ void				reverse_files(t_file **head);
 void				set_extended_attribute(t_file *file);
 void				set_special_permissions(mode_t st_mode, char **str);
 void				append_indicator(t_file *file);
-void				determine_groupname_wmax(t_dir *directory, t_file *file);
-void				determine_filename_wmax(t_dir *directory, t_file *file);
-void				determine_nlink_wmax(t_dir *directory, t_file *file);
-void				determine_major_minor_wmax(t_dir *directory, t_file *file);
-void				determine_ownername_wmax(t_dir *directory, t_file *file);
-void				determine_size_wmax(t_dir *directory, t_file *file);
-void				determine_wmax(t_dir *directory, t_file *file);
+void				determine_groupname_wmax(t_wmax *wmax, t_file *file);
+void				determine_filename_wmax(t_wmax *wmax, t_file *file);
+void				determine_nlink_wmax(t_wmax *wmax, t_file *file);
+void				determine_major_minor_wmax(t_wmax *wmax, t_file *file);
+void				determine_ownername_wmax(t_wmax *wmax, t_file *file);
+void				determine_size_wmax(t_wmax *wmax, t_file *file);
+void				determine_wmax(t_wmax *wmax, t_file *file);
 t_file				*get_argument_files(int ac, char **av);
 void				get_options(int ac, char **av);
 char				get_type(mode_t mode);
