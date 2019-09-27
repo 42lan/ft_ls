@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/27 11:28:45 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/27 12:15:15 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 # define FT_XPERM(m, i)		(m & (S_IXUSR >> i))
 # define FT_XUGO(m)			(FT_XPERM(m, 0) || FT_XPERM(m, 3) || FT_XPERM(m, 6))
 
-typedef enum	e_option
+enum				e_options
 {
 	ALMOST_ALL,
 	INDICATORS,
@@ -50,7 +50,7 @@ typedef enum	e_option
 	REVERSE_ORDER,
 	MTIME_SORT,
 	ONE_PER_LINE
-}				t_options;
+};
 
 typedef struct		s_wmax
 {
