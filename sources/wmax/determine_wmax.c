@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 15:05:30 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/21 11:14:19 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/27 11:11:26 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 ** from stat struct.
 */
 
-void	determine_wmax(t_dir *directory, t_file *file)
+void	determine_wmax(t_wmax *wmax, t_file *file)
 {
-	determine_filename_wmax(directory, file);
-	determine_ownername_wmax(directory, file);
-	determine_groupname_wmax(directory, file);
-	determine_nlink_wmax(directory, file);
-	determine_size_wmax(directory, file);
-	determine_major_minor_wmax(directory, file);
+	determine_filename_wmax(wmax, file);
+	determine_ownername_wmax(wmax, file);
+	determine_groupname_wmax(wmax, file);
+	determine_nlink_wmax(wmax, file);
+	determine_size_wmax(wmax, file);
+	determine_major_minor_wmax(wmax, file);
 }
