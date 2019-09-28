@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 18:31:16 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/28 12:00:30 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/28 13:26:32 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void			override_options(const char option)
 	else if (option == g_argp[UNSORTED].sign)
 	{
 		g_argp[SHOW_HIDDEN].active = 1;
-		g_argp[MTIME_SORT].active = 0;
 		g_argp[REVERSE_ORDER].active = 0;
+		g_argp[MTIME_SORT].active = 0;
 	}
 	else if (option == g_argp[LONG_WITHOUT_OWNER].sign)
 	{
@@ -38,12 +38,7 @@ void			override_options(const char option)
 	else if (option == g_argp[INDICATOR_SLASH].sign)
 		g_argp[INDICATORS].active = 0;
 	else if (option == g_argp[ONE_PER_LINE].sign)
-	{
 		g_argp[LONG_FORMAT].active = 0;
-		g_argp[LONG_NUMERIC_ID].active = 0;
-		g_argp[LONG_WITHOUT_OWNER].active = 0;
-		g_argp[LONG_WITHOUT_GROUP].active = 0;
-	}
 }
 
 void			parse_argp(const char *argv)
