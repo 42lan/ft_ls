@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/27 18:53:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/28 14:41:27 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ static void			recursive_browse(t_file *subdir_head)
 {
 	while (subdir_head != NULL)
 	{
-		ft_putchar('\n');
-		ft_printf("%s:\n", subdir_head->relpath);
+		ft_printf("\n%s:\n", subdir_head->relpath);
 		browse_directory(subdir_head->relpath);
 		subdir_head = subdir_head->next;
 	}
@@ -63,11 +62,13 @@ static void			loop_through(DIR *dp, t_dir *directory, const char *path)
 void				browse_directory(const char *path)
 {
 	DIR				*dp;
+	char			*basename;
 	t_dir			*directory;
 
 	if ((dp = opendir(path)) == NULL)
 	{
-		print_error(path, errno);
+		basename = ft_strrchr(path, '/');
+		print_error((basename == NULL) ? path : basename + 1, errno);
 		return ;
 	}
 	directory = new_directory(path);
