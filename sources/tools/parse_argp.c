@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 18:31:16 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/27 13:15:46 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/28 12:00:30 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 extern t_argp	g_argp[];
 
-static void		override(const char option)
+void			override_options(const char option)
 {
 	if (option == g_argp[INDICATORS].sign)
 		g_argp[INDICATOR_SLASH].active = 0;
@@ -60,7 +60,7 @@ void			parse_argp(const char *argv)
 		while (g_argp[++k].sign != 0)
 			if (g_argp[k].sign == argv[i])
 			{
-				override(argv[i]);
+				override_options(argv[i]);
 				g_argp[k].active = 1;
 				found = 1;
 			}
