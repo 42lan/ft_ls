@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/27 18:19:07 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/28 10:58:53 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ t_file				*new_file(const char *path, const char *name);
 t_dir				*new_directory(const char *path);
 void				display(t_dir *directory);
 void				print_default(t_dir *directory);
+void				print_fts_open(void);
 void				print_help(void);
 void				print_error(const char *filename, int errnum);
 void				print_long(t_dir *directory);
