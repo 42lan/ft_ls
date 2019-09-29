@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 15:39:53 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/29 08:29:37 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/29 13:41:31 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static t_wmax	*new_wmax(void)
 
 	if (!(wmax = (t_wmax *)ft_memalloc(sizeof(t_wmax))))
 		return (NULL);
-
 	wmax->filename = 1;
 	wmax->ownername = 0;
 	wmax->groupname = 0;
