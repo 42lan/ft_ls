@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 15:39:53 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/27 13:51:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/29 08:29:37 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,5 @@ t_dir			*new_directory(const char *name)
 	directory->wmax = new_wmax();
 	directory->subdir_head = NULL;
 	directory->file_head = NULL;
-	directory->next = NULL;
 	return (directory);
 }
