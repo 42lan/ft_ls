@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/28 10:48:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/28 10:54:36 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/29 12:15:37 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	print_fts_open(void)
 {
 	print_error("fts_open", ENOENT);
-	exit (EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
