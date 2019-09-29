@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/29 12:21:12 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/29 13:49:29 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,10 +123,12 @@ void				print_ownername(const char *ownername, size_t width);
 void				print_size(off_t st_size, size_t width);
 void				print_totalblocks(size_t total_blocks);
 void				print_usage(char c);
+int					is_dev_dir(const char *name);
 int					is_dotdot(const char *name);
 int					is_hidden(const char *name);
-int					need_to_skip(const char *name);
 int					is_option(const char *argv);
+int					isnt_dir_and_lnk(t_file *file);
+int					need_to_skip(const char *name);
 void				check_accessibility(t_file **head);
 char				*form_relpath(const char *dirname, const char *basename);
 void				ft_mergesort(t_file **headref,
