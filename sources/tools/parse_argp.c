@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 18:31:16 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/28 13:26:32 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/29 08:36:59 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@ void			override_options(const char option)
 {
 	if (option == g_argp[INDICATORS].sign)
 		g_argp[INDICATOR_SLASH].active = 0;
-	else if (option == g_argp[UNSORTED].sign)
-	{
-		g_argp[SHOW_HIDDEN].active = 1;
-		g_argp[REVERSE_ORDER].active = 0;
-		g_argp[MTIME_SORT].active = 0;
-	}
 	else if (option == g_argp[LONG_WITHOUT_OWNER].sign)
 	{
 		g_argp[LONG_FORMAT].active = 1;
