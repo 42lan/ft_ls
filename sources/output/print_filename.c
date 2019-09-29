@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 03:18:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/26 16:57:12 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/29 12:36:09 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void			putoffset(int width)
 {
 	while (width--)
 		write(1, " ", 1);
-
 }
 
 void			print_filename(t_file *file, int width)
