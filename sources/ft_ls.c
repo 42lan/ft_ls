@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/27 20:26:55 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/29 08:27:01 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,11 @@ static void		directories_handler(t_file *head)
 
 int				ft_ls(t_file *head)
 {
-	nondirtypes_handler(head);
-	directories_handler(head);
+	if (!head)
+		return (0);
+	if (!S_ISDIR(head->stat->st_mode))
+		nondirtypes_handler(head);
+	if (head)
+		directories_handler(head);
 	return (1);
 }
