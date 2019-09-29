@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/29 13:40:12 by amalsago         ###   ########.fr        #
+#    Updated: 2019/09/29 13:50:08 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,8 +77,10 @@ SRCNAME		= main.c	\
 			  output/print_size.c\
 			  output/print_totalblocks.c\
 			  output/print_usage.c\
+			  predicates/is_dev_dir.c\
 			  predicates/is_dotdot.c\
 			  predicates/is_hidden.c\
+			  predicates/isnt_dir_and_lnk.c\
 			  predicates/need_to_skip.c\
 			  predicates/is_option.c\
 			  tools/append_file.c\
