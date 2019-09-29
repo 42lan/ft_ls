@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/28 10:58:53 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/29 08:30:37 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ typedef struct		s_dir
 	struct s_wmax	*wmax;
 	struct s_file	*subdir_head;
 	struct s_file	*file_head;
-	struct s_dir	*next;
 }					t_dir;
 
 typedef struct		s_file
