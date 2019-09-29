@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/29 08:27:01 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/29 19:43:00 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ static void		directories_handler(t_file *head)
 	one_dir = check_for_one_dir(head);
 	while (head)
 	{
-		if (g_argp[LONG_FORMAT].active && head->name[head->namlen - 1] == '/')
-			stat(head->name, head->stat);
 		if (S_ISDIR(head->stat->st_mode))
 		{
 			(one_dir != 1) ? ft_printf("%s:\n", head->name) : 0;
