@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/29 08:30:37 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/29 08:35:56 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ enum				e_options
 	ALMOST_ALL,
 	INDICATORS,
 	RECURSIVE,
+	COMPLETE_TIME,
 	SHOW_HIDDEN,
-	UNSORTED,
 	LONG_WITHOUT_OWNER,
 	LONG_FORMAT,
 	LONG_NUMERIC_ID,
