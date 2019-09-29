@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 03:27:57 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/29 09:50:46 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/29 12:43:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ extern t_argp	g_argp[];
 
 void		print_mtime(time_t tv_sec)
 {
+	int		offset;
+	int		length;
 	char	year[6];
 	char	*mtime_str;
 	time_t	current_time;
@@ -35,10 +37,9 @@ void		print_mtime(time_t tv_sec)
 	mtime_str = ctime(&tv_sec);
 	if (tv_sec < (current_time - SIX_MONTH) || tv_sec > current_time)
 	{
-		if (tv_sec > current_time)
-			ft_memccpy(year, mtime_str + 24, '\n', ft_strlen(mtime_str + 24) - 1);
-		else
-			ft_memccpy(year, mtime_str + 20, '\n', ft_strlen(mtime_str + 20) - 1);
+		offset = (tv_sec > current_time) ? 24 : 20;
+		length = ft_strlen(mtime_str + offset) - 1;
+		ft_memccpy(year, mtime_str + offset, '\n', length);
 		mtime_str[(g_argp[COMPLETE_TIME].active) ? 19 : 10] = '\0';
 	}
 	mtime_str[(g_argp[COMPLETE_TIME].active) ? 24 : 16] = '\0';
