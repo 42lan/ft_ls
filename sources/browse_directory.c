@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/28 14:41:27 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/29 12:19:04 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void				browse_directory(const char *path)
 	if ((dp = opendir(path)) == NULL)
 	{
 		basename = ft_strrchr(path, '/');
-		print_error((basename == NULL) ? path : basename + 1, errno);
+		print_ft_ls_error((basename == NULL) ? path : basename + 1, errno);
 		return ;
 	}
 	directory = new_directory(path);

@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/24 13:40:18 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/25 09:54:24 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/29 12:20:23 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		check_accessibility(t_file **head)
 	{
 		if (get_stat((*tracer)) == -1)
 		{
-			print_error((*tracer)->name, errno);
+			print_ft_ls_error((*tracer)->name, errno);
 			bad_file = *tracer;
 			remove_file(bad_file);
 			*tracer = (*tracer)->next;
