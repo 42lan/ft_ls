@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 03:18:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/29 12:36:09 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/30 08:57:06 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ extern t_argp	g_argp[];
 
 void			putoffset(int width)
 {
-	while (width--)
+	while (width-- > 0)
 		write(1, " ", 1);
 }
 
