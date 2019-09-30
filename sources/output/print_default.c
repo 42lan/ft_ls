@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 03:21:49 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/30 12:06:28 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/30 12:37:16 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ void					print_default(t_dir *directory)
 			ft_putchar('\n');
 		}
 	}
-	(directory->nb_files > 0) ? ft_putchar('\n') : 0;
+	if (directory->name == NULL || (i > 0 && directory->nb_files > 0))
+		ft_putchar('\n');
 }
