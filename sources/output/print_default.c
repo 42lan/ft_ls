@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 03:21:49 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/29 19:42:18 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/30 08:53:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void					print_default(t_dir *directory)
 		per_row = 1;
 	while (file != NULL)
 	{
-		width = (directory->nb_files != 1 && ++i == per_row - 1)
-				? file->namlen : file->namlen + 5;
+		width = (file->next && (i != per_row - 1)) ? directory->wmax->filename + 5 : 0;
 		print_filename(file, width);
 		file = file->next;
+		i++;
 		if (i == per_row)
 		{
 			i = 0;
