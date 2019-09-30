@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/29 12:19:04 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/30 10:55:34 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ static void			loop_through(DIR *dp, t_dir *directory, const char *path)
 			if (S_ISDIR(file->stat->st_mode))
 				append_subdir(&directory, file, path);
 		append_file(&directory, file);
-		directory->nb_files++;
 		directory->total_blocks += file->stat->st_blocks;
 	}
 }
