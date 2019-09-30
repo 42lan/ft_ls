@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 05:19:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/29 13:49:47 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/30 10:44:44 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void			print_major_minor_or_size(t_dir *directory, t_file *file)
 	mode_t		st_mode;
 
 	if (is_dev_dir(directory->name) && isnt_dir_and_lnk(file))
+	{
 		print_major_minor(directory->wmax, file->major, file->minor);
+	}
 	else
 	{
 		width = directory->wmax->size;
