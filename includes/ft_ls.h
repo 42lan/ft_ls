@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/29 13:49:29 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/30 09:55:19 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ typedef struct		s_argp
 
 void				browse_directory(const char *path);
 void				browse_file(const char *filename);
-int					ft_ls(t_file *head);
+int					ft_ls(t_dir *head);
 void				fill_struct(t_file *file);
 t_file				*new_file(const char *path, const char *name);
 t_dir				*new_directory(const char *path);
@@ -149,7 +149,7 @@ void				determine_major_minor_wmax(t_wmax *wmax, t_file *file);
 void				determine_ownername_wmax(t_wmax *wmax, t_file *file);
 void				determine_size_wmax(t_wmax *wmax, t_file *file);
 void				determine_wmax(t_wmax *wmax, t_file *file);
-t_file				*get_argument_files(int argc, char **argv);
+t_dir				*get_argument_files(int argc, char **argv);
 void				get_options(int argc, char **argv);
 char				get_type(mode_t mode);
 void				get_link(t_file *file);
