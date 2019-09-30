@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display.c                                          :+:      :+:    :+:   */
+/*   freeup_memory.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 21:07:44 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/30 15:34:47 by amalsago         ###   ########.fr       */
+/*   Created: 2019/09/27 20:01:33 by amalsago          #+#    #+#             */
+/*   Updated: 2019/09/30 17:39:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-extern t_argp	g_argp[];
-
-void			display(t_dir *directory)
+void			free_directory(t_dir *directory)
 {
-	(void)directory;
-	/*
-	if (g_argp[LONG_FORMAT].active)
-		print_long(directory);
-	else if (g_argp[ONE_PER_LINE].active)
-		print_one_per_line(directory);
-	else
-		print_default(directory);
-	*/
+	t_file		*file;
+	t_file		*next;
+	if (directory == NULL)
+		return ;
+	file = directory->file_head;
+	while (file)
+	{
+		next = file->next;
+		free_file(file);
+		free(&file);
+		file = next;
+	}
+
+}
+
+void	free_file(t_file *file)
+{
+	ft_strdel(&file->name);
+	ft_strdel(&file->relpath);
+	ft_strdel(&file->mode);
 }
