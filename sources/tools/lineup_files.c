@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 16:03:40 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/29 19:26:18 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/09/30 11:51:33 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,33 +45,28 @@ static void		lineup_handler(t_file **list, t_file **curr, t_file **last,
 
 void			lineup_files(t_file **head)
 {
-	t_file		*curr;
-	t_file		*next;
-	t_file		*file_list;
 	t_file		*dir_list;
+	t_file		*file_list;
 	t_file		*last_dir;
 	t_file		*last_file;
+	t_file		*next;
 
-	curr = *head;
-	file_list = NULL;
 	dir_list = NULL;
+	file_list = NULL;
 	last_dir = NULL;
 	last_file = NULL;
-	if (curr != NULL)
+	while ((*head))
 	{
-		while (curr)
+		next = (*head)->next;
+		if (S_ISLNK((*head)->stat->st_mode))
 		{
-			next = curr->next;
-			if (S_ISLNK(curr->stat->st_mode))
-			{
-				get_link(curr);
-				lstat(curr->target, curr->stat);
-			}
-			if (S_ISDIR(curr->stat->st_mode))
-				lineup_handler(&dir_list, &curr, &last_dir, next);
-			else
-				lineup_handler(&file_list, &curr, &last_file, next);
+			get_link((*head));
+			lstat((*head)->target, (*head)->stat);
 		}
-		update_head(head, dir_list, file_list, last_file);
+		if (S_ISDIR((*head)->stat->st_mode))
+			lineup_handler(&dir_list, &(*head), &last_dir, next);
+		else
+			lineup_handler(&file_list, &(*head), &last_file, next);
 	}
+	update_head(head, dir_list, file_list, last_file);
 }
