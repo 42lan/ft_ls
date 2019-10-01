@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/01 13:32:22 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 14:46:00 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void			loop_through(DIR *dp, t_dir *directory, const char *path)
 			continue ;
 		file = new_file(path, dirent->d_name);
 		fill_struct(file);
-		determine_wmax(directory->wmax, file);
+		determine_wmax(&directory->wmax, file);
 		if (!(ft_strequ(file->name, ".") || ft_strequ(file->name, "..")))
 			if (S_ISDIR(file->stat.st_mode))
 				append_subdir(&directory, file, path);
