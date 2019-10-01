@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 09:10:39 by amalsago          #+#    #+#             */
-/*   Updated: 2018/11/24 11:05:18 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 13:09:58 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 void	ft_strdel(char **as)
 {
-	if (as && *as)
-	{
-		ft_memdel((void **)as);
-		*as = NULL;
-	}
+	ft_memdel((void **)as);
 }
