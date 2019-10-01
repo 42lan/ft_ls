@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:51:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/30 11:46:08 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 20:10:33 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ int			main(int argc, char **argv)
 	if (tmp->file_head != NULL)
 		lineup_files(&tmp->file_head);
 	ft_ls(directory);
+	remove_directory(directory);
 	return (0);
 }
