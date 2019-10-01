@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 05:19:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/30 10:44:44 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 13:34:46 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void			print_major_minor_or_size(t_dir *directory, t_file *file)
 	else
 	{
 		width = directory->wmax->size;
-		st_mode = file->stat->st_mode;
-		print_size(file->stat->st_size, ((is_dev_dir(directory->name))
+		st_mode = file->stat.st_mode;
+		print_size(file->stat.st_size, ((is_dev_dir(directory->name))
 					&& (S_ISDIR(st_mode) || S_ISLNK(st_mode)))
 				? width + 7 : width);
 	}
@@ -47,11 +47,11 @@ void			print_long(t_dir *directory)
 		while (file != NULL)
 		{
 			print_mode(file->mode);
-			print_nlink(file->stat->st_nlink, wmax->nlink);
+			print_nlink(file->stat.st_nlink, wmax->nlink);
 			print_ownername(file->ownername, wmax->ownername);
 			print_groupname(file->groupname, wmax->groupname);
 			print_major_minor_or_size(directory, file);
-			print_mtime(file->stat->st_mtimespec.tv_sec);
+			print_mtime(file->stat.st_mtimespec.tv_sec);
 			print_filename(file, 0);
 			file = file->next;
 			ft_printf("\n");

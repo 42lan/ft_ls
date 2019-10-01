@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 16:03:40 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/30 11:51:33 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 13:36:09 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ void			lineup_files(t_file **head)
 	while ((*head))
 	{
 		next = (*head)->next;
-		if (S_ISLNK((*head)->stat->st_mode))
+		if (S_ISLNK((*head)->stat.st_mode))
 		{
 			get_link((*head));
-			lstat((*head)->target, (*head)->stat);
+			lstat((*head)->target, &(*head)->stat);
 		}
-		if (S_ISDIR((*head)->stat->st_mode))
+		if (S_ISDIR((*head)->stat.st_mode))
 			lineup_handler(&dir_list, &(*head), &last_dir, next);
 		else
 			lineup_handler(&file_list, &(*head), &last_file, next);
