@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/30 11:13:45 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 13:42:52 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ typedef struct		s_file
 	char			*relpath;
 	char			target[PATH_MAX];
 	size_t			targetlen;
-	char			*mode;
-	struct stat		*stat;
+	char			mode[12];
+	struct stat		stat;
 	char			*ownername;
 	char			*groupname;
 	size_t			major;
@@ -172,7 +172,7 @@ void				parse_argp(const char *argv);
 void				remove_file(t_file *file);
 void				reverse_files(t_file **head);
 void				set_extended_attribute(t_file *file);
-void				set_special_permissions(mode_t st_mode, char **str);
+void				set_special_permissions(mode_t st_mode, char *str);
 
 /*
 ** WMAX
