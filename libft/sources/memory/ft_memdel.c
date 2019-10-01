@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 08:17:27 by amalsago          #+#    #+#             */
-/*   Updated: 2018/11/17 08:58:29 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 13:20:13 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_memdel(void **ap)
 {
-	if (ap)
+	if (ap && *ap)
 	{
 		free(*ap);
 		*ap = NULL;
