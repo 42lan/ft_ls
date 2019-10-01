@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 21:42:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/01 14:46:00 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 19:31:06 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,5 @@ void				browse_directory(const char *path)
 	if (g_argp[RECURSIVE].active && directory->subdir_head != NULL)
 		recursive_browse(directory->subdir_head);
 	closedir(dp);
+	remove_directory(directory);
 }
