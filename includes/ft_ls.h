@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/01 16:13:25 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 19:56:08 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ typedef struct		s_wmax
 typedef struct		s_dir
 {
 	char			*name;
-	char			*ownername;
-	char			*groupname;
 	size_t			total_blocks;
 	size_t			nb_files;
 	struct s_wmax	wmax;
