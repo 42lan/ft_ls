@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 15:39:53 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/01 14:41:38 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 20:06:29 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static t_wmax	new_wmax(void)
 {
 	t_wmax		wmax;
 
-	wmax.filename = 0;
+	wmax.filename = 1;
 	wmax.ownername = 0;
 	wmax.groupname = 0;
 	wmax.size = 0;
@@ -33,8 +33,6 @@ t_dir			*new_directory(const char *name)
 	if (!(directory = (t_dir *)ft_memalloc(sizeof(t_dir))))
 		return (NULL);
 	directory->name = (name != NULL) ? ft_strdup(name) : NULL;
-	directory->ownername = NULL;
-	directory->groupname = NULL;
 	directory->total_blocks = 0;
 	directory->nb_files = 0;
 	directory->wmax = new_wmax();
