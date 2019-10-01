@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/01 14:46:33 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 19:24:24 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void		nondirtypes_handler(t_file *head)
 	}
 	apply_options(directory);
 	display(directory);
+	remove_directory(directory);
 }
 
 static void		directories_handler(t_file *head, size_t nb_files)
