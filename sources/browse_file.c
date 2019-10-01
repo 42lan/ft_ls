@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 11:46:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/27 11:24:40 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 14:46:25 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void				browse_file(const char *filename)
 	fill_struct(file);
 	directory->nb_files = 1;
 	directory->file_head = file;
-	determine_wmax(directory->wmax, file);
+	determine_wmax(&directory->wmax, file);
 	display(directory);
 }
