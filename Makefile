@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/10/01 16:26:47 by amalsago         ###   ########.fr        #
+#    Updated: 2019/10/01 21:06:21 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,13 +50,11 @@ SRCNAME		= main.c	\
 			  browse_file.c\
 			  ft_ls.c\
 			  gets/get_argument_files.c\
-			  gets/get_grstruct.c\
 			  gets/get_link.c\
 			  gets/get_major_minor.c\
 			  gets/get_mode.c\
 			  gets/get_options.c\
 			  gets/get_permissions.c\
-			  gets/get_pwstruct.c\
 			  gets/get_stat.c\
 			  gets/get_type.c\
 			  output/display.c\
