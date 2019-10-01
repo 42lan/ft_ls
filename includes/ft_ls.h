@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/01 15:27:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 16:13:25 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +169,6 @@ int					name_cmp(t_file *file_a, t_file *file_b);
 t_dir				*new_directory(const char *path);
 t_file				*new_file(const char *path, const char *name);
 void				parse_argp(const char *argv);
-void				remove_file(t_file *file);
 void				reverse_files(t_file **head);
 void				set_extended_attribute(t_file *file);
 void				set_special_permissions(mode_t st_mode, char *str);
@@ -186,4 +185,6 @@ void				determine_ownername_wmax(t_wmax *wmax, t_file *file);
 void				determine_size_wmax(t_wmax *wmax, t_file *file);
 void				determine_wmax(t_wmax *wmax, t_file *file);
 
+void				remove_file(t_file *file);
+void				remove_directory(t_dir *directory);
 #endif
