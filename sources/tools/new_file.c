@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 15:29:55 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/22 11:10:55 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 13:41:28 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,8 @@ t_file		*new_file(const char *path, const char *name)
 	file->relpath = (path == NULL) ? NULL : form_relpath(path, name);
 	file->namlen = ft_strlen(name);
 	file->targetlen = 0;
-	file->stat = NULL;
 	file->ownername = NULL;
 	file->groupname = NULL;
-	file->mode = NULL;
 	file->next = NULL;
 	return (file);
 }
