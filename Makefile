@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 12:02:20 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/29 13:50:08 by amalsago         ###   ########.fr        #
+#    Updated: 2019/10/01 16:26:47 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ LIBNAME		= libft.a
 # GNU Compiler Collection
 
 GCC			= /usr/bin/clang
-WOPT		= -Wall -Wextra -Werror# -g -g3 #-Weverythin
+WOPT		= -Wall -Wextra -Werror -g -g3 #-Weverythin
 OOPT		= #-O2
 IOPT		= -I $(INCDIR)
 
@@ -90,12 +90,12 @@ SRCNAME		= main.c	\
 			  tools/cmp.c\
 			  tools/fill_struct.c\
 			  tools/form_relpath.c\
+			  tools/freeup_memory.c\
 			  tools/ft_mergesort.c\
 			  tools/lineup_files.c\
 			  tools/new_directory.c\
 			  tools/new_file.c\
 			  tools/parse_argp.c\
-			  tools/remove_file.c\
 			  tools/reverse_files.c\
 			  tools/set_extended_attribute.c\
 			  tools/set_special_permissions.c\
