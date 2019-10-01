@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/01 13:42:52 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 15:27:35 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ typedef struct		s_dir
 	char			*groupname;
 	size_t			total_blocks;
 	size_t			nb_files;
-	struct s_wmax	*wmax;
+	struct s_wmax	wmax;
 	struct s_file	*subdir_head;
 	struct s_file	*file_head;
 }					t_dir;
@@ -129,7 +129,7 @@ void				print_fts_open(void);
 void				print_groupname(const char *groupname, size_t width);
 void				print_help(void);
 void				print_long(t_dir *directory);
-void				print_major_minor(t_wmax *wmax, size_t major, size_t minor);
+void				print_major_minor(t_wmax wmax, size_t major, size_t minor);
 void				print_mode(const char *mode);
 void				print_mtime(time_t tv_sec);
 void				print_nlink(nlink_t st_nlink, int width);
