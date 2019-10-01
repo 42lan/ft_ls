@@ -6,32 +6,39 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/27 20:01:33 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/30 17:39:40 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 21:05:39 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void			free_directory(t_dir *directory)
+static void		remove_handler(t_file *file)
 {
-	t_file		*file;
 	t_file		*next;
-	if (directory == NULL)
-		return ;
-	file = directory->file_head;
+
 	while (file)
 	{
 		next = file->next;
-		free_file(file);
-		free(&file);
+		remove_file(file);
 		file = next;
 	}
-
 }
 
-void	free_file(t_file *file)
+void			remove_directory(t_dir *directory)
 {
-	ft_strdel(&file->name);
-	ft_strdel(&file->relpath);
-	ft_strdel(&file->mode);
+	if (directory == NULL)
+		return ;
+	if (directory->subdir_head)
+		remove_handler(directory->subdir_head);
+	if (directory->file_head)
+		remove_handler(directory->file_head);
+	ft_memdel((void **)&directory->name);
+	ft_memdel((void **)&directory);
+}
+
+void			remove_file(t_file *file)
+{
+	ft_memdel((void **)&file->name);
+	ft_memdel((void **)&file->relpath);
+	ft_memdel((void **)&file);
 }
