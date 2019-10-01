@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 10:53:19 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/01 19:56:08 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 21:06:45 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,13 +105,11 @@ int					ft_ls(t_dir *head);
 */
 
 t_dir				*get_argument_files(int argc, char **argv);
-struct group		*get_grstruct(gid_t st_gid);
 void				get_link(t_file *file);
 void				get_major_minor(t_file *file);
 void				get_mode(t_file *file);
 void				get_options(int argc, char **argv);
 char				*get_permissions(mode_t mode, int ugo);
-struct passwd		*get_pwstruct(uid_t st_uid);
 int					get_stat(t_file *file);
 char				get_type(mode_t mode);
 
