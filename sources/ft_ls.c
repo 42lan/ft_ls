@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:02:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/01 13:32:58 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/01 14:46:33 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void		nondirtypes_handler(t_file *head)
 			get_link(head);
 		file = new_file(NULL, head->name);
 		fill_struct(file);
-		determine_wmax(directory->wmax, file);
+		determine_wmax(&directory->wmax, file);
 		append_file(&directory, file);
 		head = head->next;
 	}
