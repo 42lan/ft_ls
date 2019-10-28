@@ -6,11 +6,16 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 00:39:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/18 15:20:13 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 11:01:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Converts a signed integer value using the specified base to a new allocated
+** null-terminated string. The case of string is specified by uppercase.
+*/
 
 static void			check_sign(intmax_t *number, int base, char *str)
 {

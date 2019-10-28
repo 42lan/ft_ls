@@ -6,11 +6,16 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 12:01:47 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 16:57:55 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 10:47:45 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Appends string src to the end of dst. It will then NUL-terminate, unless size
+** is 0 or the original dst string was longer than size.
+*/
 
 size_t		ft_strlcat(char *dst, const char *src, size_t size)
 {

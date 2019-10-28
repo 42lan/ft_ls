@@ -6,11 +6,17 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 18:05:14 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/29 10:17:05 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 10:58:34 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Append a copy of the null-terminated string s2 to the end of the
+** null-terminated string s1, then add a terminating `\0'. The string s1 must
+** have sufficient space to hold the result.
+*/
 
 char		*ft_strcat(char *s1, const char *s2)
 {

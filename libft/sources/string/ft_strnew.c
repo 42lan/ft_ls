@@ -6,11 +6,17 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 09:02:47 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 15:49:23 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/19 17:10:27 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Allocates and returns a “fresh” string ending with '\0'.
+** Each character of the string is initialized at '\0'.
+** If the allocation fails the function returns NULL.
+*/
 
 char		*ft_strnew(size_t size)
 {

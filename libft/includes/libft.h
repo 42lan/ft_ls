@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/28 11:40:24 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/28 11:38:26 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # include <string.h>
 # include <stdlib.h>
 # include <limits.h>
-# include "ft_printf.h"
 
 typedef struct		s_list
 {
@@ -55,6 +54,7 @@ int					ft_toupper(int c);
 ** COUNTERS
 */
 
+int					ft_count_words(char const *s, char c);
 size_t				ft_silen(intmax_t number, int base);
 size_t				ft_uilen(uintmax_t number, int base);
 
@@ -62,8 +62,8 @@ size_t				ft_uilen(uintmax_t number, int base);
 ** ERRORS
 */
 
-void				ft_print_error(const char *error);
-void				ft_print_error_and_exit(const char *error);
+void				ft_perror(const char *s);
+void				ft_perror_exit(const char *s);
 
 /*
 ** LISTS
@@ -134,13 +134,14 @@ void				ft_qsort(char **array, int left, int right);
 ** STRING
 */
 
-int					ft_cntwords(char const *s, char c);
+char				*ft_realpath(const char *dirname, char const *basename);
 char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strchr(const char *s, int c);
 int					ft_strchr_index(char *s, char c);
 void				ft_strclr(char *s);
 int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strcpy(char *dst, const char *src);
+size_t				ft_strcspn(const char *s, const char *charset);
 void				ft_strdel(char **as);
 char				*ft_strdup(const char *s1);
 int					ft_strequ(char const *s1, char const *s2);
@@ -160,9 +161,11 @@ char				**ft_strnew2d(size_t size);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strrchr(const char *s, int c);
 char				**ft_strsplit(char const *s, char c);
+size_t				ft_strspn(const char *s, const char *charset);
 char				*ft_strnstr(const char *haystack, const char *needle,
 					size_t len);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
+char                *ft_strtok(char *str, const char *sep);
 char				*ft_strtrim(char const *s);
 
 #endif

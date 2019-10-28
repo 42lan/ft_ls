@@ -6,11 +6,17 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 18:18:56 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 15:44:33 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 10:01:46 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Iterates a list lst and applies the function f to each link to create a
+** “fresh” list resulting from the successive applications of f.
+** If the allocation fails, the function returns NULL.
+*/
 
 t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {

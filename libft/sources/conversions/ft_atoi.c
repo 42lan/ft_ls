@@ -6,11 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 17:00:10 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/29 18:54:15 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 09:09:32 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Converts string pointed to by str to int representation.
+*/
 
 int				ft_atoi(const char *str)
 {

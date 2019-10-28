@@ -6,11 +6,17 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 08:02:34 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/29 10:32:24 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 11:58:29 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Allocates and returns an array of “fresh” strings (all ending with ’\0’,
+** including the array itself) obtained by splitings using the characterc as a
+** delimiter. If the allocation fails the function returns NULL.
+*/
 
 static int			ft_wordlen(char const *s, char c)
 {
@@ -44,7 +50,7 @@ char				**ft_strsplit(char const *s, char c)
 	if (!s)
 		return (NULL);
 	nofword = 0;
-	words = ft_cntwords(s, c);
+	words = ft_count_words(s, c);
 	if (!(tab = ft_strnew2d(words)))
 		return (NULL);
 	while (*s != '\0')

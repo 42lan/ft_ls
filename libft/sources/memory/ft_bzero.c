@@ -6,11 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 14:04:29 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/29 10:03:29 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 10:14:47 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Writes n zeroed bytes to the string s. If n is zero function does nothing.
+*/
 
 void				ft_bzero(void *s, size_t n)
 {

@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/28 11:40:01 by amalsago         ###   ########.fr        #
+#    Updated: 2019/10/28 11:37:55 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,21 +54,21 @@ SRCNAME		= conversions/ft_atoi.c					\
 			  conversions/ft_toupper.c				\
 			  conversions/ft_uitoa_base.c			\
 			  conversions/ft_uitoa_base_static.c	\
-			  counters/ft_cntwords.c	\
+			  counters/ft_count_words.c	\
 			  counters/ft_silen.c		\
 			  counters/ft_uilen.c		\
-			  errors/ft_print_error.c			\
-			  errors/ft_print_error_and_exit.c	\
-			  lists/ft_lstadd_top.c	\
-			  lists/ft_lstadd_end.c	\
-			  lists/ft_lstbsort.c	\
-			  lists/ft_lstdel.c		\
-			  lists/ft_lstdelone.c	\
-			  lists/ft_lstiter.c	\
-			  lists/ft_lstmap.c		\
-			  lists/ft_lstnew.c		\
-			  lists/ft_lstprint.c	\
-			  lists/ft_lstreverse.c	\
+			  errors/ft_perror.c		\
+			  errors/ft_perror_exit.c	\
+			  lists/ft_lstadd_top.c				\
+			  lists/ft_lstadd_end.c				\
+			  lists/ft_lstbsort.c				\
+			  lists/ft_lstdel.c					\
+			  lists/ft_lstdelone.c				\
+			  lists/ft_lstiter.c				\
+			  lists/ft_lstmap.c					\
+			  lists/ft_lstnew.c					\
+			  lists/ft_lstprint.c				\
+			  lists/ft_lstreverse.c				\
 			  lists/ft_lstreverse_recursive.c	\
 			  memory/ft_bzero.c		\
 			  memory/ft_memalloc.c	\
@@ -99,12 +99,14 @@ SRCNAME		= conversions/ft_atoi.c					\
 			  print/ft_putstr.c		\
 			  print/ft_putstr_fd.c	\
 			  sorting/ft_qsort.c	\
+			  string/ft_realpath.c		\
 			  string/ft_strcat.c		\
 			  string/ft_strchr.c		\
 			  string/ft_strchr_index.c	\
 			  string/ft_strclr.c		\
 			  string/ft_strcmp.c		\
 			  string/ft_strcpy.c		\
+			  string/ft_strcspn.c		\
 			  string/ft_strdel.c		\
 			  string/ft_strdup.c		\
 			  string/ft_strequ.c		\
@@ -124,8 +126,10 @@ SRCNAME		= conversions/ft_atoi.c					\
 			  string/ft_strnstr.c		\
 			  string/ft_strrchr.c		\
 			  string/ft_strsplit.c		\
+			  string/ft_strspn.c		\
 			  string/ft_strstr.c		\
 			  string/ft_strsub.c		\
+			  string/ft_strtok.c		\
 			  string/ft_strtrim.c		\
 			  utilities/ft_printf/ft_printf.c				\
 			  utilities/ft_printf/parsing.c					\

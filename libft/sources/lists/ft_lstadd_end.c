@@ -6,11 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 10:11:41 by amalsago          #+#    #+#             */
-/*   Updated: 2019/07/19 15:25:17 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 09:50:15 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Adds the element new at the end of the list alst.
+*/
 
 void		ft_lstadd_end(t_list **alst, t_list *new)
 {

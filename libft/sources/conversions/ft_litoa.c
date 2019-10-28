@@ -6,11 +6,17 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/05 19:00:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/06 15:50:06 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 11:00:47 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Allocates and returns a “fresh” null-terminated string representing the
+** long integer number given as argument. Negative numbers are be supported.
+** If the allocation fails, the function returns NULL.
+*/
 
 char			*ft_litoa(intmax_t number)
 {

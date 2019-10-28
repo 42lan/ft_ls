@@ -6,11 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/05 12:43:10 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/05 16:23:53 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 09:44:41 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Counts and returns the number of digits in a given base of signed integer.
+*/
 
 size_t		ft_silen(intmax_t number, int base)
 {

@@ -6,11 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 11:14:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/29 10:17:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 10:41:38 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Copies the string src to dst (including the terminating `\0' character).
+*/
 
 char		*ft_strcpy(char *dst, const char *src)
 {

@@ -6,13 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 12:56:52 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/02 13:04:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 10:12:01 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
+** Reverse the order of elemets of the given linked list recursively.
+**
 ** Time complexity: O(n)
 ** Space complexity: O(n)
 */

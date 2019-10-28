@@ -6,11 +6,16 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/12 13:36:24 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/23 17:56:54 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 11:00:10 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Returns a null-terminated string representing the floating point number given
+** as argument with a defined precision. Negative numbers are supported.
+*/
 
 char				*ft_ftoa_static(double number, unsigned int precision)
 {

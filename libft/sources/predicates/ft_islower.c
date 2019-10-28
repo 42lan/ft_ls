@@ -6,11 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:46:49 by amalsago          #+#    #+#             */
-/*   Updated: 2019/01/31 16:48:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 10:32:41 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Perfoms lower-case character test.
+*/
 
 int		ft_islower(int c)
 {

@@ -6,11 +6,17 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 17:39:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/05/05 17:09:30 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 09:40:05 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Converts an unsigned integer value using the specified base to a new
+** allocated null-terminated string. The case of string can be specified by
+** uppercase.
+*/
 
 char			*ft_uitoa_base(uintmax_t number, int base, int uppercase)
 {

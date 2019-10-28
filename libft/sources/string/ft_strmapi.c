@@ -6,11 +6,17 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 10:40:43 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/29 10:26:23 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/19 16:11:14 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Applies the function f to each character of the string passed as argument by
+** giving its index as first argument to create a“fresh” new string resulting
+** from the successive applications of f.
+*/
 
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
