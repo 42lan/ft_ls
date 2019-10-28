@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 10:28:56 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/01 19:54:30 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/28 11:49:13 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void				fill_struct(t_file *file)
 	struct group	*grstruct;
 
 	if (get_stat(file) == -1)
-		ft_print_error_and_exit(strerror(errno));
+		ft_perror_exit(strerror(errno));
 	if (g_argp[LONG_FORMAT].active)
 	{
 		pwstruct = getpwuid(file->stat.st_uid);
