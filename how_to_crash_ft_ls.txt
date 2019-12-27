@@ -1,0 +1,14 @@
+Column option:
+Make terminal text bigger then launch ft_ls may cause `floating point exception`
+
+mtime
+touch -t 999912312459 future
+touch -t 190112140000.00 old
+
+Check if error messages are on STDERR_FILENO
+ft_ls --h ~ 2>/dev/null
+
+ls -l /etc
+ls -l /etc/
+
+ls -a /dev/fd
