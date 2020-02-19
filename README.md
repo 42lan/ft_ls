@@ -1,0 +1,2 @@
+# ft_ls
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/059b370193d74d32af6a3bc751074d56)](https://app.codacy.com/manual/4slan/ft_ls?utm_source=github.com&utm_medium=referral&utm_content=4slan/ft_ls&utm_campaign=Badge_Grade_Dashboard)
